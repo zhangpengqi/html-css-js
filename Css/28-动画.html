@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>动画</title>
+    <style>
+        #box{
+            width: 100px;
+            height: 100px;
+            background: orange;
+            position: absolute;
+            left: 0;
+            top: 0;
+
+            /* animation:  one 3s  5s ease-in ; */
+            animation: one 3s infinite cubic-bezier(1, 0.07, 1, 0.15) forwards    ;
+
+        }
+
+        @keyframes one{
+            from{
+                left: 0px;
+                top: 0px;
+            }
+
+            to{
+                left: 300px;
+                top: 0px;
+            }
+        }
+
+
+        #box2{
+            width: 100px;
+            height: 100px;
+            background: skyblue;
+            position: absolute; 
+            animation: two 5s linear infinite;
+        }
+
+        @keyframes two{
+            from{ 
+                left: 200px;
+                top: 200px;
+                background: skyblue;
+            }
+
+            25%{
+                left: 400px;
+                top: 200px;
+                background: orange;
+                width: 150px;
+                height: 150px;
+            }
+
+            50%{
+                left: 400px;
+                top: 400px;
+                background: red;
+                width: 100px;
+                height: 100px;
+            }
+
+            75%{
+                left: 200px;
+                top: 400px;
+                background: green;
+                width: 150px;
+                height: 150px;
+            }
+
+            to{
+                left: 200px;
+                top: 200px;
+                background: skyblue;
+                width: 100px;
+                height: 100px;
+            }
+        }
+
+
+        body{
+            background: #000;
+        }
+
+        #box3{
+            width: 50px;
+            height: 50px;
+            background: lightgreen;
+            border-radius: 100%;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            animation: three 1s infinite;
+        }
+
+        @keyframes three{
+            from{
+                box-shadow: 0 0 60px yellow;
+            }
+
+            to{
+                box-shadow: 0 0 60px white;
+            }
+        }
+
+
+    </style>
+</head>
+<body>
+    <!-- 
+        动画核心: 规定动画步骤
+            * 规定动画: @keyframes
+            * 运行动画: animation
+
+        
+        规定写法1: 简单步骤
+            @keyframes 动画名{
+                from{ ... }
+                to{ ... }
+            }
+
+        规定写法2: 复杂步骤  (掺杂百分比时间点)
+            @keyframes 动画名{
+                from{ ... }
+                25%{ ... }
+                50%{ ... }
+                75%{ ... }
+                to{ ... }
+            }
+
+        规定写法3: 复杂步骤
+            @keyframes 动画名{
+                0%{ ... }
+                25%{ ... }
+                50%{ ... }
+                75%{ ... }
+                100%{ ... }
+            }
+     -->
+
+    <div id="box"></div>
+
+    <div id="box2"></div>
+
+    <div id="box3"></div>
+
+</body>
+</html>

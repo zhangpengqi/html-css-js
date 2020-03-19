@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>手风琴</title>
+    <style>
+        body,ul,ol,h2,p{
+            margin: 0;
+            padding: 0;
+        }
+
+        #box{
+            width: 455px;
+            min-height: 194px;
+            /* border: 1px solid ; */
+            margin: 100px auto;
+        }
+
+        #box .list{
+            width: 455px;
+            /* height: 580px; */
+            margin-bottom: 10px;
+            border-radius: 10px;
+        }
+
+        #box .list .top{
+            line-height: 58px;
+            color: #fff;
+            padding-left: 20px;
+            background: rgba(0,0,0,0.4);
+        }
+
+        #box .list .container{
+            height: 0;
+            overflow: hidden;
+            transition: all 1s;
+        }
+
+        #box .list .container p{
+            background: rgba(0,0,0,0.1);
+            padding: 20px 30px;
+            /* display: none; */
+        }
+    </style>
+    <script src="./jquery-3.4.1.min.js"></script>
+</head>
+<body>
+
+    <div id="box">
+        <div class="list">
+            <div class="top"><h2>老母鸡</h2></div>
+            <div class="container"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent nisl lorem, dictum id pellentesque at, vestibulum ut arcu. Curabitur erat libero, egestas eu tincidunt ac, rutrum ac justo. Vivamus condimentum laoreet lectus, blandit posuere tortor aliquam vitae. Curabitur molestie eros.</p></div>
+        </div>
+        <div class="list">
+            <div class="top"><h2>老母鸡</h2></div>
+            <div class="container"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent nisl lorem, dictum id pellentesque at, vestibulum ut arcu. Curabitur erat libero, egestas eu tincidunt ac, rutrum ac justo. Vivamus condimentum laoreet lectus, blandit posuere tortor aliquam vitae. Curabitur molestie eros.</p></div>
+        </div>
+        <div class="list">
+            <div class="top"><h2>老母鸡</h2></div>
+            <div class="container"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent nisl lorem, dictum id pellentesque at, vestibulum ut arcu. Curabitur erat libero, egestas eu tincidunt ac, rutrum ac justo. Vivamus condimentum laoreet lectus, blandit posuere tortor aliquam vitae. Curabitur molestie eros.</p></div>
+        </div>
+
+    </div>
+
+
+    <script>
+        // jQuery 写法
+        // $(function(){
+        //     $('.list').click(function(){
+        //         $(this).children('.container').slideDown(1000).parent().siblings('.list').children('.container').slideUp(1000);
+        //     });
+        // })
+
+
+        // js 写法
+        var list = document.getElementsByClassName('list');
+        var flag = true; // true : 下拉    false: 上拉
+        for(var i = 0; i < list.length; i++){
+            (function(i){
+                list[i].onclick = function(){
+                    if(flag == true){
+                        flag = false;
+                        for(var j = 0; j < list.length; j++){
+                            list[j].children[1].style.height = '0px';
+                        }
+                        this.children[1].style.height = '165px';
+                    }else{
+                        flag = true;
+                        this.children[1].style.height = '0px';
+                    }
+                }
+            })(i);
+        }
+
+
+
+    </script>
+    
+</body>
+</html>

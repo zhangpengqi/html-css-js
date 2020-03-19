@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>下拉框</title>
+    <style>
+        
+        .box{
+            width: 100px;
+            height: 60px;
+            background: #4CAF50;
+            text-align: center;
+            line-height: 60px;
+            color: #fff;
+            margin: 100px auto 0;
+
+            position: relative;
+        }
+        
+        .box .menu{
+            width: 100px;
+            background: #f9f9f9;
+            margin: 0;
+            padding: 0;
+            display: none;
+
+            position: absolute;
+            z-index: 999;
+        }
+
+        .box .menu li{
+            height: 40px;
+            line-height: 40px;
+            color: #000;
+            list-style: none;
+        }
+
+        .box .menu li:hover{
+            background: #f1f1f1;
+            cursor: pointer;
+        }
+
+        .box:hover  .menu{
+            display: block;
+        }
+
+
+        .banner{
+            width: 1226px;
+            height: 460px;
+            margin: 0 auto;
+        }
+
+        .banner img{
+            width: 100%;
+        }
+
+
+
+
+    </style>
+</head>
+<body>
+
+    <div class="box">
+        下拉菜单
+        <ul class="menu">
+            <li>兄弟连1连</li>
+            <li>兄弟连2连</li>
+            <li>兄弟连3连</li>
+        </ul>
+    </div>
+
+    <div class="banner">
+        <img src="./banner.jpg" alt="">
+    </div>
+
+    
+</body>
+</html>

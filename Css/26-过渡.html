@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>过渡</title>
+    <style>
+        #box{
+            width: 500px;
+            height: 300px;
+            background: #ccc;
+            margin: 100px auto;
+            text-align: center;
+        }
+
+        input{
+            width: 250px;
+            height: 50px;
+            font-size: 20px;
+            padding-left: 10px;
+            text-align: center;
+            margin-top: 10px;
+            outline: none;
+            transition: width 0.3s;
+        }
+
+        input:focus{
+            width: 350px;
+        }
+
+        input[type="submit"]{
+            width: 100px;
+            height: 50px;
+            background: lightgreen;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            margin-top: 0;
+        }
+
+        #box2{
+            width: 200px;
+            height: 200px;
+            background-color: orange;
+            /* transition: background-color 5s; */
+            /* transition: background-color 5s, width 5s; */
+            /* transition: background-color 5s, width 5s, height 5s; */
+            /* transition: all 5s; */
+            transition: all 5s linear;
+            transition: all 5s ease-in;
+            transition: all 5s ease-out;
+            transition: all 5s ease-in-out ;
+            transition: all 5s ease-in-out 5s;
+        }
+
+        #box2:hover{
+            width: 500px;
+            height: 500px;
+            background-color: skyblue;
+        } 
+
+
+        #box3{
+            width: 200px;
+            height: 200px;
+            background: skyblue;
+            opacity: 0;
+            /* display: none; */
+            transition: opacity 2s;
+            /* transition: display 2s; */
+        }
+
+        #box2:hover + #box3{
+            opacity: 1;
+            /* display: block; */
+        }
+
+    </style>
+</head>
+<body>
+    <!-- 
+        注意: width, height, 颜色等具有 增减的属性值, 都可以用过渡
+              属性值只是单词变化, 则不适合用过渡
+
+
+        过渡
+        transition: 属性  持续时间  [速率]  [延迟时间];
+
+
+        过渡单一属性:
+        transition: 属性名 持续时间 速率 延迟时间;
+
+        过渡多个属性: 
+        transition: 属性名1 持续时间 速率 延迟时间, 属性名2 持续时间 速率 延迟时间, 属性名3 持续时间 速率 延迟时间, ...;
+
+        改变什么就过渡什么:
+        transition: all 持续时间  速率 延迟时间;
+
+     -->
+
+
+    <div id="box">
+        <p><input type="text" placeholder="your tel"></p>
+        <p><input type="password" placeholder="your password"></p>
+        <br>
+        <input type="submit" value="登录">
+    </div>
+
+
+    <div id="box2"></div>
+    <div id="box3"></div>
+    
+
+</body>
+</html>

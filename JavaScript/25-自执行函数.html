@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>自执行函数</title>
+</head>
+<body>
+    <!-- 
+        1. 自执行函数
+            格式: ()()
+
+            注: 
+             * 第一个() 里面是写: 匿名函数
+             * 第二个() 代表: 启动(调用)当前函数
+             
+            特性: 
+             * 定义完函数时, 就立马自我调用
+             * 无需取名
+             * 重点: 自成一域(独自创建一个作用域, 作用域里面的变量外面是访问不到, 该行为: 避免变量污染)
+     -->
+    <script>
+        (function (){
+            console.log('我自己就跑起来了');
+        })();
+    </script>
+
+    <ul>
+        <li>李白</li>
+        <li>阿珂</li>
+        <li>韩信</li>
+        <li>赵云</li>
+    </ul>
+    <script>
+        var li = document.getElementsByTagName('li');
+
+        for(var i = 0; i < li.length; i++){
+
+            li[i].onclick = function (){
+                console.log(i);
+                // console.log(this);
+            }
+        }
+        
+        // Bug: 总是获取的最后一个编号
+        // 原因: 这里的变量i 的作用域是贯穿全局的
+        // 解决方案: 将 函数独自成为一个作用域, 不再受外界影响
+
+
+
+        // 自执行写法
+        for(var i = 0; i < li.length; i++){
+            (function(m){
+                li[m].onclick = function (){
+                    console.log(m);
+                }
+            })(i);
+        }
+
+
+
+        
+
+
+
+    </script>
+    
+
+
+
+</body>
+</html>

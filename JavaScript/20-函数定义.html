@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>函数定义</title>
+</head>
+<body>
+    <!-- 
+        函数4种方式: 
+        1. 函数声明
+            function 函数名( 参数1, 参数2, ... ){
+                代码块
+            }
+
+        2. 函数表达式
+            变量 = function ( 参数1, 参数2, ... ){ 
+                代码块
+            }
+
+        3. 构造器
+            变量 = new Funtion('参数1', '参数2', '参数3', ..., '代码块')
+
+        4. 箭头函数
+            (参数1, 参数2, ... ) => { 代码块 }
+            (参数1, 参数2, ... ) => 表达式 等同于 (参数1, 参数2, ... ) => { return 表达式 }
+
+
+        注: 
+         * 函数声明后, 是需要调用才会执行
+         * 函数表达式不需要再取一个有意义的函数名而烦恼
+         * 构造器的参数必须是 string类型 (效率较低, 使用较少)
+         * 箭头函数 是ES6新增,  有简化, 隐式返回等多种好处
+    -->
+
+    <script>
+        // 1. 函数声明
+            function demo(){
+                console.log('赵云鹏');
+            }
+            demo();
+
+            function demo1(num1, num2){
+                console.log(num1 + num2);
+            }
+            demo1(10,20);
+
+        // 2. 函数表达式
+            var x = function (num1, num2){
+                console.log(num1 + num2);
+            }
+            console.log(x, typeof x);
+
+            x(100,200);
+
+        // 3. 构造器
+            var x = new Function('num1', 'num2', 'console.log(num1 + num2)');
+            console.log(x, typeof x);
+
+            x(1000, 2000);
+
+        // 4. 箭头函数  
+            var x = (num1, num2) => { console.log(num1 + num2) }
+            console.log(x, typeof x);
+            x(10000, 20000);
+            console.log('------------- 分隔符 --------------');
+
+
+            var x = (num1, num2) => { return num1 + num2 }
+            // x(50,60);
+            console.log( x(50, 60) );
+            var y = x(50,60);
+            console.log(y);
+            console.log('------------- 分隔符 --------------');
+
+
+            var x = (num1, num2) => num1 + num2    // 等价于 上面一种写法
+            console.log(x(70,80));
+
+
+    </script>
+
+
+
+
+
+
+</body>
+</html>

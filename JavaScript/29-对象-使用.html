@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>对象-使用</title>
+</head>
+<body>
+    <!-- 
+        1. 使用属性
+            * 对象.属性名
+            * 对象[属性名]
+    
+        2. 使用方法
+            * 对象.方法名()
+
+
+        注: 
+         * 比较奇葩的属性名 or 纯数字属性名 or 数字开头的属性名, 建议用 [] 来访问
+
+     -->
+    <script>
+        // 使用属性
+        var obj = {
+            'name': '二狗',
+            '☆': '五角星',
+            2: '纯数字2',
+            '2b': '数字开头的字符串',
+            method: function (){
+                console.log('this is method');
+            }
+        }
+
+        console.log( obj.name );
+        // console.log( obj.☆ );
+        // console.log( obj.'☆' );
+        console.log( obj['☆'] );
+
+        // console.log( obj.2 );
+        console.log( obj[2] );
+
+        // console.log( obj.2b );
+        console.log( obj['2b'] );
+
+
+        // 使用方法
+        obj.method();
+
+    </script>
+
+
+
+
+
+
+</body>
+</html>

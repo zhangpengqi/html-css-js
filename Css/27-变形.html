@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>变形</title>
+    <style>
+        img{transition:all .2s;}
+
+        .i1:hover{transform: none;}
+        .i2:hover{transform: rotate(30deg);}
+        .i3:hover{transform: rotate(-30deg);}
+        .i4:hover{transform: rotateX(30deg);}
+        .i5:hover{transform: rotateY(30deg);}
+        .i6:hover{transform: rotateZ(30deg);}
+        .i7:hover{transform: rotate3d(.1,.2,.3,30deg);}
+
+
+
+        .i8:hover{transform: skew(30deg);}
+        .i9:hover{transform: skew(90deg);}
+        .i10:hover{transform: skew(180deg);}
+        .i11:hover{transform: skew(270deg);}
+        .i12:hover{transform: skew(30deg, 40deg);}
+        .i13:hover{transform: skewY(40deg);}
+        .i14:hover{transform: skewX(40deg);}
+
+
+
+        .i15:hover{transform: scale(1);}
+        .i16:hover{transform: scale(1.5);}
+        .i17:hover{transform: scale(2);}
+        .i18:hover{transform: scale(0.5);}
+        .i19:hover{transform: scale(0);}
+        .i20:hover{transform: scale(-1);}
+
+
+        .i21:hover{transform: translate(10px);}
+        .i21:hover{transform: translate(-10px);}
+        .i22:hover{transform: translate(10px, 10px);}
+        .i22:hover{transform: translate(10px, -10px);}
+        .i23:hover{transform: translateX(20px);}
+        .i24:hover{transform: translateY(20px);}
+
+    </style>
+</head>
+<body>
+    <!-- 
+        
+        transform: none         不变形
+                    rotate       旋转     单位: deg
+                    skew         扭曲      单位: deg
+                    scale        中心缩放   单位: 倍数
+                                                  =1 本身大小
+                                                  >1 放大
+                                                  <1 缩小
+                    translate    平移     单位: px 或 % 
+    -->
+
+    <h2>rotate</h2>
+    <img src="./img/4.jpg" width="150" class="i1">
+    <img src="./img/4.jpg" width="150" class="i2">
+    <img src="./img/4.jpg" width="150" class="i3">
+    <img src="./img/4.jpg" width="150" class="i4">
+    <img src="./img/4.jpg" width="150" class="i5">
+    <img src="./img/4.jpg" width="150" class="i6">
+    <img src="./img/4.jpg" width="150" class="i7">
+
+
+
+    <h2>skew</h2>
+    <img src="./img/8.jpg" width="150" class="i8">
+    <img src="./img/8.jpg" width="150" class="i9">
+    <img src="./img/8.jpg" width="150" class="i10">
+    <img src="./img/8.jpg" width="150" class="i11">
+    <img src="./img/8.jpg" width="150" class="i12">
+    <img src="./img/8.jpg" width="150" class="i13">
+    <img src="./img/8.jpg" width="150" class="i14">
+    
+    
+    <h2>scale</h2>
+    <img src="./img/9.jpg" width="150" class="i15">
+    <img src="./img/9.jpg" width="150" class="i16">
+    <img src="./img/9.jpg" width="150" class="i17">
+    <img src="./img/9.jpg" width="150" class="i18">
+    <img src="./img/9.jpg" width="150" class="i19">
+    <img src="./img/9.jpg" width="150" class="i20">
+
+
+    <h2>translate</h2>
+    <img src="./img/10.jpg" width="150" class="i21">
+    <img src="./img/10.jpg" width="150" class="i22">
+    <img src="./img/10.jpg" width="150" class="i23">
+    <img src="./img/10.jpg" width="150" class="i24">
+    
+
+
+
+</body>
+</html>

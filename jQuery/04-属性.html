@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>属性</title>
+    <script src="jquery-3.4.1.min.js"></script>
+    <style>
+        img{
+            width: 400px;
+        }
+
+        #box3{
+            width: 200px;
+            height: 200px;
+            padding: 10px;
+            border: 5px solid ;
+        }
+    </style>
+</head>
+<body>
+    
+    <img src="./1.jpg" >
+    <div id="box"></div>
+
+    <div id="box2"></div>
+
+    <div id="box3"></div>
+    
+    <script>
+        $(function(){
+
+          // attr 只负责html属性
+            // 查看属性
+            // console.log($('img').attr('src'));
+            // console.log($('img').attr('width'));
+
+            // 设置属性
+            // $('img').attr('src', '2.jpg')
+            // $('img').attr('title', '这是一个xxx')
+
+            // 删除属性
+            // $('img').removeAttr('title');
+
+          // css  只负责css属性 
+            // console.log( $('img').css('width') );
+            // console.log( $('img').css('src') );
+            $('#box').css('height','4000px');
+
+            $('img').css({
+                'width':'500px',
+                'border':'2px solid red',
+            });
+
+
+            $('#box').html('今天出门不吉利');
+            $('#box').html('<b>今天出门不吉利</b>');
+            $('#box').text('<b>今天出门不吉利</b>');
+
+
+            var x = $('#box2').offset();
+            $('#box2').html(x.left+':'+x.top)
+
+
+            console.log( $('#box3').width() );
+            console.log( $('#box3').innerWidth() );
+            console.log( $('#box3').outerWidth() );
+
+        })
+    </script>
+    
+</body>
+</html>

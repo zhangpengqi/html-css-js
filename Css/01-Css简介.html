@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <!-- <link rel="stylesheet" href="./demo.css"> -->
+
+    <style>
+        @import url('./demo.css');
+
+        p{ 
+            font-size: 20px; 
+        }
+
+
+    </style>
+
+
+</head>
+<body>
+    <!-- 
+        Css 层叠样式表
+        作用:
+            * 美化HTML
+            * 样式 与 内容分离( HTML专心输出内容, Css专心美化HTML )
+
+        
+        Css 使用
+            1. 外部样式表(正式项目常用, 推荐 )
+                <link rel="stylesheet" href="css文件">
+
+            2. 内部样式表(测试)
+                <head>
+                    <style>
+                        css代码
+                    </style>
+                </head>
+
+            3. 内联样式(能不用则不用)
+                <开始标签 style="css代码" > 
+
+            4. import导入
+                <head>
+                    <style>
+                        @import url('css文件地址');
+                    </style>
+                </head>
+
+                注意: @import 必须写在style里面的最前面
+
+
+                import导入 和 外部样式表 的区别?
+                * 外部样式表: 先加载css, 再加载HTML    
+                * @import: 先加载HTML, 再加载css
+
+        
+        css语法
+            选择器{ 
+                属性名1: 属性值1;
+                属性名2: 属性值2;
+                ...
+                属性名n: 属性值n;
+            }
+
+            注意: 
+                * 每一对属性是由 属性名 和 属性值 组成
+                * 每一个属性值的后面需要补上分号; 代表该属性已经结束
+                * 其中最后一个属性值的分号 可以省略的. 但不推荐.
+        
+        Css注释
+            /* 注释内容 */
+
+     -->
+
+
+    <!-- <p style="color: green">我妈跟我说: 我小时候总是喜欢把小弟弟往插座里面插</p> -->
+    <p>我妈跟我说: 我小时候总是喜欢把小弟弟往插座里面插</p>
+
+
+
+</body>
+</html>

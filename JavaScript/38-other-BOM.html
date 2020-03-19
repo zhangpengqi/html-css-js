@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>OtherBom</title>
+</head>
+<body>
+    <!--  
+        1. navigator
+            包含浏览器的用户信息, 终端, 版本等信息 
+            navigator.userAgent
+    -->
+
+    <script>
+        console.log(navigator.userAgent);
+    </script>
+
+
+
+    <!--  
+        2. screen
+            包含客户端的屏幕信息
+
+            screen.width        显示屏幕宽度(包含任务栏)
+            screen.height       显示屏幕高度(包含任务栏)
+            screen.availWidth   显示屏幕宽度(不包含任务栏)
+            screen.availHeight  显示屏幕高度(不包含任务栏)
+    -->
+    <script>
+        
+        console.log( screen.width,  screen.height );
+        console.log( screen.availWidth,  screen.availHeight );
+        console.log( screen.pixelDepth );
+
+    </script>
+
+
+    <!--  
+        3. history
+            包含当前网页的前后历史记录 
+    -->
+    <a href="a4.html">a4</a>
+    <button onclick="history.back()">上一步 (后退)</button>
+    <button onclick="history.forward()">下一步 (前进)</button>
+    <button onclick="history.go(-2)">后退2步 (后退)</button>
+    <button onclick="history.go(2)">前进2步 (前几)</button>
+    <hr>
+
+
+    <!--  
+        4. location 
+            包含的当前URL信息
+
+            location.assign()    跳转到指定地址 (会产生记录)
+            location.replace()   将当前网页替换成指定地址内容( 不会产生上一条记录)
+            location.reload()    重载(刷新)
+                                 true:  从服务器里面读取
+                                 false: 从缓存里面读取
+    -->
+    <script>
+        console.log( location.href );
+        console.log( location.protocol );
+        console.log( location.host );
+        console.log( location.search );
+        console.log( location.hash );
+    </script>
+
+    <button onclick=" location.assign('http://www.baidu.com') ">跳转到百度</button>
+    <button onclick=" location.replace('http://www.taobao.com') ">替换成淘宝</button>
+    <button onclick=" location.reload(true) ">重载</button>
+    <button onclick=" location.reload(false) ">重载</button>
+
+    
+</body>
+</html>

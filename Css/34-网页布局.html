@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>网页布局</title>
+    <style>
+        body,ul,ol,h1,h2,h3,p{
+            margin: 0;
+            padding: 0;
+        }
+        li{
+            list-style: none;
+        }
+
+        
+        /* 顶部区域 start */
+        #top{
+            height: 50px;
+            background: #333;
+            margin-bottom: 10px;
+        }
+
+        #top .container{
+            width: 1200px;
+            height: 50px;
+            /* background: skyblue; */
+            margin: 0 auto;
+        }
+
+        #top .nav-list li{
+            float: left;
+            margin-right: 10px;
+            line-height: 50px;
+            color: white;
+        }
+
+
+        /* 顶部区域 end */
+        
+
+        /* 导航区域 start */
+        #nav{
+            height: 100px;
+            background: #ccc;
+            text-align: center;
+            line-height: 100px;
+            margin-bottom: 10px;
+        }
+        /* 导航区域 end */
+
+
+        /* 主体区域 start */
+        #main{
+            width: 1200px;
+            min-height: 500px;
+            background: #ccc;
+            text-align: center;
+            line-height: 500px;
+            margin: 0 auto 10px;
+
+        }
+        /* 主体区域 end */
+
+        /* 尾部区域 start */
+        #footer{
+            height: 100px;
+            background: #ccc;
+            text-align: center;
+            line-height: 100px;
+        }
+        /* 尾部区域 end */
+
+    </style>
+</head>
+<body>
+    
+    <!-- 
+        网页布局分类: 
+        * Div+Css布局
+        * 弹性盒子
+        * 响应式布局
+
+        网页设计原则: 
+            先行再列
+            先宏观再微观   (先把大盒子定好,  再搞小盒子)
+
+     -->
+
+    <div id="top">
+        <div class="container">
+            <ul class="nav-list">
+                <li>小米上传</li>
+                <li>小米上传</li>
+                <li>小米上传</li>
+                <li>小米上传</li>
+                <li>小米上传</li>
+                <li>小米上传</li>
+                <li>小米上传</li>
+                <li>小米上传</li>
+            </ul>
+        </div>
+    </div>
+    <div id="nav">导航区域</div>
+    <div id="main">主体区域</div>
+    <div id="footer">尾部区域</div>
+
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        /* 
+            Css初始化:
+            原因: 每个浏览器的默认属性不一致,导致相同页面, 在不同的浏览器里面显示效果不一致
+
+            解决方案: 设置一套自己的css, 统一各大浏览器的默认值, 此过程被称之为 css初始化
+
+            css初始化 优化方案: 禁止使用 * 
+        */
+       
+        body, ul, ol, dl, dt dd, h1, h2, h3, h4, h5, h6, p{
+            margin: 0;
+            padding: 0;
+        }
+
+        body{
+            font-size: 16px;
+            font-family: 微软雅黑, sans-serif;
+            background: #f8f9fa;
+        }
+        ul,ol{
+            list-style: none;
+        }
+
+        a{
+            color: black;
+            text-decoration: none;
+        }
+
+        table{
+            border-collapse: collapse;
+        }
+
+
+        /* 新浪 */
+        body,ul,ol,li,p,h1,h2,h3,h4,h5,h6,form,fieldset,table,td,img,div{margin:0;padding:0;border:0;} 
+        body{background:#fff;color:#333;font-size:12px; margin-top:5px;font-family:"SimSun","宋体","Arial Narrow";} 
+         
+        ul,ol{list-style-type:none;} 
+        select,input,img{vertical-align:middle;} 
+         
+        a{text-decoration:none;} 
+        a:link{color:#009;} 
+        a:visited{color:#800080;} 
+        a:hover,a:active,a:focus{color:#c00;text-decoration:underline;}
+
+
+        /* 淘宝 */
+        body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, form, fieldset, legend, button, input, textarea, th, td { margin:0; padding:0; } 
+        body, button, input, select, textarea { font:12px/1.5tahoma, arial, \5b8b\4f53; } 
+        h1, h2, h3, h4, h5, h6{ font-size:100%; } 
+        address, cite, dfn, em, var { font-style:normal; } 
+        code, kbd, pre, samp { font-family:couriernew, courier, monospace; } 
+        small{ font-size:12px; } 
+        ul, ol { list-style:none; } 
+        a { text-decoration:none; } 
+        a:hover { text-decoration:underline; } 
+        sup { vertical-align:text-top; } 
+        sub{ vertical-align:text-bottom; } 
+        legend { color:#000; } 
+        fieldset, img { border:0; } 
+        button, input, select, textarea { font-size:100%; } 
+        table { border-collapse:collapse; border-spacing:0; }
+
+
+
+
+        /* 网易 */
+        html {overflow-y:scroll;} 
+        body {margin:0; padding:29px; font:12px"\5B8B\4F53",sans-serif;background:#ffffff;} 
+        div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,blockquote,p{padding:0; margin:0;} 
+        table,td,tr,th{font-size:12px;} 
+        li{list-style-type:none;} 
+        img{vertical-align:top;border:0;} 
+        ol,ul {list-style:none;} 
+        h1,h2,h3,h4,h5,h6{font-size:12px; font-weight:normal;} 
+        address,cite,code,em,th {font-weight:normal; font-style:normal;}
+
+        
+
+
+        #box{
+            width: 100%;
+            height: 50px;
+            background: #000;
+        }
+
+        li{
+            list-style: none;
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="box"></div>
+
+    <ul>
+        <li>小米</li>
+        <li>红米</li>
+        <li>苹果</li>
+        <li>华为</li>
+    </ul>
+
+    <a href="">baidu</a>
+
+    杨幂<img src="./img/1.jpg">
+
+</body>
+</html>

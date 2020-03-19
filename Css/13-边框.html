@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>边框</title>
+    <style>
+        
+        #box{
+            width: 200px;
+            height: 200px;
+            border-left-color: red;
+            border-left-width: 10px;
+            /* border-left-style: none; */
+            border-right: 10px solid blue;
+
+            border-style: solid;
+            border-width: 10px;
+            border-color: green;
+
+            border: solid 5px red;
+            border: solid 5px ;
+            border: solid ;
+        }
+
+        #box2{
+            width: 200px;
+            height: 200px;
+            border: 20px skyblue solid;
+
+            border-top-left-radius: 10px;
+
+
+            border-top-left-radius: 1000px;
+            border-top-right-radius: 1000px;
+            border-bottom-right-radius: 1000px;
+            border-bottom-left-radius: 1000px;
+        }
+
+        #box3{
+            width: 200px;
+            height: 500px;
+            background: orange;
+
+            border-radius: 100%;
+            border-radius: 1000px;
+        }
+
+        table{
+            border-collapse: collapse;
+        }
+
+        td{
+            border: 1px solid red;
+        }
+
+        input{
+            border: 10px solid gray;
+            outline: none;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- 
+        边框方向: top bottom left right
+        边框基本属性: color width style
+                                    style: solid    实线
+                                            none     取消线
+                                    color 和 width 可省略, 都是有默认值
+
+
+        注意: 边框的style 必须设置, 否则默认为none
+
+
+        单边边框
+            border-方向-属性
+
+        单边边框简写: 
+            border-方向: [color] | [width] | style
+
+        四边边框
+            border-属性
+
+        四边边框简写: 
+            border: [color] | [width] | style
+
+        圆角
+            border-上下-左右-radius: px 或 %
+
+        圆角简写: 
+            border-radius: px 或 %
+
+            注意: %百分比 圆角完全化
+                  px 只能达到一个角完全化
+
+        边框合并
+            border-collapse: collapse  (适用于表格)
+
+        轮廓
+            outline: none
+            outline 的标准写法与border一模一样的
+     -->
+
+
+
+    <div id="box"></div>
+    <br><br>
+    <div id="box2"></div>
+    <br><br>
+    <div id="box3"></div>
+
+    
+    <table cellspacing="0">
+        <caption>2019俊男美女</caption>
+        <tr>
+            <td>张菲</td>
+            <td>付荣双</td>
+            <td>美女</td>
+        </tr>
+        <tr>
+            <td>李子健</td>
+            <td>赵云鹏</td>
+            <td>赵俊哲</td>
+        </tr>
+        <tr>
+            <td>胡歌</td>
+            <td>黄磊</td>
+            <td>黄博</td>
+        </tr>
+    </table>
+
+    <br>
+    <br>
+    <br>
+
+
+    <input type="text">
+
+
+
+</body>
+</html>

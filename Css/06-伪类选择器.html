@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>伪类选择器</title>
+    <style>
+        body{
+            background: #fdfcf8;
+        }
+
+        a{
+            color: black;
+        }
+
+        a:hover{
+            color: blue;
+        }
+
+        ul{
+            list-style: none;
+            width: 200px
+        }
+
+        li:hover{
+            background: #999;
+            color: white;
+            cursor: pointer;
+        }
+
+        #box{
+            width: 300px;
+            height: 50px;
+            background: pink;
+        }
+
+        #box:hover b{
+            color: yellow;
+        }
+
+        .box1{
+            width: 200px;
+            height: 50px;
+            background: skyblue;
+        }
+
+        .box2{
+            width: 200px;
+            height: 50px;
+            background: lightgreen;
+            display: none;  /* 隐藏当前元素 */
+        }
+
+        .box1:hover + .box2{
+            display: block;  /* 显示当前元素 */
+        }
+
+        input{
+            width: 500px;
+            height: 30px;
+            border: 10px solid gray;
+            outline: none;
+        }
+
+        input:focus{
+            border: 10px solid blue;
+        }
+
+
+        .one li:first-child{color: red; }
+        .two li:first-child{color: red; }
+
+
+        .one li:first-of-type{color: green;}
+        .two li:first-of-type{color: green;}
+
+
+
+        .one li:nth-of-type(3){ color: purple; }
+        .one li:nth-of-type(odd){ color: pink; }
+        .one li:nth-of-type(even){ color: lightgreen; }
+        .one li:nth-of-type(2n){ color: orange; }
+        .one li:nth-of-type(2n+1){ color: gray; }
+
+
+        .one li:nth-of-type(3n+1){ color: gold; }
+        .one li:nth-of-type(3n+2){ color: brown; }
+        .one li:nth-of-type(3n){ color: skyblue; }
+
+
+
+    </style>
+</head>
+<body>
+    <!-- 
+        s1:hover{ ... }     当鼠标悬停在s1上时, s1才会触发css
+        
+        隔山打牛(小无相神功)
+        s1:hover   s2{ ... }      当鼠标悬停在s1上时, 后辈s2触发css
+        s1:hover > s2{ ... }      当鼠标悬停在s1上时, 儿子s2触发css
+        s1:hover + s2{ ... }      当鼠标悬停在s1上时, 后面的一个兄弟s2触发css
+        s1:hover ~ s2{ ... }      当鼠标悬停在s1上时, 后面的所有兄弟s2触发css
+        
+        s1:focus{ ... }     当s1获取到光标时, s1才会触发css
+    
+     -->
+
+    <a href="">新闻</a>
+    <a href="">hao123</a>
+    <a href="">地图</a>
+    <a href="">视频</a>
+
+    <hr>
+
+    <ul>
+        <li>css元素选择器</li>
+        <li>css选择器分组</li>
+        <li>css类选择器</li>
+        <li>cssid选择器</li>
+        <li>css属性选择器</li>
+    </ul>
+
+
+    <div id="box">
+        <b>加粗</b>
+    </div>
+    
+
+    <div class="box1"></div>
+    <div class="box2"></div>
+    <br>
+
+    <input type="text">
+
+    <hr>
+
+
+    <!-- child 
+        
+         先父级, 再顺序, 最后看元素
+
+         s1:first-child{ ... }  先找到s1的父级, 父级里面的第一个子元素, 最后看第一个子元素是不是s1.
+
+         s1:last-child{ ... }
+         s1:nth-child( Num ){ ... }
+
+                        Num 的写法:
+                        1. 数字
+                        2. 单词 odd奇数      even偶数
+                        3. 一元一次方程
+                            2n          2*0  2*1  2*2  2*3  2*4 ...
+                            2n+1        2*0+1   2*1+1
+
+    -->
+    世界上最没用的一句话
+    <ul class="one">
+        <li>警察: 不要跑</li>        
+        <li>男朋友: 多喝热水</li>        
+        <li>神经病: 我没病</li>        
+        <li>女朋友: 我没生气</li>
+        <li>赵云鹏: 我不是神经病</li>
+        <li>赵云鹏: 我不是神经病</li>
+        <li>赵云鹏: 我不是神经病</li>
+        <li>赵云鹏: 我不是神经病</li>
+        <li>赵云鹏: 我不是神经病</li>
+        <li>赵云鹏: 我不是神经病</li>
+        <li>赵云鹏: 我不是神经病</li>
+        <li>赵云鹏: 我不是神经病</li>
+        <li>赵云鹏: 我不是神经病</li>
+        <li>赵云鹏: 我不是神经病</li>
+        <li>赵云鹏: 我不是神经病</li>
+    </ul>
+
+    <!-- of-type 
+        
+        先父级, 再看元素, 最后看顺序
+    
+        s1:first-of-type{ ... }   先找到s1的父级, 再找到父级里面的所有s1, 最后从所有s1中选择第一个
+
+        s1:last-of-type{ ... }
+
+        s1:nth-of-type( Num ){ ... }
+
+    -->
+    我最服的都是那些姓 马
+    <ol class="two">
+        <p>马克思: 改变我们的思想</p>
+        <li>马化腾: 改变我们的交流方式</li>
+        <li>马云: 改变我们对钱的看法</li>
+        <li>马自达: 改变我们的出行方式</li>
+        <p>马冬梅: 马冬什么, 马什么梅, 什么冬梅</p>
+    </ol>
+
+   
+</body>
+</html>

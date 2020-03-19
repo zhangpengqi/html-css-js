@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>计时器</title>
+</head>
+<body>
+    <!--  
+        1. 单次计时
+            多少时间之后, 就做一次指定事情, 常被用于: 延迟
+            setTimeout(事情, 时间)
+
+        2. 多次计时
+            每隔多少时间之后, 就做一次指定事情, 常被用于: 定时
+            setInterval(事情, 时间)
+
+            时间单位: 毫秒
+
+        3. 计时器id
+            每个计时器都会返回id, 用以证明该计时器的编号, 方便后期的清除计时器
+
+        4. 清除计时器
+            clearTimeout(计时器id)
+            clearInterval(计时器id)
+
+    -->
+    <script>
+        // 单次计时
+            // 分开写
+            // setTimeout(run, 3000);
+            // function run(){
+            //     console.log('3s 时间到了');
+            // }
+
+
+            // 合并写
+            // setTimeout(function(){
+            //     console.log('3s 时间到了');
+            // }, 3000);
+
+
+        // 多次计时
+            // 分开写
+            // setInterval(run, 1000);
+            // function run(){
+            //     console.log('每隔1s执行一次');
+            // }
+
+
+            // var count = 0;
+            // setInterval(run, 1000);
+            // function run(){
+            //     count++
+            //     console.log('时间过了 '+count+'s');
+            // }
+
+
+            // 合并写
+            // setInterval( function(){
+            //     console.log('每隔1s执行一次');
+            // }  , 1000);
+    </script>
+
+
+    <script>
+        // 计时器id
+        // var x = setTimeout(function(){
+        //     console.log('刚刚过了1s');
+        // }, 1000);
+
+        // var y = setTimeout(function(){
+        //     console.log('刚刚过了1s');
+        // }, 1000);
+
+        // var z = setInterval(function(){
+        //     console.log('刚刚过了1s');
+        // }, 1000);
+
+        // console.log(x, y, z);
+    </script>
+
+    <script>
+        // 清除计时器
+        // var count = 0;
+        // var timer = setInterval(function(){
+
+        //     if(count == 5){
+        //         clearInterval(timer);
+        //         return ;
+        //     }
+
+        //     count++;
+        //     console.log('时间已经过了 '+count+' s');
+
+        // }, 1000);
+    </script>
+
+
+
+    <div id="box"></div>
+    <script>
+        // 练习1:  实时显示当前的时间
+        // setInterval(function(){
+        //     // 获取日期对象
+        //     var time = new Date();
+
+        //     // 获取时分秒
+        //     var h = time.getHours();
+        //     var m = time.getMinutes();
+        //     var s = time.getSeconds();
+
+        //     // 补0
+        //     h =  h < 10 ? '0'+h : h;
+        //     m =  m < 10 ? '0'+m : m;
+        //     s =  s < 10 ? '0'+s : s;
+
+        //     // 显示时间
+        //     var box = document.getElementById('box');
+        //     box.innerHTML = h+':'+m+':'+s;
+        // }, 1000);
+    </script>
+
+
+    
+    <button id="btn">倒计时: <span id="sec">50</span>s</button>
+    <button onclick="stop()">暂停</button>
+    <button onclick="again()">继续</button>
+    <script>
+        // 练习2: 倒计时按钮
+        var btn = document.getElementById('btn');
+        btn.disabled = true;
+
+
+        var time = 50;
+        var timer = setTimeout(run, 500);
+
+        function run(){
+            var sec = document.getElementById('sec');
+
+            time--;
+
+            if(time < 0){
+                clearTimeout(timer);
+                btn.disabled = false;
+                return;
+            }
+
+            sec.innerHTML = time;
+            flag = true;  // true: 已经开始, 不能按
+                           // false: 未开始, 可以按  
+
+            timer = setTimeout(run, 500);
+        }
+
+
+        function stop(){
+            clearTimeout(timer);
+            flag = false;
+        }
+
+
+        function again(){
+            // 防止多次点击
+            if(flag == false){
+                flag = true;
+                timer = setTimeout(run, 1000);
+            }
+        }
+
+
+
+
+    </script>
+
+
+
+
+
+
+</body>
+</html>

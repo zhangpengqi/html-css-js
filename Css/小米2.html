@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>小米</title>
+    <style>
+        body, ul{
+            margin: 0;
+            padding: 0;
+        }
+
+        li{
+            list-style: none;
+        }
+
+        a{
+            text-decoration: none;
+        }
+
+        .clearfix::after{
+            content: '';
+            display: block;
+            clear: both;
+        }
+
+
+        #top{
+            width: 100%;
+            height: 40px;
+            background: #333;
+        }
+
+        /* 导航栏 start */
+        #nav{
+            width: 100%;
+            height: 100px; 
+            position: relative;
+        }
+
+        #nav .container{
+            width: 1226px;
+            height: 100px;
+            margin: 0 auto;
+        }
+
+
+        #nav .logo{
+            width: 55px;
+            height: 55px;
+            background: #ff6700 url('./img/mi-logo.png') center center;
+            float: left;
+            margin-top: 22px;
+        }
+
+        #nav .nav{
+            width: 800px;
+            height: 100px;
+            /* background: skyblue; */
+            float: left;
+            padding: 22px 0 0 35px;
+            box-sizing: border-box;
+        }
+
+
+        #nav .nav ul li{
+            float: left;
+            height: 78px;
+            line-height: 56px;
+        }
+
+        #nav .nav ul li a{
+            padding: 0 7px;
+            color: black;
+        }
+
+        #nav .nav ul li:hover{
+            cursor: pointer;
+        }
+
+        #nav .nav ul li:hover > a{
+            color: #ff6700;
+        }
+
+        #nav .nav ul li .newGoods{
+            width: 100%;
+            height: 0px;
+            background: skyblue;
+            overflow: hidden;
+            transition: height .3s;
+
+            position: absolute;
+            left: 0;
+            z-index: 666;
+        }
+
+        #nav .nav ul li:hover .newGoods{
+            height: 230px;
+        }
+
+
+
+        #nav .nav .nav-category{
+            width: 142px;
+        }
+
+        #nav .search{
+            width: 300px;
+            height: 55px;
+            background: pink;
+            margin-top: 22px;
+            float: right;
+        }
+        /* 导航栏 end */
+
+
+        /* 广告图 start */
+        #banner{
+            width: 1226px;
+            height: 460px;
+            margin: 0 auto;
+
+            position: relative;
+        }
+
+        
+        #banner .menu{
+            width: 234px;
+            height: 460px;
+            background: rgba(0,0,0,0.3);
+
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        #banner .menu ul{
+            margin: 20px 0;
+        }
+
+        #banner .menu ul li{
+            width: 100%;
+            height: 42px;
+            color: white;
+            padding: 0 20px 0 30px;
+            box-sizing: border-box;
+            line-height: 42px;
+        }
+
+        #banner .menu ul li:hover{
+            background: #ff6700;
+            cursor: pointer;
+        }
+
+        #banner .menu ul li span:first-of-type{
+            float: left;
+        }
+
+        #banner .menu ul li span:last-of-type{
+            float: right;
+        }
+
+        #banner .menu ul li .content{
+            height: 460px;
+            min-width: 200px;
+            background: #fff;
+            position: absolute;
+            top: 0;
+            left: 234px;
+            color: black;
+            display: none;
+        }
+
+        #banner .menu ul li:hover .content{
+            display: block;
+        }
+
+        #banner .list{
+            position: absolute;
+            right: 30px;
+            bottom: 20px;
+        }
+    
+        #banner .list ul li{
+            width: 6px;
+            height: 6px;
+            background: rgba(0,0,0,.4);
+            border: hsla(0,0%,100%,.3) 2px solid;
+            float: left;
+            border-radius: 100%;
+            margin-right: 10px;
+        }
+
+        #banner .list ul li:hover{
+            background: hsla(0,0%,100%,.4);
+            border-color: rgba(0,0,0,.4);
+            cursor: pointer;
+        }
+
+        /* 广告图 end */
+
+
+
+    </style>
+</head>
+<body>
+    
+    <!-- 顶部 -->
+    <div id="top"></div>
+
+    <!-- 导航栏 -->
+    <div id="nav">
+        <div class="container">
+            <div class="logo"></div>
+
+            <div class="nav">
+                <ul class="clearfix">
+                    <li class="nav-category">
+                    </li>
+                    <li>
+                        <a href="">小米手机</a>
+                        <div class="newGoods">1</div>
+                    </li>
+                    <li>
+                        <a href="">Redmi红米</a>
+                        <div class="newGoods">2</div>
+                    </li>
+                    <li>
+                        <a href="">电视</a>
+                        <div class="newGoods">3</div>
+                    </li>
+                    <li>
+                        <a href="">笔记本</a>
+                        <div class="newGoods">4</div>
+                    </li>
+                    <li>
+                        <a href="">家电</a>
+                        <div class="newGoods">5</div>
+                    </li>
+                    <li>
+                        <a href="">路由器</a>
+                        <div class="newGoods">6</div>
+                    </li>
+                    <li>
+                        <a href="">智能硬件</a>
+                        <div class="newGoods">7</div>
+                    </li>
+                    <li>
+                        <a href="">服务</a>
+                    </li>
+                    <li>
+                        <a href="">社区</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="search"></div>
+        </div>
+    </div>
+    
+    <!-- 广告图 -->
+    <div id="banner">
+        <img src="./img/3.jpg" width="100%">
+
+        <!-- 
+            Sublime 快捷键: 
+                Ctrl + Enter :  切换到下一行(新行)
+                Ctrl + Shift + Enter :  切换到上一行(新行)
+
+                框中需要替换的文本, 再按下 Alt + F3 即可选中页面中所有的框中文本.
+                利用上下左右光标进行操作
+         -->
+
+        <!-- 菜单 -->
+        <div class="menu">
+            <ul>
+                <li>
+                    <span>手机 电话卡</span>
+                    <span>&gt; </span>
+                    <div class="content">1</div>
+                </li>
+                <li>
+                    <span>手机 电话卡</span>
+                    <span>&gt; </span>
+                    <div class="content">2</div>
+                </li>
+                <li>
+                    <span>手机 电话卡</span>
+                    <span>&gt; </span>
+                    <div class="content">3</div>
+                </li>
+                <li>
+                    <span>手机 电话卡</span>
+                    <span>&gt; </span>
+                    <div class="content">4</div>
+                </li>
+                <li>
+                    <span>手机 电话卡</span>
+                    <span>&gt; </span>
+                    <div class="content">5</div>
+                </li>
+                <li>
+                    <span>手机 电话卡</span>
+                    <span>&gt; </span>
+                    <div class="content">6</div>
+                </li>
+                <li>
+                    <span>手机 电话卡</span>
+                    <span>&gt; </span>
+                    <div class="content">7</div>
+                </li>
+                <li>
+                    <span>手机 电话卡</span>
+                    <span>&gt; </span>
+                    <div class="content">8</div>
+                </li>
+                <li>
+                    <span>手机 电话卡</span>
+                    <span>&gt; </span>
+                    <div class="content">9</div>
+                </li>
+                <li>
+                    <span>手机 电话卡</span>
+                    <span>&gt; </span>
+                    <div class="content">10</div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- 左右箭头 -->
+        <div class="left"></div>
+        <div class="right"></div>
+
+        <!-- 右下角的小圆圈 -->
+        <div class="list">
+            <ul>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+    </div>
+
+
+</body>
+</html>

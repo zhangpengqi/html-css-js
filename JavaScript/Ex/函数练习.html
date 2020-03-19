@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>函数练习</title>
+</head>
+<body>
+    <!--  
+        1. 判断一个数是否为素数
+    -->
+    <script>
+        
+        function isPrime(num){
+            // 设置标记
+            //  true : 是素数
+            //  false : 不是素数
+            var flag = true; 
+
+
+            // 除了1和num本身之外, 判断能否被num整除
+            for(var i = 2; i < num; i++){
+
+                // 一旦能整除, 证明num已经不是素数, 改变标记, 并终止循环
+                if( num % i == 0){
+                    flag = false;
+                    break;
+                }
+            }
+
+
+            // 根据flag 返回结果
+            if(flag==true){
+                return true;
+            }else{
+                return false;
+            }
+        }
+
+        console.log( isPrime(5) );
+        console.log( isPrime(9) );
+        console.log( isPrime(6) );
+        console.log( isPrime(11) );
+        console.log('------------- 分隔符 --------------');
+    </script>
+
+    
+    <!--  
+        2. 阶乘
+            5! = 5 * 4 * 3 * 2 * 1 = 120
+            3! = 3 * 2 * 1 = 6 
+
+            如果阶乘数小于0, 则为 -1
+            如果阶乘数等于0, 则为 1
+    -->
+    <script>
+            
+        function factorial(num){
+
+            // 累加器
+            var sum = 1;
+
+            if(num < 0){
+                return -1;
+            }
+
+            if(num == 0){
+                return 1;
+            }
+
+            for(var i = 1; i <= num; i++){
+                sum *= i;
+            }
+
+            return sum;
+        }
+
+        console.log( factorial(5) );
+        console.log( factorial(3) );
+        console.log( factorial(10) );
+        console.log( factorial(-5) );
+        console.log( factorial(0) );
+        console.log('------------- 分隔符 --------------');
+    </script>
+
+    
+    <!--  
+        3. 斐波那契数列
+            1 1 2 3 5 8 13 21 34 ...
+
+            获取第n个数
+            例如: 
+                第一个数: 1
+                第二个数: 1
+                第三个数: 2
+                ...
+
+            注: 
+             n < 0, 返回false
+             n = 0, 返回0
+             n = 1, 返回1
+             n > 1, 正常返回
+    -->
+    <script>
+
+        function fibonacci( n ){
+            if(n < 0) return false;
+            if(n == 0) return 0;
+            if(n == 1) return 1;
+
+            var x = 0;
+            var y = 1;
+
+            var sum; // 第n个数
+            for(var i = 1;  i < n; i++){
+                sum = x + y;
+                x = y;
+                y = sum;
+            }   
+
+            return sum;
+        }
+
+        console.log(  fibonacci(1) );
+        console.log(  fibonacci(2) );
+        console.log(  fibonacci(3) );
+        console.log(  fibonacci(4) );
+        console.log(  fibonacci(5) );
+        console.log(  fibonacci(6) );
+        console.log(  fibonacci(7) );
+    </script>
+
+
+    <!--  
+        4. 斐波那契数列
+            输出前n个数字
+    -->
+    <script>
+        function fibonacciN( n ){
+            var res = '';
+            // res += fibonacci(1)+' '
+            // res += fibonacci(2)+' ';
+            // res += fibonacci(3)+' ';
+            // res += fibonacci(4)+' ';
+            // res += fibonacci(5)+' ';
+
+            for(var i = 1; i <= n; i++){
+                res += fibonacci(i)+' ';
+            }
+
+            return res;
+        }
+
+        // console.log( fibonacciN(2) );
+        // console.log( fibonacciN(3) );
+        // console.log( fibonacciN(5) );
+        console.log( fibonacciN(8) );
+
+
+    </script>
+
+
+
+
+    
+
+
+
+
+</body>
+</html>

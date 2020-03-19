@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>拖拽</title>
+    <style>
+        #box{
+            width: 200px;
+            height: 200px;
+            background: orange;
+            position: fixed;
+            left: 100px;
+            top: 100px;
+        }
+    </style>
+    <script src="jquery-3.4.1.min.js"></script>
+</head>
+<body>
+
+    <div id="box"></div>
+    
+    <script>
+        $(function(){
+            
+            $('#box').mousedown(function(event){
+
+                $(this).css('background','skyblue')
+                $(this).html('按下')
+
+                var event = event || window.event;
+
+                var x2 = event.offsetX;
+                var y2 = event.offsetY;
+
+                $(document).mousemove(function(eve){
+                    var eve = eve || window.event;
+
+                    var x = eve.pageX - x2;
+                    var y = eve.pageY - y2;
+
+                    $('#box').css({
+                        left: x,
+                        top: y,
+                    });
+                });
+
+            }).mouseup(function(){
+
+                $(this).css('background','lightgreen')
+                $(this).html('松开')
+
+                $(document).off('mousemove');
+
+            });
+
+
+
+
+
+        })
+    </script>
+
+
+</body>
+</html>

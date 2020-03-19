@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>银行卡自动补空格</title>
+    <style>
+        #bank{
+            width: 500px;
+            height: 50px;
+            font-size: 30px;
+        }
+
+
+        #box2{
+            width: 500px;
+            height: 30px;
+            border: 1px solid red;
+            display: inline-block;
+            vertical-align: top;
+        }
+
+    </style>
+</head>
+<body>
+    
+    <input type="text" id="bank" maxlength="19">
+    <br>
+
+    <script>
+        var bank = document.getElementById('bank');
+        // onpropertychange IE专属
+        // oninput 非IE
+        bank.oninput = run;
+        bank.onpropertychange = run;
+
+
+        // bank.oninput = function(){
+        //     bank.value = bank.value
+        //                       .replace(/(\D)/g, '')
+        //                       .replace(/(\d{4})(?=\d)/g, '$1 ');
+        // }
+
+        function run(){
+            bank.value = bank.value
+                              .replace(/(\D)/g, '')
+                              .replace(/(\d{4})(?=\d)/g, '$1 ');
+        }
+    </script>
+
+
+
+    box1: <input type="text" id="box1"> <br> <br>
+    box2: <div id="box2"></div>
+    <script>
+        var box1 = document.getElementById('box1');
+        var box2 = document.getElementById('box2');
+
+
+        box1.oninput = function(){
+            box2.innerHTML = box1.value;
+        }
+
+        // box1.onchange = function(){
+        //     box2.innerHTML = box1.value;
+        // }
+    </script>
+
+
+
+</body>
+</html>

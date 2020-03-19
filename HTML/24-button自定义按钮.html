@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>button按钮</title>
+</head>
+<body>
+    <!-- 
+        submit 只是单纯的提交给服务器
+        button 既具有提交给服务器的功能, 又有自定义功能(配合js使用)
+
+
+     -->
+    <form action="" >
+        
+        手机号: <input type="text" name="tel" > <br>
+        <input type="submit" value="提交">
+
+        <button>提交1</button>
+        <button onclick="run()">提交2</button>
+
+    </form>
+
+    <script>
+        function run(){
+            alert('晚上教学部聚餐海底捞');
+        }
+    </script>
+
+
+</body>
+</html>

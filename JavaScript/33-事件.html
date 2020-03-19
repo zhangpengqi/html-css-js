@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>事件</title>
+</head>
+<body>
+    <!--  
+        1. 事件绑定
+            * 事件属性
+            *      <开始标签  事件属性名="js代码">
+            * 
+            * 对象属性
+            *      对象.事件属性 = function(){ js代码块 }
+            * 
+            * 事件监听
+            *      非IE: 对象.addEventListener('事件', 函数名, false)
+            *      老IE: 对象.attachEvent('on事件', 函数名, false)
+    -->
+
+
+    <!-- 事件属性 -->
+    <button  onclick="alert('明年这时候, 工资翻3倍')" >点我一下,有惊喜</button>
+
+
+    <!-- 对象属性 -->
+    <button id="btn">再点我一下, 送你一个Surprise</button>
+    <script>
+        // button 对象
+        var btn = document.getElementById('btn');
+
+        btn.onclick = function (){
+            alert('前面那句话听听就好了, 别当真');
+        }
+    </script>
+
+    <!-- 事件监听 -->
+    <button id="btn2">最后点一下</button>
+    <script>
+        var btn2 = document.getElementById('btn2');
+
+        btn2.addEventListener('click', demo, false);
+
+        function demo(){
+            alert('明年这时候, 咱们全班都会涨工资, 涨5块');
+        }
+    </script>
+
+
+    <!--  
+        2. 事件解绑
+            * 对象.事件 = null
+            * 对象.事件 = function(){}   空函数
+            * 取消监听
+            *   非IE: 对象.removeEventListener('事件', 函数名)
+            *   老IE: 对象.detachEvent('on事件', 函数名)
+    -->
+    <script>
+        var btn = document.getElementById('btn');
+
+        // 解绑btn 的onclick事件
+        // btn.onclick = null;
+        btn.onclick = function(){} // 空函数
+
+
+        // 取消监听
+        btn2.removeEventListener('click', demo);
+        // btn2.detachEvent('onclick', demo);
+
+    </script>
+
+</body>
+</html>

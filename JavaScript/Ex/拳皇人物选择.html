@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>拳皇</title>
+    <style>
+        
+        #box{
+            width: 200px;
+            height: 300px;
+            /* background: orange; */
+            margin: 100px auto;
+            text-align: center;
+        }
+
+        #img{
+            border-radius: 100%;
+        }
+
+
+    </style>
+</head>
+<body>
+    
+    <div id="box">
+        <div><img src="resource/3.jpg" width="200" id="img"></div>
+        <button id="btn">开始</button>
+    </div>
+
+
+    <script>
+        var img = document.getElementById('img');
+        var btn = document.getElementById('btn');
+        var list = ['resource/1.jpg','resource/2.jpg','resource/3.jpg','resource/4.jpg','resource/5.jpg','resource/6.jpg','resource/7.jpg','resource/8.jpg','resource/9.jpg','resource/10.jpg','resource/11.jpg','resource/12.jpg','resource/13.jpg','resource/14.jpg','resource/15.jpg','resource/16.jpg'];
+
+        var flag = true; // true 可以点(开始)   false 不能点(暂停)
+
+
+        // 随机 + 显示
+        function run(){
+
+            // 随机数 0 ~ 15 
+            var num = Math.round( Math.random() * (list.length - 1) );
+            img.src = list[num];
+
+        }
+
+        btn.onclick = function(){
+
+            if(flag == true){
+                timer = setInterval(run, 50);
+                btn.innerHTML = '暂停';
+                flag = false;
+
+            }else{
+                clearInterval(timer);
+                btn.innerHTML = '开始';
+                flag = true;
+            }
+
+        }
+
+
+
+
+      
+
+
+    </script>
+
+
+
+</body>
+</html>

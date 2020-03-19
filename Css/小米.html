@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>小米</title>
+    <style>
+        body, ul{
+            margin: 0;
+            padding: 0;
+        }
+
+        li{
+            list-style: none;
+        }
+
+        a{
+            text-decoration: none;
+        }
+
+        .clearfix::after{
+            content: '';
+            display: block;
+            clear: both;
+        }
+
+
+        #top{
+            width: 100%;
+            height: 40px;
+            background: #333;
+        }
+
+        #nav{
+            width: 100%;
+            height: 100px; 
+            position: relative;
+        }
+
+        #nav .container{
+            width: 1226px;
+            height: 100px;
+            margin: 0 auto;
+        }
+
+
+        #nav .logo{
+            width: 55px;
+            height: 55px;
+            background: #ff6700 url('./img/mi-logo.png') center center;
+            float: left;
+            margin-top: 22px;
+        }
+
+        #nav .nav{
+            width: 800px;
+            height: 100px;
+            /* background: skyblue; */
+            float: left;
+            padding: 22px 0 0 35px;
+            box-sizing: border-box;
+        }
+
+
+        #nav .nav ul li{
+            float: left;
+            height: 78px;
+            line-height: 56px;
+        }
+
+        #nav .nav ul li a{
+            padding: 0 7px;
+            color: black;
+        }
+
+        #nav .nav ul li:hover{
+            cursor: pointer;
+        }
+
+        #nav .nav ul li:hover > a{
+            color: #ff6700;
+        }
+
+        #nav .nav ul li .newGoods{
+            width: 100%;
+            height: 0px;
+            background: skyblue;
+            overflow: hidden;
+            transition: height .3s;
+
+            position: absolute;
+            left: 0;
+        }
+
+        #nav .nav ul li:hover .newGoods{
+            height: 230px;
+        }
+
+
+
+        #nav .nav .nav-category{
+            width: 142px;
+        }
+
+
+
+        #nav .search{
+            width: 300px;
+            height: 55px;
+            background: pink;
+            margin-top: 22px;
+            float: right;
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="top">
+        
+    </div>
+
+    <div id="nav">
+        <div class="container">
+            <div class="logo"></div>
+
+            <div class="nav">
+                <ul class="clearfix">
+                    <li class="nav-category">
+                    </li>
+                    <li>
+                        <a href="">小米手机</a>
+                        <div class="newGoods">1</div>
+                    </li>
+                    <li>
+                        <a href="">Redmi红米</a>
+                        <div class="newGoods">2</div>
+                    </li>
+                    <li>
+                        <a href="">电视</a>
+                        <div class="newGoods">3</div>
+                    </li>
+                    <li>
+                        <a href="">笔记本</a>
+                        <div class="newGoods">4</div>
+                    </li>
+                    <li>
+                        <a href="">家电</a>
+                        <div class="newGoods">5</div>
+                    </li>
+                    <li>
+                        <a href="">路由器</a>
+                        <div class="newGoods">6</div>
+                    </li>
+                    <li>
+                        <a href="">智能硬件</a>
+                        <div class="newGoods">7</div>
+                    </li>
+                    <li>
+                        <a href="">服务</a>
+                    </li>
+                    <li>
+                        <a href="">社区</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="search"></div>
+        </div>
+    </div>
+
+    
+
+
+</body>
+</html>

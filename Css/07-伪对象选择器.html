@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>伪对象选择器</title>
+    <style>
+        
+        ul::before{
+            content: '女朋友: 我没生气';
+        }
+
+        ul::after{
+            content: '赵云鹏: 我不是神经病';
+        }
+
+        p:first-letter{
+            font-size: 50px;
+        }
+
+        input::-webkit-input-placeholder {
+            color: red;
+        }
+
+
+        ::selection{
+            background: pink;
+            color: white;
+        }
+
+
+    </style>
+</head>
+<body>
+    <!-- 
+        伪对象选择器
+            s1::before{ ... }   匹配s1子元素的最前面
+            s1::after{ ... }    匹配s1子元素的最后面
+
+            before 和 after 常配合属性content使用.
+            作用: 后期配合 浮动技术
+
+
+            兼容前缀:
+                -webkit-    chrome, safari
+                -moz-       firefox
+                -ms-        IE
+    -->
+
+    世界上最没用的一句话
+    <ul>
+        <li>警察: 不要跑</li>        
+        <li>男朋友: 多喝热水</li>        
+        <li>神经病: 我没病</li>       
+    </ul>
+
+
+    <p>程序员感情非常专一的人, 一旦陷入爱情, 就像死循环, 基本不会背叛, 程序员的女朋友只有一个: 电脑</p>
+
+
+    <input type="text" placeholder="your tel">
+
+</body>
+</html>

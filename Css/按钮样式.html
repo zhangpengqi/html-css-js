@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>按钮样式</title>
+    <style>
+        a{
+            color: white;
+            text-decoration: none;
+            width: 108px;
+            height: 52px;
+            background: green;
+            display: block;
+            text-align: center;
+            line-height: 52px;
+            border-radius: 10px;
+            font-size: 18px;
+            border: 4px solid green;
+            transition: all 1s;
+            opacity: 0.6;
+            cursor: no-drop;
+        }
+
+       /*  a:hover{
+            color: black;
+            background: #fff;
+        } */
+
+
+        #box{
+            width: 200px;
+            height: 72px;
+            background: #f4511e;
+            color: white;
+            font-size: 28px;
+            text-align: center;
+            line-height: 72px;
+            position: relative;
+        }
+
+        #box span:first-of-type{
+            position: absolute;
+            top: 0px;
+            left: 60px;
+            transition: all 1s;
+        }
+
+        #box span:last-of-type{
+            position: absolute;
+            top: 0px;
+            right: 40px;
+            opacity: 0;
+            transition: all 1s;
+        }
+
+        #box:hover span:first-of-type{
+            left: 30px;
+        }
+
+        #box:hover span:last-of-type{
+            opacity: 1;
+            right: 60px;
+        }
+    </style>
+</head>
+<body>
+    
+    <a href=""> Green </a>
+
+    <div id="box">
+        <span>Hover</span>
+        <span>&gt;&gt;</span>
+    </div>
+
+</body>
+</html>

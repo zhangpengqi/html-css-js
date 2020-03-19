@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>对象-创建</title>
+</head>
+<body>
+    <!--  
+        1. 创建对象
+            * Json创建    (推荐)
+            *   {
+            *       属性名: 属性值,
+            *       属性名: 属性值,
+            *       ...
+            *
+            *       方法名: function(){},
+            *       方法名: function(){},
+            *       ...
+            *   
+            *   }
+            *
+            *
+            * 对象构造器
+            *   对象变量 = new Object()
+            *   对象变量.属性名 = 属性值;
+            *   对象变量.属性名 = 属性值;
+            *   ...
+            *
+            *   对象变量.方法名 = function(){}
+            *   对象变量.方法名 = function(){}
+            *   ...
+            *
+            * 自定义构造器
+            *   function 构造器名(){
+            *       this.属性名 = 属性值;
+            *       this.属性名 = 属性值;
+            *       ...
+            *
+            *       this.方法名 = function(){}
+            *       this.方法名 = function(){}
+            *       ...
+            *   }
+            *
+            *
+            *   对象变量 = new 构造器名()
+            *
+            * 匿名构造器
+            *   new function(){
+            *       this.属性名 = 属性值;
+            *       this.属性名 = 属性值;
+            *       ...
+            *
+            *       this.方法名 = function(){}
+            *       this.方法名 = function(){}
+            *       ...
+            *   }
+        
+
+        注: 
+         * Json格式中, 属性名也被称之为: 键,  键与值配合一起称之为: 键值对
+         * Json格式中, 每一键值对之间用 "逗号" 隔开
+
+
+    -->
+    <script>
+        // 对象构造器
+            var o1 = new Object();
+            o1.name = '大狗';
+            o1.demo = function (){
+                console.log('我的名字: '+this.name);
+            }
+
+            console.log(o1.name);
+            o1.demo();
+
+        // 自定义构造器
+            function Obj(){
+                this.name = '二狗';
+                this.demo = function (){
+                    console.log('我的名字: '+this.name);
+                }
+            }
+
+            var o2 = new Obj();
+            console.log(o2.name);
+            o2.demo();
+
+        // 匿名构造器
+            var o3 = new function(){
+                this.name = '三狗';
+                this.demo = function (){
+                    console.log('我的名字: '+this.name);
+                }
+            }
+
+            console.log(o3.name);
+            o3.demo();
+
+    </script>
+    
+</body>
+</html>

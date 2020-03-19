@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>循环练习</title>
+</head>
+<body>
+
+    <script>
+        // 输出 x~100 之间的所有奇数
+        //  0<x<100    
+        for(var x = 4; x < 100; x++){
+            if( x % 2 != 0){
+                document.write(x + ' ');
+            }
+        }
+        document.write('<hr />');
+
+        for(var x = 3; x < 51; x++){
+            document.write(x*2-1 + ' ');
+        }
+        document.write('<hr />');
+
+        for(var x = 3; x < 100; x++){
+            if ( x % 3 == 0) {
+                document.write(x + ' ');
+            } 
+        }
+        document.write('<hr />');
+
+
+
+        // 判断一个数字 是否为素数?
+        //  素数: 只能被1 和 本身整除的数
+        //  例如: 2 3 5 7 11 13 17 19 23 ...
+
+        var x = 9;
+        var flag = true;    // flag = true 时, 则代表是素数
+                             // flag = false 时, 则代表不是素数
+        // 5%2
+        // 5%3
+        // 5%4
+
+        for(var i = 2; i < x; i++){
+            // 能整除的都不是素数
+            if( x % i == 0 ){
+                flag = false;  // 改标记
+                break;
+            }
+        }
+
+        // 循环结束后, 判断flag
+        if (flag == true) {
+            document.write(x + '是素数');
+        } else {
+            document.write(x + '不是素数');
+        }
+        document.write('<hr />');
+
+
+        function isPrime(x){
+            var flag = true;    // flag = true 时, 则代表是素数
+                                 // flag = false 时, 则代表不是素数
+                                
+            for(var i = 2; i < x; i++){
+                // 能整除的都不是素数
+                if( x % i == 0 ){
+                    flag = false;  // 改标记
+                    break;
+                }
+            }
+
+            // 循环结束后, 判断flag
+            if (flag == true) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        document.write( isPrime(5)  );
+        document.write( isPrime(9)  );
+
+        document.write('<hr />');   
+
+
+        // 输出 2~100 之间所有的素数
+
+        // document.write( isPrime(2)  );
+        // document.write( isPrime(3)  );
+        // document.write( isPrime(4)  );
+        // document.write( isPrime(5)  );
+        // document.write( isPrime(6)  );
+        // document.write( isPrime(7)  );
+        // document.write( isPrime(8)  );
+
+        for(var i = 2; i < 100; i++){
+            if(isPrime(i)){
+                document.write(i + ' ');
+            }
+        }
+        document.write('<hr />');
+
+
+        // 自定义函数 实现翻转效果
+        function myReverse(str){
+
+            // document.write(str[0]);
+            // document.write(str[1]);
+            // document.write(str[2]);
+            // document.write(str[3]);
+            // document.write(str[4]);
+            // document.write(str[5]);
+
+            str = String(str);
+
+            var newStr = '';
+            for(var i = str.length - 1; i >= 0; i--){
+                newStr += str[i];
+            }
+            return newStr
+        }
+
+        document.write( myReverse('abc123789') );
+        document.write('<hr />');
+
+        var num = Number(myReverse(987));
+        document.write(num, typeof num);
+        document.write('<hr />');
+
+
+        // 通过内置方法 实现翻转效果
+        var x = 'abc123';
+        console.log( x.split(''));
+        console.log( x.split('').reverse());
+        console.log( x.split('').reverse().join());
+        document.write( x.split('').reverse().join('') );
+    </script>  
+
+    
+    <!--  
+        多重循环
+    -->
+    <script>
+        var count = 0;  // 统计大循环
+        var count2 = 0; // 统计小循环
+
+        for(var i = 0; i < 5; i++){
+            count++;
+
+            for(var j = 0; j < 3; j++){
+                count2++;
+            }
+        }
+        console.log(count);
+        console.log(count2);
+        document.write('<hr />');
+
+        /*
+        
+          ***
+          ***
+          ***
+          ***
+          ***
+
+         */
+        
+        for(var i = 0; i < 5; i++){
+
+            for(var j = 0; j < 3; j++){
+                document.write('*');
+            }
+
+            document.write('<br />');
+        }
+        document.write('<hr />');
+
+
+        /*
+        
+          *
+          **
+          ***
+          ****
+          *****
+
+          i=0   j要循环1次   j=0; j<1; j++   
+          i=1   j要循环2次   j=0; j<2; j++   
+          i=2   j要循环3次   j=0; j<3; j++   
+          i=3   j要循环4次   j=0; j<4; j++   
+          i=4   j要循环5次   j=0; j<5; j++ 
+                 规律     j=0; j<i+1; j++  
+
+           注: 
+            * 思路写下来
+            * 循环必须要确定 三要素
+            * 确定三要素, 才能确定循环几次
+
+         */
+        for(var i = 0; i < 5; i++){
+
+            for(var j = 0; j < i + 1; j++){
+                document.write('*');
+            }
+
+            document.write('<br />');
+        }
+        document.write('<hr />');
+
+        /*
+
+          *****
+          ****
+          ***
+          **
+          *
+        
+          i=0   j要循环5次   j=0; j<5; j++
+          i=1   j要循环4次   j=0; j<4; j++ 
+          i=2   j要循环3次   j=0; j<3; j++ 
+          i=3   j要循环2次   j=0; j<2; j++ 
+          i=4   j要循环1次   j=0; j<1; j++ 
+                规律         j=0; j<5-i; j++
+         */
+
+         for(var i = 0; i < 5; i++){
+
+            for(var j = 0; j < 5-i; j++){
+                document.write('*');
+            }
+
+            document.write('<br>');
+         }
+         document.write('<hr />');
+
+
+         /*
+             i=0   j要循环5次   j=5; j>0; j--
+             i=1   j要循环4次   j=5; j>1; j-- 
+             i=2   j要循环3次   j=5; j>2; j-- 
+             i=3   j要循环2次   j=5; j>3; j-- 
+             i=4   j要循环1次   j=5; j>4; j-- 
+                   规律         j=5; j>i; j--
+          */
+         
+         for(var i = 0; i < 5; i++){
+
+            for(var j = 5; j > i; j--){
+                document.write('*');
+            }
+
+            document.write('<br>');
+         }
+         document.write('<hr />');
+
+         /*
+             i=5   j要循环5次   j=100; j>95; j--
+             i=4   j要循环4次   j=100; j>96; j-- 
+             i=3   j要循环3次   j=100; j>97; j-- 
+             i=2   j要循环2次   j=100; j>98; j-- 
+             i=1   j要循环1次   j=100; j>99; j-- 
+                   规律         j=100; j>100-i; j--
+
+          */
+        for(var i = 5; i > 0; i--){
+
+            for(var j = 100; j > 100 - i; j--){
+                document.write('*');
+            }
+
+            document.write('<br>');
+        }
+        document.write('<hr />');
+
+
+        /* 
+            -3 -2 -1 0 1 2 3 
+        */
+        for(var i = -3; i <= 3; i++){
+            document.write(i + ' ');
+        }
+        document.write('<hr />');
+
+
+        /*
+            3 2 1 0 1 2 3 
+         */
+        for(var i = -3; i <= 3; i++){
+            var m = i;
+
+            // 负数
+            if(m < 0){
+                m = m * -1;
+            }
+            document.write(m + ' ');
+        }
+        document.write('<hr />');
+
+        /*
+        
+            ***
+            **
+            *
+            
+            *
+            **
+            ***
+
+        
+            i=-3 m=3    循环3次  j=0; j<3; j++
+            i=-2 m=2    循环2次  j=0; j<2; j++
+            i=-1 m=1    循环1次  j=0; j<1; j++
+            i=0  m=0    循环0次  j=0; j<0; j++
+            i=1  m=1    循环1次  j=0; j<1; j++
+            i=2  m=2    循环2次  j=0; j<2; j++
+            i=3  m=3    循环3次  j=0; j<3; j++
+                        规律     j=0; j<m; j++
+
+         */
+
+        for(var i = -3; i <= 3; i++){
+            var m = i;
+            if( m < 0) m *= -1;
+
+            for(var j = 0; j < m; j++){
+                document.write('*');
+            }
+
+            document.write('<br>');
+        }
+        document.write('<hr />');
+
+
+        /*
+            ****
+            ***
+            **
+            *
+            **
+            ***
+            ****
+
+            i=-3 m=3    循环4次  j=0; j<4; j++
+            i=-2 m=2    循环3次  j=0; j<3; j++
+            i=-1 m=1    循环2次  j=0; j<2; j++
+            i=0  m=0    循环1次  j=0; j<1; j++
+            i=1  m=1    循环2次  j=0; j<2; j++
+            i=2  m=2    循环3次  j=0; j<3; j++
+            i=3  m=3    循环4次  j=0; j<4; j++
+                        规律     j=0; j<m+1; j++
+        */
+        for(var i = -3; i <= 3; i++){
+            var m = i;
+            if( m < 0) m *= -1;
+
+            for(var j = 0; j < m+1; j++){
+                document.write('*');
+            }
+
+            document.write('<br>');
+        }
+        document.write('<hr />');
+
+        /*
+        
+          *
+          **
+          ***
+          ****
+          ***
+          **
+          *
+
+          
+            i=-3 m=3    循环1次  j=0; j<1; j++
+            i=-2 m=2    循环2次  j=0; j<2; j++
+            i=-1 m=1    循环3次  j=0; j<3; j++
+            i=0  m=0    循环4次  j=0; j<4; j++
+            i=1  m=1    循环3次  j=0; j<3; j++
+            i=2  m=2    循环2次  j=0; j<2; j++
+            i=3  m=3    循环1次  j=0; j<1; j++
+                        规律      j=0; j<4-m; j++
+
+         */
+         for(var i = -3; i <= 3; i++){
+            var m = i;
+            if( m < 0) m *= -1;
+
+            for(var j = 0; j < 4-m; j++){
+                document.write('*');
+            }
+            document.write('<br>');
+         }
+         document.write('<hr />');
+
+
+
+         /*
+         
+            *** ***
+            **   **
+            *     *
+            
+            *     *
+            **   **
+            *** ***     
+
+            
+            i=-3 m=3  循环3次*  j=0; j<3;  循环1次- j=0; j<1   循环3次*
+            i=-2 m=2  循环2次*  j=0; j<2;  循环3次- j=0; j<3   循环2次*
+            i=-1 m=1  循环1次*  j=0; j<1;  循环5次- j=0; j<5   循环1次*
+            i=0  m=0  循环0次*  j=0; j<0;  循环7次- j=0; j<7   循环0次* 
+            i=1  m=1  循环1次*  j=0; j<1;  循环5次- j=0; j<5   循环1次* 
+            i=2  m=2  循环2次*  j=0; j<2;  循环3次- j=0; j<3   循环2次* 
+            i=3  m=3  循环3次*  j=0; j<3;  循环1次- j=0; j<1   循环3次* 
+                                      j<m                 j<7-2m
+          */
+         
+        for(var i = -3; i <= 3; i++){
+            var m = i;
+            if(i < 0) m *= -1
+
+
+            for(var j = 0; j < m; j++){
+                document.write('*');
+            }
+
+            for(var j = 0; j < 7-2*m; j++){
+                document.write('-');
+            }
+
+            for(var j = 0; j < m; j++){
+                document.write('*');
+            }
+
+            document.write('<br>');
+        }
+        document.write('<hr />');
+
+
+        // 百元买百鸡
+        //  x公鸡  5元/只
+        //  y母鸡  3元/只
+        //  z小鸡  1元/3只
+        //  
+        //  x, y, z 代表 鸡的数量
+        for(var x = 0; x <= 20; x++){
+
+            for(var y = 0; y <= 33; y++){
+
+                var z = 100 - x - y;  // 100 - 公鸡数 - 母鸡数
+
+                if( x*5 + y*3 + z/3 == 100){
+                    document.write('公鸡数: '+x+'  母鸡数: '+y+'   小鸡数: '+z+'<br>');
+                }
+            }
+        }
+        document.write('<hr />');
+
+
+
+        // 一张购物卡500元, 去超市买东西, 洗发水20元/瓶,  牛奶50/箱, 抽纸35/箱, 要怎么花才能把500花光?
+        var count = 0;
+        for(var x = 0; x <= 25; x++){
+            for(var y = 0; y <= 10; y++){
+                for(var z = 0; z <= 14; z++){
+
+                    if( x*20 + y*50 + z*35 == 500){
+                        count++
+                        document.write(`洗发水: ${x}瓶,  牛奶: ${y}箱,  抽纸: ${z}箱 <br>`);
+                    }
+
+                }
+            }
+        }
+
+        document.write('一共有 '+count+' 种方案');
+
+
+
+
+
+    </script>
+
+
+
+
+</body>
+</html>

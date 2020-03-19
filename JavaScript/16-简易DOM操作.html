@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>简易DOM操作</title>
+</head>
+<body>
+    
+    <ul id="box">
+        <li class="list">西南科技大学</li>
+        <li class="list">高起专: 全程免考, 坐等拿证</li>
+        <li class="list">专升本: 考2门, 有资料, 毕业证+学位证</li>
+        <li class="list">费用: 10K</li>
+        <li class="list">专业: 计算机, 法律, 机械, ...</li>
+        <li class="list">专业: 计算机, 法律, 机械, ...</li>
+    </ul>
+    <!-- 
+        1. 获取标签对象
+            * 通过id获取        格式: document.getElementById('id名')
+            * 通过class获取     格式: document.getElementsByClassName('class名')
+    -->
+
+    <script>
+        var ul = document.getElementById('box');
+        console.log(ul);
+
+        var li = document.getElementsByClassName('list');
+        console.log(li);
+    </script>
+
+
+    <!--  
+        2, 设置/获取css
+            格式: 对象.style.css属性名 
+    -->
+    <script>
+        ul.style.background = 'pink';
+
+        li[1].style.color = 'red';
+        li[1].style.fontSize = '20px';
+        li[1].style.backgroundColor = 'skyblue';
+
+        console.log( li[1].style.backgroundColor );
+    </script>
+
+    <!--  
+        3. 查看对象
+            console.log(对象)
+            console.dir(对象)     能看到大多数的通用属性
+    -->
+    <script>
+        console.log(ul);
+        console.dir(ul);
+        console.log( ul.childElementCount );
+    </script>
+
+
+
+
+    <!--  
+        4. 设置/获取对象属性
+            获取格式:  对象.属性名
+            设置格式:  对象.属性名 = 值
+
+            更详细标签对象的专属属性: https://www.w3school.com.cn/jsref/jsref_obj_string.asp
+    -->
+    <form action="">
+        账号: <input type="text" id="tel" value="18601799341" xxx='ooo' title="666"> <br>
+        密码: <input type="password" id="pwd"> <br>
+    </form>
+    <script>
+        var tel = document.getElementById('tel');
+
+        console.log(tel.value);
+        console.log(tel.id);
+        console.log(tel.type);
+        console.log(tel.xxx);
+        console.log(tel.title);
+    </script>
+
+
+    <!--  
+        5. 设置/获取 对象的正文内容
+            设置格式: 对象.innerHTML = 值
+            获取格式: 对象.innerHTML
+    -->
+    <div id="box2">66666</div>
+    <script>
+        var box2 = document.getElementById('box2');
+
+        // box2.innerHTML = '报名请找: 黄 磊';
+        console.log( box2.innerHTML );
+    </script>
+
+
+    <!--  
+        6. 单击事件 onclick
+    -->
+    <button onclick="big()" id="btn">单击按钮</button>
+    <script>
+        function big(){
+            var btn = document.getElementById('btn');
+            btn.style.width = "100px";
+        }
+    </script>
+
+
+
+
+
+</body>
+</html>

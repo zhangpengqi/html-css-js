@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>键盘事件</title>
+    <style>
+        #box{
+            width: 200px;
+            height: 200px;
+            background: pink;
+        }
+    </style>
+</head>
+<body>
+    <!--  
+        1. 键盘事件
+            onkeydown       某按键被 按下
+            onkeyup         某按键被 松开
+            onkeypress      某按键被 按下, 直到松开
+
+            注: 
+             * 打印键: 数字, 字母, 标点推荐用 press
+             * 功能键: ctrl, f1, pageup等推荐用 down 或 up
+
+        2. event对象
+            event.key       按键的标识符   (key)
+            event.keyCode   按键的ASCII码
+            event.which     按键的ASCII码, 兼容写法
+
+            event.altKey    检测alt是否被按下, 如果按下返回true, 否则返回false
+            event.ctrlKey   检测ctrl是否被按下, 如果按下返回true, 否则返回false
+            event.shiftKey  检测shift是否被按下, 如果按下返回true, 否则返回false
+            event.metaKey   检测开始菜单键是否被按下, 如果按下返回true, 否则返回false
+
+    -->
+
+    <div id="box"></div>
+    <input type="text" id="userName">
+    <script>
+        var box = document.getElementById('box');
+
+        // document.onkeydown = function(){
+        //     box.style.background = 'orange';
+        //     box.innerHTML = '按下';
+        // }
+
+        // document.onkeyup = function(){
+        //     box.style.background = 'skyblue';
+        //     box.innerHTML = '松开';
+        // }
+
+        // document.onkeypress = function(){
+        //     box.style.background = 'lightgreen';
+        //     console.log(this);
+        // }
+
+
+        // 查看 表单的已有value值
+        // var x = document.getElementById('userName');
+        // x.onkeydown = function(){
+        //     alert(x.value);
+        // }
+
+
+        // 查看当前按下的键
+        document.onkeydown = function(ev){
+            var ev = ev || window.event;
+            console.log( ev.key, ev.keyCode, ev.which );
+
+            // keyCode 的兼容写法
+            var k = ev.keyCode || ev.which;
+
+            console.log( ev.altKey );
+
+        }
+
+        // document.onkeypress = function(ev){
+        //     var ev = ev || window.event;
+        //     console.log( ev.key, ev.keyCode, ev.which );
+
+        //     // keyCode 的兼容写法
+        //     var k = ev.keyCode || ev.which;
+        // }
+
+
+    </script>
+
+    <!--  
+        小练习: 按 ESC 就变换背景颜色
+    -->
+    <script>
+            
+        var opa = 1;
+        // document.onkeydown = function(en){
+        //     var en = en || window.event;
+
+        //     // console.log(en.key);
+
+        //     if( en.key == 'Escape'){
+        //         var r = Math.round( Math.random() * 255);
+        //         var g = Math.round( Math.random() * 255);
+        //         var b = Math.round( Math.random() * 255);
+        //         document.body.style.background = `rgba(${r}, ${g}, ${b})`;
+        //     }
+
+        //     if( en.key == 'ArrowUp'){
+        //         opa = opa <= 0 ? 0 : opa -= 0.1;
+
+        //     }else if ( en.key == 'ArrowDown'){
+        //         opa = opa >= 1 ? 1 : opa += 0.1;
+        //     }
+
+        //     console.log(opa);
+        //     document.body.style.opacity = opa;
+        // }
+    </script>
+
+
+    <!-- 
+        小练习: 键盘调节音量
+     -->
+    <audio src="img/太多.mp3" id="music" controls></audio>
+
+    <script>
+        var music = document.getElementById('music');
+
+        document.onkeydown = function(en){
+            var en = en || window.event;
+
+            if( en.key == 'ArrowUp'){
+                music.volume = music.volume >= 1 ? 1 : music.volume += 0.1;
+
+            }else if( en.key == 'ArrowDown'){
+                music.volume = music.volume <= 0 ? 0 : music.volume -= 0.1;
+            }
+        }
+
+    </script>
+
+
+</body>
+</html>

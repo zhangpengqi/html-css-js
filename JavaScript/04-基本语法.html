@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>基本语法</title>
+</head>
+<body>
+    <!-- 
+        1. 分号
+            Js的每一条语句通常以 分号 结尾, 代表该语句已经结束.
+            用分号结束的语句, 可以并列在一行上.
+
+            推荐: 每条语句加分号
+     -->
+
+    <script>
+        // alert('王者荣耀');
+        // alert('英雄联盟');
+
+        // alert('王者荣耀')
+        // alert('英雄联盟')
+
+        // 并列写法
+        // alert('王者荣耀') alert('英雄联盟')      // 报错
+        // alert('王者荣耀'); alert('英雄联盟');    // 正常执行
+    </script>
+
+
+    <!-- 
+        2. 空格
+            在运算符的前后, 添加空格, 以增加代码的可读性
+     -->
+    <script>
+        // alert(1 + 2);    // 推荐写法
+        // alert(1+2);      // 不推荐
+        alert(1 / 2);
+    </script>
+
+
+    <!-- 
+        3. 单行代码长度
+            为了提交代码的可读性, 一行代码最好不超过80个字符
+    -->
+
+
+    <!-- 
+        4. 代码块 { }
+            代码块由一对花括号组成 {  }
+            作用: 一次性执行多条语句(捆绑执行)
+
+            后期函数经常用
+    -->
+    <script>
+        {
+            var a = 20;
+            let b = 30;
+            console.log('代码块内输出: ', a, b);
+        }
+
+        // 代码块外就无法识别 变量b
+        // console.log('代码块外输出: ', a, b)
+    </script>
+    
+
+    <!-- 
+        5. 大小写
+            Js 严格区分大小写
+    -->
+    <script>
+        // alert('小写')
+        // Alert('大写')
+    </script>
+
+
+    <!--  
+        6. 保留字, 关键字
+            在js中, 保留字, 关键字是不能作为变量, 函数使用的
+
+            常见关键字, 保留字: 
+               break    case    catch   continue    default
+               delete   do      else    finally     for
+               function if      in      instanceof  new
+               return   switch  this    throw       try
+               typeof   var     void    while       with
+
+            更全面的保留字, 关键字有哪些?
+                参考地址: https://www.runoob.com/js/js-reserved.html
+    -->
+    <script>
+        // var var = 10;
+    </script>
+
+
+    <!-- 
+        7. 注释
+            单行注释: // 注释内容   
+            多行注释: /* 注释内容 */
+    -->
+
+    <script>
+        // 单行注释
+
+        /*
+                注释内容1
+                注释内容2
+                注释内容3
+                注释内容4
+                注释内容5
+                ...
+                多行注释不要嵌套使用
+         */
+    </script>
+
+
+</body>
+</html>

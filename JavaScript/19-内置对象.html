@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>内置对象</title>
+</head>
+<body>
+    <!-- 
+        一切皆对象   
+        内置对象
+            Number
+            String
+            Boolean
+            Array
+            Date
+            Math
+    -->
+    <script>
+
+        // Number对象
+            var x = 10;  // number 类型, 推荐写法
+            var y = new Number(10);  // object 类型, 少用
+
+            console.log(x == y);
+            console.log(x === y);
+            console.log(x, typeof x);
+            console.log(y, typeof y);
+            console.log('------------- 分隔符 --------------');
+
+            console.log( Number.MAX_VALUE );
+
+            var x = 10;
+            console.log( x.toString(2) ); // 1010
+            console.log( x.toString(3) ); // 101
+            console.log('------------- 分隔符 --------------');
+
+            var x = 10;
+            var x = '10';
+            var x = 'abc';
+            var x = true;
+            var x = null;
+            var x = undefined;
+            var x = 1.23445678901;
+            var x = 1.23;
+            var x = 1.234;
+            var x = 1.2342;
+            var x = 12.342;
+            var x = 12.3425;
+            console.log( x.toLocaleString() );
+
+            var x = 123456789;
+            console.log( x.toLocaleString('en-US') );
+            console.log('------------- 分隔符 --------------');
+
+        // String对象
+            var x = '6abc12';
+
+            // length
+            document.write( x.length );
+
+            // .big()
+            document.write( x.big() );
+
+            // .concat
+            document.write( x.concat('x','987665', '!@#$%^&*(') );
+            document.write('<hr />');
+
+            // .replace()
+            var x = 'abc123abc';
+            // document.write( x.replace('c','p'));
+            document.write( x.replace(/c/g,'p'));
+            document.write('<hr />');
+
+
+            // .split()
+            var x = 'abc123';
+            var x = 'a-b-c-1-2-3';
+            var x = 'a,b,c,1,2,3';
+            console.log( x.split('') );
+            console.log( x.split('-') );
+            console.log( x.split(',') );
+            document.write('<hr />');
+
+        // Math 对象
+            document.write( Math.PI );
+            document.write('<hr />');
+
+            var x = -5;
+            document.write( Math.abs(x) );
+            document.write('<hr />');
+
+            var x = 1.0;
+            document.write( Math.ceil(x) );  // 进一取整
+            document.write( Math.floor(x) ); // 舍一取整
+            document.write('<hr />');
+
+            var x = [1,2,3,4,5];
+            document.write( Math.max(x) );
+            document.write( Math.max(1,2,3,4,5) );
+            document.write('<hr />');
+
+            document.write( Math.pow(2,10));
+            document.write( 2 ** 10 );
+            document.write('<hr />');
+
+
+            // document.write( Math.random() );
+            document.write( Math.random() * 100 );
+    </script>
+
+
+
+</body>
+</html>

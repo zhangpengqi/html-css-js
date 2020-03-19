@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>类型转换</title>
+</head>
+<body>
+    <!-- 
+        1. 转为number
+            Number()
+                字符串: 只有正常的数字, 小数, 科学计数法保留数字
+                布尔: 
+                    true => 1
+                    false => 0
+                null => 0
+                undefined => NaN
+
+            parseInt()
+                字符串: 
+                    数字开头的, 保留到第一个字母之前的所有数字
+                    字母开头, NaN
+                boolean, null, undefined => NaN
+
+            parseFloat()
+                字符串:
+                    数字开头的, 保留到第一个字母之前的所有数字(除了第一个字母e 和 小数点)
+                    字母开头, NaN
+                boolean, null, undefined => NaN
+
+        2. 转为string
+            String() : 任何数据都可以原封不动转为字符串
+            .toString()
+
+        3. 转为boolean
+            Boolean()
+
+    -->
+    <script>
+        var x = Number('2');    // 2
+        var x = Number('2a');   // NaN
+        var x = Number('a2');   // NaN
+        var x = Number('2e3');   // 2000
+        var x = Number('2eb');   // NaN
+        var x = Number('2@');    // NaN
+        var x = Number('2.3');   // 2.3
+        var x = Number('2.3.4');   // NaN
+        var x = Number(true);      // 1
+        var x = Number(false);     // 0
+        var x = Number(null);      // 0
+        var x = Number(undefined); // NaN
+        console.log(x, typeof x);
+        console.log('------------- 分隔符 --------------');
+
+        var x = parseInt('2');   // 2
+        var x = parseInt('2a');  // 2
+        var x = parseInt('a2');  // NaN
+        var x = parseInt('2e3'); // 2
+        var x = parseInt('2.3'); // 2
+        var x = parseInt('2.3.4');      // 2
+        var x = parseInt('2.8');        // 2
+        var x = parseInt(true);         // NaN
+        var x = parseInt(false);        // NaN
+        var x = parseInt(null);         // NaN
+        var x = parseInt(undefined);    // NaN
+        console.log(x, typeof x);
+        console.log('------------- 分隔符 --------------');
+
+        var x = parseFloat('2');
+        var x = parseFloat('2.a');
+        var x = parseFloat('a.2');
+        var x = parseFloat('a2');
+        var x = parseFloat('2a');
+        var x = parseFloat('2.3a');
+        var x = parseFloat('2.3e4');
+        var x = parseFloat('2e4');
+        var x = parseFloat('2.3');
+        var x = parseFloat('2.3.4');
+        var x = parseFloat(true);
+        var x = parseFloat(false);
+        var x = parseFloat(null);
+        var x = parseFloat(undefined);
+
+        console.log(x, typeof x);
+    </script>
+
+
+    <script>
+        var x = String(1);
+        var x = String(1.2);
+        var x = String(2e4);
+        var x = String(true);
+        var x = String(false);
+        var x = String(null);
+        var x = String(undefined);
+        console.log(x, typeof x);
+
+
+        var x = 13;
+        var y = x.toString();
+        var y = x.toString(2);
+        var y = x.toString(5);
+        var y = x.toString(10); // 默认
+        var y = x.toString(16);
+
+        var x = null;   // 报错
+        var x = undefined; // 报错
+        var x = true;
+        var x = false;
+        var y = x.toString();
+        console.log(y, typeof y);
+        console.log('------------- 分隔符 --------------');
+    </script>
+
+
+    <script>
+        var x = Boolean(0);
+        var x = Boolean(0.0);
+        var x = Boolean(-0);
+        var x = Boolean(NaN);
+        var x = Boolean(null);
+        var x = Boolean(undefined);
+        var x = Boolean(false);
+        var x = Boolean('');
+        // 以上都能转为false, 其余值都只会转为true
+    </script>
+
+
+    <script>
+        // number 与 其余类型 运算时(string的+除外),  其余类型 自动转为 number
+        console.log(5 - '2');  // 3
+        console.log(5 - '2a'); // NaN
+        console.log(5 - 'a2'); // NaN
+        console.log(5 - true); // 4
+        console.log(5 - null); // 4
+        console.log(5 - undefined); // 4
+        console.log(5 + true); // 6
+        console.log('------------- 分隔符 --------------');
+
+        console.log(true - '2'); // -1  相当于 1-2 = -1
+        console.log(null - '2'); // -2  相当于 1-2 = -1
+        console.log(undefined - '2'); // NaN  
+    </script>
+
+
+
+</body>
+</html>

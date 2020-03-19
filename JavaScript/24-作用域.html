@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>作用域</title>
+</head>
+<body>
+    <!--  
+        1. ES5 作用域
+            * 全局变量: 在函数外定义的变量
+            * 局部变量: 在函数内定义的变量
+    -->
+    <script>
+        var x = 10; // 全局变量x
+
+        function demo(){
+            var y = 20; // 局部变量x
+        }
+    </script>
+
+
+    <!--  
+        2. 作用域链
+            局部环境: 能解析全局变量
+            全局环境: 不能解析局部变量
+                      (可以解析没有用 var 声明的变量)
+            
+            作用域链: 
+                当前作用域 > 其余作用域            
+    -->
+    <script>
+        var x = 10;
+
+        function demo2(){
+            console.log(x);
+            var y = 20;
+        }    
+
+        demo2();
+        // console.log(y);    
+        console.log('------------- 分隔符 --------------');
+
+        function demo3(){
+            var y = 20; // 局部变量
+            z = 30; // 可当做是: 全局变量
+        }   
+
+        demo3();
+        // console.log(y); 
+        console.log(z);
+        console.log('------------- 分隔符 --------------');
+
+
+        // 当前作用域 > 其余作用域
+        // 
+        // 如果当前作用域找不到, 再去上面的作用域找
+
+        var x = 9;  // x1
+
+        function demo4(){
+            var x = 8;  // x2
+            console.log(x);
+
+            function demo5(){
+                var x = 7; // x3
+                console.log(x); 
+            }
+            demo5();
+        }
+
+        demo4();
+    </script>
+
+    <!--  
+        3. ES6 作用域
+            var 声明的变量: 全局作用域
+            let 声明的变量: 块级作用域
+
+            块级作用域可大可小
+    -->
+    <script>
+
+        {
+            // 当前块级作用域
+                var x = 1;
+                let y = 2;  // let 在哪个作用域声明, 作用域就只能在哪里
+                console.log(x,y);
+        }
+
+        // 块级作用域外
+        console.log(x);
+        // console.log(y);
+
+
+        var m = 5;
+        let n = 6; // 此时的let n 是在全局作用域声明
+
+        console.log(m, n);
+
+        function demo9(){
+            console.log(m);
+            console.log(n);
+        }
+
+        demo9();
+        console.log('------------- 分隔符 --------------');
+
+
+        for(var i = 0; i < 5; i++){
+
+        }
+
+        console.log(i);
+
+
+        for(let j = 0; j < 5; j++){
+            console.log(j);
+        }
+
+        console.log(j);
+    </script>
+
+    <!--  
+        扩展知识: 
+         * 有var 和 没有var 的区别
+    -->
+
+
+
+
+
+
+
+</body>
+</html>

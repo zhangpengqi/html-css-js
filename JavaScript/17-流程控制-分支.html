@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>分支</title>
+</head>
+<body>
+    <!--  
+        1. if分支
+        2. switch分支
+    -->
+
+    <!--  
+        if单向分支
+            if( 条件表达式 )  一条语句
+
+            if( 条件表达式 ){
+                代码块
+            }
+
+        if双向分支
+
+            if( 条件表达式 ){
+                代码块
+            }else{  
+                代码块
+            }
+
+        if多向分支
+
+            if( 条件表达式 ){
+                代码块
+            }else if( 条件表达式 ){  
+                代码块
+            }else if( 条件表达式 ){  
+                代码块
+            }else if( 条件表达式 ){  
+                代码块
+            }else if( 条件表达式 ){  
+                代码块
+            }else{
+                代码块
+            }
+
+            注意: 
+                * else 和 if 之间必须要有空格
+                * 最后一个else 可写可不写
+
+        if巢状分支
+            if( 条件表达式 ){
+                if( 条件表达式 ){
+                    if( 条件表达式 ){
+                        if( 条件表达式 ){
+                            代码块             必须同时满足前面的所有条件
+                        }else{
+                            代码块
+                        }   
+                    }else{
+                        代码块
+                    }
+                }else{
+                    代码块
+                }
+            }else{
+                代码块
+            }
+
+    -->
+    <script>
+        // 单项分支
+        var 存款 = 100000000;
+        var 存款 = 10;
+        if( 存款 > 9999999) console.log('程序员都有这么多钱');
+
+        console.log('-------if之外的代码, 完全不会受到if的影响--------');
+
+        var 存款 = 10;
+        var 存款 = 10000000;
+        if( 存款 > 9999999){
+            console.log('程序员都有这么多钱');
+            console.log('程序员一般花不了这么多钱');
+        }
+        console.log('-------if之外的代码, 完全不会受到if的影响--------');
+
+        // 双向分支
+        var 存款 = 10;
+        var 存款 = 1000000000000;
+        if (存款 > 99999999) {
+            console.log('取了迪丽热巴');
+        } else {
+            console.log('去加班');
+        }
+        console.log('-------if之外的代码, 完全不会受到if的影响--------');
+
+
+        // 多向分支
+        var 存款 = 10;
+        var 存款 = 1000;
+        var 存款 = 1000000;
+        var 存款 = 100000000000;
+
+        if (存款 > 9999999) {
+            console.log('取了迪丽热巴');
+        } else if(存款 > 99999){
+            console.log('取了薛琮润');
+        } else if(存款 > 99){
+            console.log('取了赵云鹏');
+        } else{
+            console.log('取了李子健');
+        }
+        console.log('-------if之外的代码, 完全不会受到if的影响--------');
+
+        // 巢状分支
+        var 账号 = 'admin';
+        var 密码 = 6666;
+
+        if( 账号 == 'admin'){
+            if(密码 == 6666){
+                console.log('登录成功');                    
+            }else{
+                console.log('密码不正确');
+            }
+
+        }else{
+            console.log('账号不存在');
+        }
+    </script>
+
+    <!-- 
+        2. switch 分支
+    
+            switch(标记){
+                case 标记1: 代码块; break;
+                case 标记2: 代码块; break;
+                ...
+                case 标记N: 代码块; break;
+                default: 代码块;
+            }
+
+            注: 
+             * break 能立马结束switch分支
+             * 每个case 的代码块没有break, 会依次向下执行
+             * 匹配不到标记是, 默认执行default, 如果没有default, 则结束switch
+             * 标记只能匹配同类型数据, 不能匹配等价数据
+     -->
+    <script>
+        var name = '蛮王';
+        var name = '风女';
+        var name = '小炮';
+        var name = '提莫';
+
+        // switch( name ){
+        //     case '蛮王': console.log('我的大刀早已饥渴难耐'); 
+        //     case '亚索': console.log('哈斯k, 面对疾风吧'); 
+        //     case '小炮': console.log('我好想射点什么'); 
+        //     case '寒冰': console.log('我射的一向很准'); 
+        //     case '风女': console.log('只要998, 就能让你爽到不能呼吸'); 
+        //     case '飞机': console.log('人人都会打飞机, 这对飞机是非常不公平的'); 
+        // }
+
+        // console.log('------------- 分隔符 --------------');
+
+        // switch( name ){
+        //     case '蛮王': console.log('我的大刀早已饥渴难耐'); break;
+        //     case '亚索': console.log('哈斯k, 面对疾风吧'); break;
+        //     case '小炮': console.log('我好想射点什么'); break;
+        //     case '寒冰': console.log('我射的一向很准'); break;
+        //     case '风女': console.log('只要998, 就能让你爽到不能呼吸'); break;
+        //     case '飞机': console.log('人人都会打飞机, 这对飞机是非常不公平的'); break;
+        // }
+        
+
+        // switch( name ){
+        //     case '蛮王': console.log('我的大刀早已饥渴难耐'); break;
+        //     case '亚索': console.log('哈斯k, 面对疾风吧'); break;
+        //     case '小炮': console.log('我好想射点什么'); break;
+        //     case '寒冰': console.log('我射的一向很准'); break;
+        //     case '风女': console.log('只要998, 就能让你爽到不能呼吸'); break;
+        //     case '飞机': console.log('人人都会打飞机, 这对飞机是非常不公平的'); break;
+        //     // default: console.log('查无此人');
+        // }
+
+
+        var x = 1;
+        var x = 0;
+        var x = true;
+
+        switch( x ){
+            case 0==0: console.log('6666'); break;
+            case 3-3: console.log('5555'); break;
+            case 0.0: console.log('4444'); break;
+            case undefined: console.log('3333'); break;
+            case null: console.log('3333'); break;
+            case '1': console.log('2222'); break;
+            case true: console.log('1111'); break;
+            case 1: console.log('0000'); break;
+        }
+        console.log('------------- 分隔符 --------------');
+    </script>
+
+
+    
+
+    数据1: <input type="text" id="num1"> <br>
+    数据2: <input type="text" id="num2"> <br>
+    <hr>
+    <button onclick="run(1)">+</button>
+    <button onclick="run(2)">-</button>
+    <button onclick="run(3)">&times;</button>
+    <button onclick="run(4)">&divide;</button>
+    <hr>
+
+    <div id="box"></div>
+
+    <script>
+
+        function run( ope ){
+
+            // 获取两个 标签对象
+            var n1 = document.getElementById('num1');
+            var n2 = document.getElementById('num2');
+            var box = document.getElementById('box');
+
+
+            // 获取 input标签的value值
+            var v1 = Number(n1.value);
+            var v2 = Number(n2.value);
+
+            // 安全性: 检测是否为 NaN, 如果是NaN, 则直接报错
+            if( isNaN(v1) || isNaN(v2) ){
+                box.innerHTML = '请填写正确的数字';
+                return ;
+            }
+
+
+            // 根据 ope运算符 决定做什么运算
+            switch( ope ){
+                case 1: var result = v1 + v2; break;
+                case 2: var result = v1 - v2; break;
+                case 3: var result = v1 * v2; break;
+                case 4: 
+                    if(v2 == 0){
+                        box.innerHTML = '被除数不能为0';
+                        return ;
+                    }
+
+                    var result = v1 / v2; 
+                    break;
+            }
+
+            // 显示结果
+            box.innerHTML = '结果: ' + result;
+        }
+
+    </script>
+
+
+
+
+
+
+
+</body>
+</html>

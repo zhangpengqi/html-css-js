@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ex-DOM</title>
+    <style>
+        #box{
+            width: 200px;
+            height: 200px;
+            padding: 10px;
+            border: 5px solid black;
+            white-space: nowrap;
+            overflow: auto;
+        }
+    </style>
+</head>
+<body>
+
+
+    <form action="" name="form1"></form>
+    <form action="" name="form2"></form>
+    <hr>
+
+    <a href="http://www.baidu.com"> 百度</a>
+    <a href="http://www.taobao.com"> 淘宝</a>
+    <hr>
+
+    
+    <img src="https://res0.vmallres.com/pimages//product/6901443280988/428_428_1545877216682mp.png">
+    <img src="https://res0.vmallres.com/pimages//product/6901443315376/428_428_1563876645993mp.png">
+    <hr>
+
+    <ol id="A" class="m n">
+        <li>李白</li>
+        <li>阿珂</li>
+        <li id="B">悟空</li>
+        <li>兰陵</li>
+        <li>赵云</li>
+        <!--注释内容-->
+    </ol>
+    <hr>
+
+    <div id="box">程序员一个人深夜敲代码是什么感觉? 那是武林高手闭关修炼的感觉<!--6666--></div>
+    <p></p>
+
+
+
+    <!--   
+        2. document 
+            document 对象是 HTML 文档的根节点
+
+            document对象集合
+                document.all    获取document中所有的html元素
+                document.forms  获取document中所有的form元素
+                document.images 获取document中所有的img元素
+                document.links  获取document中所有的链接元素
+
+            document对象属性
+                document.body       返回整个body体
+                document.domain     返回当前域名
+                document.title      返回当前网页标题
+                document.URL        返回当前url地址
+                document.documentElement    返回文档的根节点  
+
+            document对象方法
+                document.getElementById()           根据id获取element对象
+                document.getElementsByClassName()   根据class获取element对象
+                document.getElementsByTagName()     根据标签名获取element对象
+                document.getElementsByName()        根据name获取element对象
+                document.write()                    写入html元素 
+
+                document.createElement()            创建元素节点
+                document.createAttribute()          创建属性节点
+                document.createTextNode()           创建文本节点
+
+        3. element
+            所有的标签元素都是element
+
+            属性
+                节点.childNodes       获取该节点的所有子节点 (包含文本, 元素节点)
+                节点.firstChild       获取该节点的第一个子节点
+                节点.lastChild        获取该节点的最后一个子节点
+                节点.nextSibling      获取该节点的下一个兄弟节点
+                节点.previousSibling  获取该节点的上一个兄弟节点
+                节点.parentNode       获取该节点的父级节点
+
+
+                节点.children                获取该节点的所有子元素节点
+                节点.nextElementSibling      获取该节点的下一个兄弟元素节点
+                节点.previousElementSibling  获取该节点的上一个兄弟元素节点
+
+
+                节点.tagName         获取/设置该节点的标签名 
+                节点.id              获取/设置该节点的id名 
+                节点.classList       获取/设置该节点的class名 (集合)
+                节点.className       获取/设置该节点的class名 (字符串)
+
+
+                节点.innerHTML       获取/设置该节点的文本内容(包含标签, 包含空格)
+                节点.textContent     获取/设置该节点的文本内容(不包含标签, 包含空格)
+                节点.innerText       获取/设置该节点的文本内容(不包含标签, 不包含空格)
+
+
+                节点.clientWidth     获取该节点的宽度  (width+padding, 不包含border,滚动条)
+                节点.clientHeight    获取该节点的高度  (height+padding, 不包含border,滚动条)
+                节点.offsetWidth     获取该节点的宽度  (width+padding+border)
+                节点.offsetHeight    获取该节点的高度  (height+padding+border)
+
+
+                节点.scrollWidth     获取该节点的滚动区间宽度  (不包含滚动条)
+                节点.scrollHeight    获取该节点的滚动区间高度  (不包含滚动条)
+                节点.scrollLeft       获取该节点滚动条距离最左侧的距离
+                节点.scrollTop        获取该节点滚动条距离最顶部的距离
+
+
+                节点.nodeName        获取该节点的名字
+                节点.nodeType        获取该节点的类型
+                节点.nodeValue       获取该节点的值
+
+
+            方法
+                节点.hasChildNodes()          是否有子节点
+                节点.appendChild()            追加一个子元素
+                节点.insertBefore(new,node)   插入一个子元素(在指定节点前插入一个新节点)
+                节点.replaceChild(new,old)    替换一个子元素
+                节点.removeChild()            删除一个子元素
+
+                节点.hasAttribute()           是否有指定属性名
+                节点.hasAttributes()          是否有属性 (不需要指定具体属性, 只要有任意一个属性即可)
+                节点.getAttribute()           查看属性
+                节点.setAttribute(属性名, 属性值) 设置属性
+                节点.removeAttribute()        删除属性
+
+                节点.getAttributeNode()       查看属性节点
+                节点.setAttributeNode()       设置属性节点
+                节点.removeAttributeNode()    删除属性节点
+
+                节点.cloneNode()              克隆节点 (true: 连同子节点一起克隆.   false: 仅克隆当前节点的本身)
+            
+                节点.addEventListener()       添加监听
+                节点.removeEventListener()    移除监听
+
+    -->
+    <script>
+        // 属性
+            // 1. 获取所有的form集合
+                console.log( document.forms );
+
+            // 2. 获取所有的图片
+                console.log( document.images );
+
+            // 3. 获取所有的链接
+                console.log( document.links );
+
+            // 4. 获取当前网页标题
+                console.log( document.title );
+
+            // 5. 给ul添加一个子元素li, li的文本内容: 不知火舞
+                var A = document.getElementById('A');
+                var x1 = document.createElement('li');  // 创建了一个元素节点
+
+                // 添加内容1
+                x1.innerHTML = '不知火舞';
+
+                // 添加内容2
+                // var x2 = document.createTextNode('不知火舞');
+                // x1.appendChild(x2);
+
+                A.appendChild(x1);
+
+            // 6. 仅仅获取ul的所有子元素节点
+                console.log( A.children );
+                console.log( A.children.length );
+                console.log( A.children[0] );
+
+            // 7. 获取ul的所有子节点
+                console.log( A.childNodes );
+
+            // 8. 获取悟空的前面一个兄弟元素节点
+                var B = document.getElementById('B');
+                console.log( B.previousElementSibling );
+
+            // 9. 获取悟空的前面一个兄弟节点
+                console.log( B.previousSibling );
+
+            // 10. 获取悟空后面一个兄弟元素节点
+                console.log( B.nextElementSibling );
+
+            // 11. 获取悟空后面一个兄弟节点
+                console.log( B.nextSibling );
+
+            // 12. 获取悟空的父级节点
+                console.log( B.parentNode );
+
+            // 13. 获取box的节点name, 节点value, 节点type
+                var box = document.getElementById('box');
+
+                // nodeName
+                //  元素: 标签名
+                //  属性: 属性名
+                //  文本: #text
+                //  注释: #coment
+                //  文档: #document
+                //  文档声明: html
+
+
+                // nodeValue:
+                //  元素: null
+                //  属性: 属性值
+                //  文本: 正文内容
+                //  注释: 注释内容
+                //  文档: null
+                //  文档声明: null
+                
+
+                // nodeType:
+                //  元素: 1
+                //  属性: 2
+                //  文本: 3 
+                //  注释: 8
+                //  文档: 9
+                //  文档声明: 10
+                
+
+
+                // 元素节点的name, value, type
+                console.log( box.nodeName );
+                console.log( box.nodeValue );
+                console.log( box.nodeType );
+
+                // 文本节点的name, value, type 
+                console.log( box.firstChild );
+                console.log( box.firstChild.nodeName );
+                console.log( box.firstChild.nodeValue );
+                console.log( box.firstChild.nodeType );
+
+                // 注释节点的name, value, type 
+                console.log( box.lastChild );
+                console.log( box.lastChild.nodeName );
+                console.log( box.lastChild.nodeValue );
+                console.log( box.lastChild.nodeType );
+
+                // 文档节点的name, value, type
+                console.log( document.nodeName);
+                console.log( document.nodeValue);
+                console.log( document.nodeType);
+
+                // 文档声明的name, value, type
+                console.log( document.documentElement.previousSibling.nodeName );
+                console.log( document.documentElement.previousSibling.nodeValue );
+                console.log( document.documentElement.previousSibling.nodeType );
+
+            // 14. 获取ol的标签名
+                console.log( A.tagName );
+
+            // 15. 获取ol的id
+                console.log( A.id );
+
+            // 16. 获取ol的class
+                console.log( A.className );  // class 字符串
+                // A.className = 'x';
+                console.log( A.classList );  // class 集合
+                // A.className = 'x';
+            
+            // 17. 获取ol的文本内容
+                console.log( A.innerHTML ); // 包含空格, 标签
+                console.log( A.innerText ); // 只获取文本(不包含空格, 不包含标签)
+                console.log( A.textContent ); // 不包含标签, 包含空格和文本
+
+            // 18. 获取box的宽度, 高度
+                var box = document.getElementById('box');
+
+                // width + padding  (不包含滚动条)
+                console.log( box.clientWidth, box.clientHeight);
+
+                // width + padding + border
+                console.log( box.offsetWidth, box.offsetHeight);
+
+
+            // 19. 获取box的滚动内容的宽度, 高度
+                box.onscroll = function (){
+                    console.log( box.scrollLeft );  // 距离box滚动条最左面的距离
+                    console.log( box.scrollTop );   // 距离box滚动条最上面的距离
+                }
+                console.log('------------- 分隔符 --------------');
+
+
+        // 方法
+            // 1. 查看ol 是否有子节点
+                console.log( A.hasChildNodes() );
+
+                var p = document.getElementsByTagName('p');
+                console.log(  p[0].hasChildNodes() );
+
+            // 2. 追加一个子元素
+                var x2 = document.createElement('b');
+                x2.innerHTML = '加粗标签'
+                box.appendChild(x2);
+
+
+            // 3. 插入一个子元素
+                var x3 = document.createElement('b');
+                x3.innerHTML = '加粗标签'
+                box.insertBefore(x3, box.childNodes[1]);
+
+            // 4. 替换一个子元素
+                // var x4=  document.createElement('li');
+                // x4.innerHTML = '八戒';
+
+                // A.replaceChild(x4, B);
+
+            // 5. 删除一个子元素
+                A.removeChild(B);
+
+
+            // 6. 查询属性
+                console.log( A.getAttribute('id') );
+
+            // 7. 查询属性节点
+                console.log( A.getAttributeNode('id') );
+
+
+            // 8. 设置属性
+                A.setAttribute('abc', '666') 
+                A.setAttribute('title', '999') 
+
+
+            // 9. 设置属性节点
+                var x5 = document.createAttribute('xyz');
+                x5.value = '000';
+
+                A.setAttributeNode(x5)
+
+            // 10. 克隆节点
+                // document.body.appendChild(   A.cloneNode(true)    ) 
+                document.body.appendChild(   A.cloneNode(false)    ) 
+
+
+
+
+    </script>
+
+
+
+
+
+</body>
+</html>

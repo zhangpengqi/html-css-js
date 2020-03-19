@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>文字滚动</title>
+    <style>
+        body,ul{
+            margin: 0;
+            padding: 0;
+        }
+
+        #box{
+            width: 500px;
+            height: 136px;
+            border: 5px solid;
+            overflow: hidden;
+            margin: 100px auto;
+        }
+
+
+        #box li{
+            font-size: 25px;
+        }
+    </style>
+    <script src="jquery-3.4.1.min.js"></script>
+</head>
+<body>
+    
+    <div id="box">
+        <ul>
+            <li>恭喜92期的赵云鹏喜得 贵子</li>
+            <li>恭喜92期的李子健喜得 孙女</li>
+            <li>恭喜92期的黄博喜得 娇妻</li>
+            <li>恭喜92期的金月强喜得 兰博基尼5块抵用券</li>
+            <li>恭喜92期的肖思华喜得 班主任</li>
+            <li>恭喜92期的薛琮润喜得 蔡徐坤</li>
+            <li>恭喜92期的黄磊喜得 迪丽热巴</li>
+            <li>恭喜92期的赵俊哲喜得 如花</li>
+            <li>恭喜92期的王涛喜得 翠花</li>
+        </ul>
+    </div>
+
+
+    <script>
+        $(function(){
+            
+            var height = $('#box li').height();
+
+            setInterval(function(){
+
+                $('#box ul').animate({
+                    marginTop: -height
+                }, 1000, 'linear' ,function(){
+                    $('#box ul li:first').appendTo('#box ul');
+                    $('#box ul').css('marginTop','0')
+                })
+
+
+
+            }, 1000);
+
+
+
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>对象</title>
+</head>
+<body>
+    <!--  
+        1. Object 对象
+            与Array类型, 都是容器
+            Array 给数据分配 编号
+            Object  给数据分配 属性, 有更高的代码可读性
+
+        2. 定义
+            {
+                属性: 值,
+                属性: 值,
+                属性: 值,
+                ...
+                方法: function(){
+                    代码块
+                },
+
+                方法: function(){
+                    代码块
+                },
+                ...
+            }
+
+            一个对象由: 属性 和 方法 组成
+            属性: 类似于编号, 不过可读性更高
+            方法: 函数的另一种表达方式
+
+        3. 使用属性
+            对象变量.属性
+
+        4. 使用方法
+            对象变量.方法()
+
+
+    -->
+    <script>
+        var obj = {'射手':'后羿', '法师':'妲己', '坦克':'白起',}
+        var obj = {
+                '射手':'后羿', 
+                '法师':'妲己', 
+                '坦克':'白起',
+            }
+
+
+        var 英雄 = {
+            '姓名': '后羿',
+            '职业': '射手',
+            技能1: function(){
+                return '万箭齐发';
+            },
+            技能2: function(){
+                return '寒冰箭';
+            },
+            大招: function( num ){
+                return '我要射'+num+'个太阳';
+            },
+
+        }
+
+        console.log( 英雄.姓名 );
+        console.log( 英雄.职业 );
+        console.log( 英雄.技能1() );
+        console.log( 英雄.技能2() );
+        console.log( 英雄.大招(999) );
+
+
+        // xxx.属性
+        // xxx.方法()
+
+        // xxx.length
+        // xxx.splice()
+
+        // 函数
+        // xxx()
+        // Boolean()
+        // Number()
+        // String()
+        // parseInt()
+
+        // xxx.Boolean()
+
+
+    </script>
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>数据类型-number</title>
+</head>
+<body>
+    <!-- 
+        1. number有几种形态
+            整数
+            小数, 浮点数
+            NaN: Not a Number
+                NaN与任何数进行运算, 结果都是: NaN
+                NaN与任何数进行比较, 结果都是: false
+                0/0 的结果: NaN
+
+            科学计数法 (超大的数字)
+                mEn : m * 10的n次方
+
+                2E3 = 2 * 10的3次方
+
+                字母E 可大写,可小写
+
+            无穷大
+                Infinity     正无穷
+                -Infinity    负无穷
+
+                因为内存限制, 最大值: 1.7976931348623157e+308
+                              最小值: 5e-324
+
+                             超过 1.7976931348623157e+308 为 Infinity
+                             超过 -1.7976931348623157e+308 为 -Infinity
+                             超过 5e-324 为 0
+                             超过 -5e-324 为 -0
+    -->
+    <script>
+        console.log( NaN + 10 );
+        console.log( NaN + 0 );
+        console.log( NaN > 1 );
+        console.log( NaN < 1 );
+        console.log( NaN == 1 );
+        console.log( NaN == NaN );
+        console.log( 0/0 );
+
+        console.log('------------- 分隔符 --------------');
+
+
+        console.log( 1.7976931348623157e+308 );
+        console.log( 1.7976931348623157e+309 );
+        console.log( -1.7976931348623157e+309 );
+
+        console.log( 5e-324 );
+        console.log( -5e-324 );
+        console.log( 5e-325 );
+        console.log( -5e-325 );
+    </script>
+
+
+    <!-- 
+                            基数           前缀
+            二进制          0~1            0b
+            八进制          0~7            0 或 0o
+            十进制          0~9            无
+            十六进制        0~9 a~f        0x
+            
+            任意进制 => 十进制
+            公式:  基数 * 进制^次方
+                   个位开0次方, 十位开1次方, 百位开2次方, 以此类推
+
+
+            十进制 => 任意进制
+            规律: 十进制数 除以  任意进制数, 除到商为0, 取全部的余数,      倒序输出即为结果
+     -->
+    <script>
+        var num = 0b1110; // 14
+        console.log(num);
+
+        var num = 012; // 10
+        console.log(num);
+
+        var num = 0127;
+        console.log(num);
+
+        var num = 0xa5;  // 10*16^1 + 5*16^0 = 160 + 5 = 165
+        console.log(num);
+
+        var num = 0x2b9;
+        console.log(num);
+
+        // parseInt()   任意进制 => 十进制
+        var num = 1110;
+        console.log(  parseInt(num, 2)  );
+
+        var num = 12;
+        console.log(  parseInt(num, 5)  );
+
+        // toString()   十进制 => 任意进制
+        var num = 14;
+        console.log( num.toString(2) );
+
+    </script>
+
+
+    <!--  
+        其余类型 => number类型
+
+        Number()        转为number数字
+        parseInt()      转为整数int
+        parseFloat()    转为小数, 浮点数float
+    -->
+    <script>
+        var num = Number('123');
+        console.log(typeof num);
+
+        var num = parseInt(1.5);
+        console.log(num, typeof num);
+
+        var num = parseFloat(1);
+        console.log(num, typeof num);
+    </script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>浮动</title>
+    <style>
+        .box{
+            width: 100px;
+            height: 100px;
+        }
+
+        .box1{ 
+            background: orange;
+            /* float: right; */
+            float: left;
+        }
+
+        .box2{ 
+            background: skyblue;
+            float: left;
+        }
+
+        .box3{ 
+            background: lightgreen;
+            float: left;
+        }
+
+
+        span{
+            float: left;
+            font-size: 30px;
+        }
+
+        p:first-letter{
+            /* font-size: 30px; */
+        }
+
+
+        #die{
+            border: 1px solid red;
+
+            /* overflow: hidden; */
+        }
+
+        #die::after{
+            content: '';
+            display: block;
+            clear: both;
+        }
+
+        .son{
+            width: 100px;
+            height: 100px;
+        }
+
+        .son1{ 
+            background: orange;
+            float: left;
+        }
+
+        .son2{ 
+            background: skyblue;
+            float: right;
+        }
+
+        .son3{ 
+            background: lightgreen;
+            float: right;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        浮动场景: 
+        * 将竖排 变成 横排的
+        * 文本环绕(文字, 图片)
+
+        浮动特性: 浮动元素不保留原来的位置, 影响页面布局, 适当clear
+    -->
+
+
+    <!-- 竖排 -> 横排 -->
+    <!-- <div class="box box1"></div> -->
+    <!-- <div class="box box2"></div> -->
+    <!-- <div class="box box3"></div> -->
+
+    
+    
+    <!-- 文本环绕 -->
+    <!-- <p><span>赵</span>云鹏跟他媳妇吵架了, 赵云鹏想: 一个大老爷们, 何必跟一个女人斤斤计较, 就跟媳妇道歉了, 媳妇一听, 挺开心的. 媳妇就把刀放下了, 媳妇他哥把棒球棒页放下了, 老丈人也拿出了电话, 说了句: 棺材退了吧. 夫妻之间只要多沟通, 生活还是很和谐的</p> -->
+    
+    
+    <!-- 
+        清除浮动
+            clear: left | right | both
+
+        方法1: 
+            在浮动元素的最后面, 添加一个空元素, 给空元素添加clear, 即可清除空元素前面的浮动  (空元素 与 浮动元素是兄弟关系)
+
+            w3c 认为空元素是 无意义标签, 一般不推荐使用
+
+        方法2:
+            给浮动元素的父级, 添加overflow:hidden 属性
+            父级即可形成BFC区域, 从而清除了子元素的浮动
+
+            BFC??? 
+
+        方法3: (推荐)
+            给浮动元素的父级, 添加伪对象
+            父级选择器::after{
+                content:'';
+                display:block;       display:table;
+                clear: both;
+            }
+
+     -->
+
+
+    <div id="die">
+        <div class="son son1"></div>
+        <div class="son son2"></div>
+        <div class="son son3"></div>
+        <!-- <div style="clear:both;"></div> -->
+    </div>
+
+
+
+</body>
+</html>

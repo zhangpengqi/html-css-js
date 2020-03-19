@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>闭包</title>
+</head>
+<body>
+    <script>
+        // 需求: 统计 run函数一共被调用了几次
+
+        // 方案1
+        var count = 0;
+
+        function run(){
+            count++;
+        }
+
+        run()
+        // count = 999;
+        run()
+        run()
+        console.log(count);
+        // Bug: count 由于是全局变量, 可以被全局里面的其他人调用/修改/删除, count就不再精准
+        console.log('------------- 分隔符 --------------');
+
+
+        // 方案2
+        function run2(){
+            var count = 0;
+            count++;
+            console.log(count);
+        }
+
+        run2();
+        run2();
+        run2();
+        // Bug: 每次调用run, 变量count 都会被重置, 不会保留上一次的记录
+        console.log('------------- 分隔符 --------------');    
+
+        // 方案3
+        function run3(){
+            var count3 = 0;
+
+            function sum(){
+                count3++;
+                console.log( count3 );
+            }
+
+            return sum;  // 返回的是 sum函数, 而不是数字 (重点, sum没有加() )
+        }
+
+        var res = run3(); // var res = sum函数
+
+        res();
+        res();
+        res();
+
+        // 闭包: 
+        //  在函数A 里面定义函数B, 并返回函数B, 即可形成闭包
+        // 
+        // 优势: 
+        //  * 可使得函数B的生命周期得到延长, 长期保存在内存中
+        // 
+        // 劣势:
+        //  * 由于函数B 的生命周期延长, 内存不能及时释放, 内存消耗变大, 效率变低
+
+
+    </script>
+
+
+</body>
+</html>

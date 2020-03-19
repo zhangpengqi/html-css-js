@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>参数</title>
+</head>
+<body>
+    <!--  
+        1. 参数分类
+            形式参数: 俗称"形参", 定义函数时给的参数
+            实际参数: 俗称"实参", 调用函数时给的参数
+    -->
+    <script>
+        // num1, num2 是形参
+        // x,y 是实参
+        function demo(num1, num2){
+            console.log(num1+num2);
+        }
+
+        var x = 10, y = 20;
+        demo(x, y)
+    </script>
+
+
+
+    <!--  
+        2. 默认参数
+            形参没有默认值, 形参默认采用 undefined
+            形参有默认值, 形参采用指定默认值
+    -->
+    <script>
+        
+        function demo2(num1, num2 = 9){
+            console.log(num1, num2);
+        }
+
+        demo2();
+    </script>
+
+
+    <!--  
+        3. 参数规则
+            * 不限制参数数据类型
+            * 不检查参数数据类型
+            * 不限制参数个数
+
+
+            实参个数 = 形参个数 : 完美
+            实参个数 > 形参个数 : 先来后到, 抛弃后来的实参
+            实参个数 < 形参个数 : 先来后到, 多余的形参, 采用undefined
+            实参个数不确定时 : 使用 arguments 对象读取所有的实参
+    -->
+    <script>
+        // 实参个数 = 形参个数
+        function demo3(num1, num2){
+            console.log(num1, num2);
+        }
+        demo3(10,20);
+
+
+        // 实参个数 > 形参个数
+        function demo3(num1, num2){
+            console.log(num1, num2);
+        }
+        demo3(10,20,30,40,50);
+
+
+        // 实参个数 < 形参个数
+        function demo3(num1, num2){
+            console.log(num1, num2);
+        }
+        demo3(10);
+
+        function demo4(){
+
+            console.log( arguments );
+            console.log( arguments.length );
+            console.log( arguments[0] );
+            console.log( arguments[1] );
+            console.log( arguments[2] );
+            console.log( arguments[3] );
+            console.log( arguments[4] );
+            console.log( arguments[999] );
+
+        }
+        demo4(10,20,30,40,50);
+        console.log('------------- 分隔符 --------------');
+
+
+        function sum(){
+
+            // 累加方法1
+            // var sum = 0;
+            // sum += arguments[0];
+            // sum += arguments[1];
+            // sum += arguments[2];
+            // sum += arguments[3];
+            // sum += arguments[4];
+
+
+            // 累加方法2
+            var sum = 0;
+            for(var i = 0; i < arguments.length; i++){
+                sum += arguments[i];
+            }
+
+            console.log(sum);
+
+        }
+        sum(10,20,30,40,50);
+        sum(10,20);
+        sum(10,20,3,4,5,6,7,8);
+
+
+
+    </script>
+
+
+
+
+
+</body>
+</html>

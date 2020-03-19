@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表格</title>
+</head>
+<body>
+    <!-- 
+        设计表格:  先行再列
+
+        表格
+            table   表格声明
+            caption 表格标题
+            tr       表行
+            th       表头单元格      自带水平垂直居中 且 加粗
+            td       普通单元格      自带水平左对齐, 垂直居中对齐
+
+        表格属性
+            border = "px"  边框
+            width
+            height
+            align = left | center | right   水平对齐方式
+            valign = top | middle | bottom  垂直对齐方式
+
+            cellspacing     外边距: 单元格与单元格之间的距离
+            cellpadding     内边距: 单元格与内容之间的距离
+
+            rowspan     行合并
+            colspan     列合并
+
+            bgcolor      背景颜色
+            
+
+        注意: 
+            行列合并时, 选择一行or一列的第一个进行合并
+        
+     -->
+
+     <table border="1" width="80%" height="500" align="center" cellspacing="0" cellpadding="20">
+        <caption> <h2>课程表</h2> </caption>
+
+        <tr align="center"  bgcolor="skyblue">
+            <th colspan="2"></th>
+            <!-- <th></th> -->
+            <th>星期一</th>
+            <th>星期二</th>
+            <th>星期三</th>
+            <th>星期四</th>
+            <th>星期五</th>
+            <th>星期六</th>
+            <th>星期日</th>
+        </tr>
+        <tr align="center" >
+            <td rowspan="4">上午</td>
+            <td>1</td>
+            <td align="right"  valign="top">体育</td>
+            <td>体育</td>
+            <td>体育</td>
+            <td>形体</td>
+            <td>艺术</td>
+            <td>睡觉</td>
+            <td>睡觉</td>
+        </tr>
+        <tr align="center">
+            <!-- <td>上午</td> -->
+            <td>2</td>
+            <td>体育</td>
+            <td>体育</td>
+            <td>体育</td>
+            <td>形体</td>
+            <td>艺术</td>
+            <td>睡觉</td>
+            <td>睡觉</td>
+        </tr>
+        <tr align="center">
+            <!-- <td>上午</td> -->
+            <td>3</td>
+            <td>体育</td>
+            <td>体育</td>
+            <td>体育</td>
+            <td>形体</td>
+            <td>艺术</td>
+            <td>睡觉</td>
+            <td>睡觉</td>
+        </tr>
+        <tr align="center">
+            <!-- <td>上午</td> -->
+            <td>4</td>
+            <td>体育</td>
+            <td>体育</td>
+            <td>体育</td>
+            <td>形体</td>
+            <td>艺术</td>
+            <td>睡觉</td>
+            <td>睡觉</td>
+        </tr>
+
+          
+     </table>
+
+
+
+
+
+</body>
+</html>

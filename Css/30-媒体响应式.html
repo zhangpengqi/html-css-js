@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>媒体响应式</title>
+    <style>
+        /* 电脑端 */
+        @media screen and (min-width:996px){
+            .box{
+                height: 100px;
+                float: left;
+            }
+
+            .box1{
+                background: orange;
+                width: 33%;
+            }
+
+            .box2{
+                background: skyblue;
+                width: 33%;
+            }
+
+            .box3{
+                background: lightgreen;
+                width: 33%;
+            }
+        }
+
+        /* 平板端 */
+        @media screen and (min-width: 768px) and (max-width: 996px) {
+            
+            .box{
+                height: 100px;
+            }
+
+            .box1{
+                background: orange;
+                float: left;
+                width: 50%;
+            }
+
+            .box2{
+                background: skyblue;
+                float: left;
+                width: 50%;
+            }
+
+            .box3{
+                background: lightgreen;
+                float: left;
+                width: 100%;
+            }
+
+        }
+
+        /* 手机端 */
+        @media screen and (max-width:768px){
+            .box{
+                height: 100px;
+            }
+
+            .box1{
+                background: orange;
+                width: 100%;
+            }
+
+            .box2{
+                background: skyblue;
+                width: 100%;
+            }
+
+            .box3{
+                background: lightgreen;
+                width: 100%;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    
+    <!-- emmet插件， 使用方式， 请百度 -->
+
+    <div class="box box1"></div>
+    <div class="box box2"></div>
+    <div class="box box3"></div>
+
+</body>
+</html>

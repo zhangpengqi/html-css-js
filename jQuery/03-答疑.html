@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <!-- <script src="./jquery-3.4.1.min.js"></script> -->
+    <script src="jquery-1.8.3.min.js"></script>
+    <style>
+        .focused {
+            background: #abcdef;
+        }
+
+        #run + div{ 
+         position: fixed;
+         left: 200px;
+         top: 200px;
+         width: 200px;
+         height: 200px;
+         background: pink;
+        }
+    </style>
+</head>
+<body>
+
+    <ul>
+        <li>李白</li>
+        <li class="list">阿珂</li>
+        <li>悟空</li>
+    </ul>
+
+    <div id="content">
+        <input tabIndex="1">
+        <input tabIndex="2">
+        <select tabIndex="3">
+            <option>select menu</option>
+        </select>
+        <div tabIndex="4">
+            a div
+        </div>
+    </div>
+
+    <p>jQuery 代码:</p>
+
+    <input type="text" id="A" > 
+
+    <button id="run">Run</button>
+    <div></div>
+
+    <script>
+        $(function(){
+
+            // :not(选择器)
+            $('li:not(.list)').css('color','red');
+
+
+            $( "#content" ).delegate( "*", "focus blur", function( event ) {
+                var elem = $( this );
+                setTimeout(function() {
+                   elem.toggleClass( "focused", elem.is( ":focus" ) );
+                }, 0);
+            });
+
+
+            // var count = 0;
+
+            // $("p").click(function(){
+            //     console.log( count );
+            //     $(this).toggleClass("highlight");
+            // });
+
+            // $('#A').on('focus  blur', function(){
+            //     console.log( $(this).is(':focus'));
+            // })
+
+
+            // $("#run").click(function(){
+
+            //   var left = parseInt( $(this).css('left') );
+
+            //   $("div:not(:animated)").animate({ 
+            //         'left': "+=20"
+            //   }, 1000);
+            // });
+
+
+
+            // first-child  和 first-of-type
+            // chid: 先找父级, 再找第一个子元素, 最后看第一个子元素是不是需要的元素
+            // of-type: 先找父级, 再找所有指定子元素, 最后从所有指定子元素中挑第第一个
+
+
+        });
+
+
+    </script>
+
+</body>
+</html>

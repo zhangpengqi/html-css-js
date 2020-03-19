@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>轮播图</title>
+    <style>
+        body,ul,ol,li,img{ margin: 0; padding: 0; }
+        li{list-style: none;}
+        .clearfix::after{
+            content: '';
+            display: block;
+            clear: both;
+        }
+
+
+        #banner{
+            width: 1226px;
+            height: 460px;
+            margin: 100px auto;
+            position: relative;
+        }
+
+        #banner .img-list li img{
+            position: absolute;
+            transition: all 1s;
+        }
+
+        #banner .left{
+            width: 41px;
+            height: 69px;
+            position: absolute;
+            left: 0px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: url('./resource/icon-slides.png') -83px 0px;
+        }
+
+        #banner .left:hover{
+            background-position: 0 0;
+        }
+
+
+        #banner .right{
+            width: 41px;
+            height: 69px;
+            position: absolute;
+            right: 0px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: url('./resource/icon-slides.png') 40px 0px;
+        }
+
+        #banner .right:hover{
+            background-position: -42px 0;
+        }
+
+        #banner .round{
+            position: absolute;
+            right: 30px;
+            bottom: 20px;
+        }
+
+        #banner .round ul li{
+            width: 6px;
+            height: 6px;
+            background: rgba(0,0,0,0.4);
+            border: hsla(0,0%,100%,.3) 2px solid;  
+            float: left;
+            margin-left: 10px;
+            border-radius: 100%;
+        }
+
+        #banner .round ul li:hover{
+            background: hsla(0,0%,100%,.4);
+            border-color: rgba(0,0,0,.4);
+        }
+
+
+
+
+
+    </style>
+</head>
+<body>
+    
+    <div id="banner">
+        <ul class="img-list">
+            <li><img src="resource/mi1.webp" width="1226" height="460"></li>
+            <li><img src="resource/mi2.webp" width="1226" height="460"></li>
+            <li><img src="resource/mi3.jpg" width="1226" height="460"></li>
+            <li><img src="resource/mi4.webp" width="1226" height="460"></li>
+        </ul>
+
+        <div class="left"></div>    
+        <div class="right"></div>    
+        <div class="round">
+            <ul>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+    </div>
+
+
+    <script>
+        var banner = document.getElementById('banner');
+        var img = banner.getElementsByTagName('img');
+        var left = banner.getElementsByClassName('left')[0];
+        var right = banner.getElementsByClassName('right')[0];
+        var li = banner.getElementsByClassName('round')[0].getElementsByTagName('li');
+
+
+        var num = 0; // 图片索引, 第几张图片
+
+        run();
+        timer = setInterval(run, 2000);
+
+        // 定时切换图片
+        function run(){
+            // 超出图片个数, 重置为0, 重新从第一张开始计数
+            if( num >= img.length ){
+                num = 0;
+            }
+
+            showImg(num);
+            num++;
+        }
+
+        // 显示第n张图片
+        function showImg(n){
+            // 隐藏所有图片
+            for(var i = 0; i < img.length; i++){
+                img[i].style.opacity = 0; 
+
+                li[i].style.borderColor = 'hsla(0,0%,100%,.3)';
+                li[i].style.background = 'rgba(0,0,0,0.4)';
+            }
+
+            // 单独显示第n张
+            img[n].style.opacity = 1;
+            li[n].style.borderColor = 'rgba(0,0,0,.4)';
+            li[n].style.background = 'hsla(0,0%,100%,.4)';
+        }
+
+        // 点第几个小圆圈, 就出现第几张图片
+        for(var i = 0; i < li.length; i++){
+            (function(m){
+                li[m].onclick = function(){
+                    clearInterval(timer);
+                    showImg(m);
+                    num = m; // 改变当前图片索引
+                    timer = setInterval(run, 2000);
+                }
+            })( i );
+        }
+
+        // 向右, 显示下一张图片
+        right.onclick = function(){
+            clearInterval(timer);
+
+            // 确保num 不会超出最大图片个数
+            num = num >= img.length ? 0 : num;
+
+            showImg(num);
+            run();
+            timer = setInterval(run, 2000)
+        }
+
+        // 向左, 显示上一张图片
+        left.onclick = function(){
+            clearInterval(timer);
+
+            // if(num == 1){
+            //     num = img.length - 1;
+            // }else{
+            //     num -= 2;
+            // }
+
+            num = num == 1? img.length - 1 : num - 2;
+
+            showImg(num);
+            run();
+            timer = setInterval(run, 2000)
+        }
+
+
+
+    </script>
+
+
+</body>
+</html>

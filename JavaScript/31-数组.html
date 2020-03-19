@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>数组</title>
+</head>
+<body>
+    <!--  
+        1. 创建数组
+            * Json 方式 (推荐)
+            * 构造器
+            
+        注: 
+         * 数组的每一个zhi,都会分配一个索引(编号)
+         * 索引都是连续的, 如果跳跃式添加, 中间以undefined代替
+    -->
+    <script>
+        // Json 
+        var list = []; // 空数组
+        var list = ['a', 'b', 1,2,3];
+        console.log(list);    
+    
+
+        // 构造器
+        var list = new Array();
+        var list = new Array(1,2,3);
+        console.log(list);
+
+
+        // 读取数组中的数据
+        console.log(list[0]);
+        console.log(list[1]);
+        console.log(list[2]);
+        console.log(list[3]); // 超出范围, 返回undefined
+
+
+        // 默认情况下, 索引都是连续, 如果跳跃式添加, 中间以undefined代替
+        list[9] = 9;
+        console.log(list);
+        console.log(list[8]);
+
+        // 在数组最后面进行添加
+        list.push(50);
+        console.log(list);
+
+        // 在数组最前面进行添加
+        list.unshift(66);
+        console.log(list);
+        console.log('------------- 分隔符 --------------');
+    </script>
+
+
+    <!--  
+        2. 多维数组
+            将数组的值 指定为数组(数组嵌套数组), 即为多维数组
+    -->
+    <script>
+        var list = [
+                        ['妲己','王昭君','安其拉'],
+                        ['后羿','狄仁杰','鲁班'],
+                        ['蔡文姬','大乔','盾山'],
+                        ['李白','韩信','赵云'],
+                    ];   
+
+        console.log(list[0]); 
+        console.log(list[1]); 
+        console.log(list[3]); 
+        console.log(list[3][0]); 
+        console.log(list[9]); // 超出范围, 返回undefined 
+    </script>
+
+
+    <!--  
+        3. 遍历数组
+    -->
+    <ul>
+        <li>李白</li>
+        <li>阿珂</li>
+        <li>兰陵</li>
+        <li>悟空</li>
+    </ul>
+    <script>
+        // for
+        var list = ['迪丽热巴','古力娜扎','马尔扎哈','真皮沙发'];
+        for(var i = 0; i < list.length; i++){
+            document.write( list[i] );
+        }
+        document.write('<hr />');
+
+
+        // for/in
+        for(var i in list){
+            document.write(i);      // 读取索引
+            document.write(list[i]); // 读取值
+        }
+
+
+        var li = document.getElementsByTagName('li');
+        for(var i = 0; i < li.length; i++){
+            li[i].style.color = 'red';
+        }
+
+
+        // 数组方法
+
+
+    </script>
+
+
+
+
+
+
+
+    
+</body>
+</html>

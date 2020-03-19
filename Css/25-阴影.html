@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>盒子阴影</title>
+    <style>
+        #box{
+            width: 200px;
+            height: 200px;
+            border: 2px solid red;
+            margin: 100px auto;
+            /* box-shadow: 10px 10px 10px 10px #ccc; */
+            /* box-shadow: 10px 10px 10px 10px #ccc inset; */
+
+            transition: all .2s;
+        }
+
+        #box:hover{
+            box-shadow: 0 15px 30px rgba(0,0,0,.1);
+
+            transform:  translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- 
+        text-shadow: 水平位移  垂直位移  模糊度  阴影颜色;
+        box-shadow: 水平位移  垂直位移  模糊度  [阴影面积]  阴影颜色 [内阴影]; 
+                    
+                    模糊度: 不能为负数, 最小值为0, 值越大越模糊
+                    阴影面积: 默认0px, 可以为负数, 值越大阴影面积越大
+                    内阴影: inset
+     -->
+
+    <div id="box"></div>
+
+
+</body>
+</html>

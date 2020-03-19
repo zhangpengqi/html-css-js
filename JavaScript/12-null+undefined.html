@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>null+undefined</title>
+</head>
+<body>
+    <!-- 
+        1. undefined
+            可理解为: 不存在
+
+            有如下几种情况的值为 undefined
+            * 变量已声明, 却未赋值, 则默认为undefined
+            * 对象属性未赋值, 则默认为undefined
+            * 调用函数时, 应该提供的参数却没给, 则默认为undefined
+            * 函数没有返回值, 默认返回undefined
+     -->
+
+    <script>
+        var x;
+        console.log(x);
+
+        var obj = {'姓名': '黄磊'}
+        console.log(obj.年龄);
+
+        function demo(num){
+            console.log(num);
+        }
+        demo();
+
+        function demo2(){
+
+        }
+        var y = demo2();
+        console.log(y);
+    </script>
+
+    <!-- 
+        2. null 
+            可理解为 空
+
+            一般情况下, null都是手动赋予的, 常用于占位
+
+            与undefined 的区别
+            * null 是关键字, undefined不是关键字
+            * null 的类型是: object         Js的历史遗留Bug
+            * undefined的类型是: undefined
+            
+
+            null 和 undefined 等价吗?  
+            * 数值等价
+            * null => number = 0
+            * undefined => number = NaN
+    -->
+    <script>
+        var x = null;
+        console.log(x);
+
+        // var null = 10;   // 报错
+        // var undefined = 10;  // 不报错
+
+        console.log( null ==  undefined );  // 值相等
+        console.log( null === undefined );  // === 全等, 值相等且类型相等
+    </script>
+
+    <!-- 
+        扩展知识
+            ES6 的新类型: Symbol
+            Symbol的作用
+     -->
+
+    <script>
+        // 小数转为 二进制时, 结果有误差
+        console.log(0.1 + 0.2 == 0.3);
+    </script>
+
+</body>
+</html>

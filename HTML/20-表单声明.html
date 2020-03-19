@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表单声明</title>
+</head>
+<body>
+    <!-- 
+        表单主要目的: 与用户进行交互
+
+
+        表单标签
+            form    表单声明
+            input
+            select
+            button
+            textarea
+
+        
+        form属性
+            action  将表单提交给 xx服务器
+                     action为空, 默认提交给本页面
+
+            method  以什么方式提交给 xx服务器
+                     method 为空, 默认为get
+                get  明文传输   默认
+                      安全性低
+                      速度快
+                      传输大小: 在HTTP协议没有任何限制, 实际情况是受浏览器的限制( 大部分小于等于 2KB )
+                      适用场景: 查询
+
+                post 密文传输
+                      安全性高
+                      速度慢
+                      适用场景: 增删改  (能改变服务器, 隐私性较高)
+                      传输大小: 在HTTP协议没有任何限制, 实际情况受限于服务器性能
+
+            enctype = multipart/form-data   专门用于上传文件
+
+
+
+
+
+
+        知识普及: 
+            B   字节      1个数字, 字母, 标点占1B
+                          1个汉字占3B,  生僻字占4B
+
+            KB  1KB = 1024B
+                2KB = 2048B
+
+            MB  1MB = 1024KB 
+                10MB = 10240KB = 10240 * 1024B
+
+            GB  1GB = 1024MB 
+                10GB = 10240MB = 10240 * 1024 KB = 10240 * 1024 * 1024 B 
+
+            TB  1TB = 1024GB 
+
+            
+
+
+    https://www.baidu.com/s?ie=utf-8&f=8&rsv_bp=1&rsv_idx=1&tn=baidu&wd=%E9%BB%84%E7%A3%8A&rsv_pq=f6ee3cf7000bec4f&rsv_t=0a17OFyVevhFhCdFLbUkCaUKV2nWwRN5PXs6Gx4SH1fK7cPXNrTmr39KYg4&rqlang=cn&rsv_enter=1&rsv_dl=tb&rsv_sug3=13&rsv_sug1=7&rsv_sug7=101&rsv_sug2=0&inputT=1820&rsv_sug4=1819&rsv_sug=1
+
+
+
+     -->
+
+
+    <!-- 百度搜索 -->
+    <form action="http://www.baidu.com/s">
+        
+        <input type="text" name="wd">
+
+        <input type="submit" value="百度一下">
+
+    </form>
+    
+
+    <!-- 搜狗翻译 -->
+    <form action="https://fanyi.sogou.com/">
+
+        <input type="text" name="keyword">
+
+        <input type="submit" value="翻译一下">
+    </form>
+
+
+    <form action="xxxxxx.html">
+
+        <input type="text" name="bala">
+
+        <input type="submit" value="瞎搞一下">
+
+    </form>
+
+
+    <!-- <form action="login.html" method="get"> -->
+    <form action="login.html" method="post">
+        
+
+        <fieldset>
+            <legend>登录</legend>
+            账号: <input type="text" name="tel"> <br>
+            密码: <input type="password" name="pwd"> <br>
+            
+            <input type="submit" value="登录">
+        </fieldset>
+
+    </form>
+    
+
+
+</body>
+</html>

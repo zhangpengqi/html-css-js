@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>初识HTML</title>
+    <link rel="stylesheet" href="img/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <script src="img/bootstrap-3.3.7-dist/js/jquery-3.4.1.min.js"></script>
+    <script src="img/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+    <div class="container">
+        <h1>初识HTML</h1>
+        <div class="page-header">
+          <h3>简介 <small></small></h3>
+          <br>
+          <p class="">
+            HTML 俗称<strong>"网页"</strong>, 专业术语: <strong>超文本标记语言</strong>(<b>H</b>yper <b>T</b>ext <b>M</b>arkup <b>L</b>anguage), 
+            由各种 <strong>标签</strong> 和 <strong>文本</strong> 组成的结构.
+          </p>
+          <p>例如: 我们平时上网所看到的 <strong>百度</strong>, <strong>淘宝</strong> 等都是需要HTML支持的, 否则我们就看不到页面啦</p>
+          <img src="img/1.png" style="width:40%">
+          <img src="img/2.png" style="width:40%">
+        </div>
+
+        <div class="page-header">
+          <h3>组成 <small></small></h3>
+          <br>
+            HTML标签格式基本分为: 
+            <ul>
+                <li>闭合标签</li>
+                <li>空标签</li>
+            </ul>
+
+            <div class="panel panel-default">
+              <div class="panel-heading">闭合标签</div>
+              <div class="panel-body">
+                <p>闭合标签, 又称<strong>双标签</strong>, 有开始, 有结束即为闭合, 都是成对出现的</p>
+                <p>格式: <code>&lt;开始标签&gt; 文本 &lt;/结束标签&gt;</code> </p>
+                <p>例如: &lt;b&gt;&lt;/b&gt;标签,  &lt;i&gt;&lt;/i&gt;标签,  &lt;p&gt;&lt;/p&gt;标签</p>
+              </div>
+            </div>
+
+            <div class="panel panel-default">
+              <div class="panel-heading">空标签</div>
+              <div class="panel-body">
+                <p>空标签, 又称<strong>单标签</strong></p>
+                <p>格式: <code>&lt;开始标签&gt; </code> </p>
+                <p>严格格式: <code>&lt;开始标签 /&gt;  </code> </p>
+                <p>例如: &lt;br&gt;标签,  &lt;hr&gt;标签,  &lt;input&gt;标签</p>
+
+                <blockquote>
+                  解释:
+                  <ul>
+                    <li>严格写法通常是指XHTML</li>
+                    <li>XHTML中, 空标签必须要通过 / 闭合</li>
+                    <li>HTML中, 空标签对于加不加 / 都能兼容</li>
+                    <li>HTML 和 XHTML 是网页两种不同的标准, 目前大家只需专注HTML即可</li>
+                  </ul>
+                </blockquote>
+
+              </div>
+            </div>
+
+            <div class="page-header">
+              <h3>创造一个页面, 感受一下 <small></small></h3>
+
+              <div class="panel panel-default">
+                <div class="panel-heading">代码</div>
+                <div class="panel-body">
+                  <img src="img/3.png" style="width:100%">
+                </div>
+              </div>
+
+              <div class="panel panel-default">
+                <div class="panel-heading">效果</div>
+                <div class="panel-body">
+                  <img src="img/4.png" style="width:100%">
+                </div>
+              </div>
+
+              <blockquote>
+                解释: 
+                <ul>
+                  <li>HTML文档声明: &lt;!DOCTYPE html&gt;</li>
+                  <li>网页声明: &lt;html&gt;</li>
+                  <li>主体声明: &lt;body&gt;</li>
+                </ul>
+              </blockquote>
+            </div>
+            
+          
+        </div>
+
+
+        
+
+
+    </div>
+    
+
+</body>
+</html>

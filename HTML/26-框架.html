@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>框架</title>
+</head>
+<!-- <body> -->
+    <!-- 
+        frame框架
+        在HTML5已经淘汰, 不过目前市场仍有部分网站在使用frame, 这里简单的介绍
+
+        重点: frameset 和 body 两者不能共存, 两者只能存其一
+
+        框架设置标签: frameset
+        框架标签: frame
+        框架就是窗口
+
+
+        frameset属性
+            rows 行分
+            cols 列分
+            noresize   禁止窗口的拖动
+            frameborder  窗口边框, 值: 0 或 非0
+
+            注意: rows 和 cols的单位: px 或 % 或 *
+                  * 星号代表剩余的空间
+        
+        frame属性
+            src  窗口内容的来源
+
+
+
+        窗口划分原则: 先行再列
+     -->
+
+
+    <!-- 基本划分 -->
+    <!--
+    <frameset cols="50%, *">
+        <frame>
+        <frame>
+    </frameset>    
+    -->
+
+
+    <!-- 常见窗口划分 -->
+    <!--
+    <frameset rows="10%, *">
+        <frame>
+        <frameset cols="15%, *">
+            <frame>
+            <frame>
+        </frameset>
+    </frameset>
+    -->
+
+
+    <!-- 复杂划分 -->
+    <!--
+    <frameset rows="10%, *">
+        <frame>
+
+        <frameset cols="15%, *">
+            <frame>
+            <frameset rows="30%, *">
+                <frame>
+                <frameset cols="20%, 20%, 50%, *">
+                    <frame>
+                    <frame>
+                    <frame>
+                    <frame>
+                </frameset>
+            </frameset>
+        </frameset>
+    </frameset>
+    -->
+
+
+    
+    <!-- 框架内容 -->
+    <!--
+    <frameset cols="50%, *" noresize frameborder="10000">
+        <frame src="http://www.baidu.com">
+        <frame src="https://www.sogou.com/">
+    </frameset>   
+    -->
+
+    
+    <!-- 在指定窗口打开内容 -->
+    <frameset rows="10%, *">
+        <frame src="img/top.html">
+        <frameset cols="15%, *">
+            <frame src="img/left.html">
+            <frame src="img/right.html" name="R">
+        </frameset>
+    </frameset>
+    
+
+<!-- </body> -->
+</html>

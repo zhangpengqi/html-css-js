@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>选择器</title>
+    <script src="jquery-3.4.1.min.js"></script>
+</head>
+<body>
+    
+    
+    <ol id="hero">
+        <li>李白</li>
+        <li>阿珂</li>
+        <li>
+            师徒四人
+            <ul class="list A">
+                <li>唐僧</li>
+                <li class='pig'>八戒</li>
+                <li>悟空</li>
+                <li>沙僧</li>
+            </ul>
+        </li>
+        <li>
+            五虎上将
+            <ul class="list B">
+                <li>关羽</li>
+                <li>张飞</li>
+                <li>赵云</li>
+                <li>马超</li>
+                <li>黄忠</li>
+            </ul>
+        </li>
+        <li>韩信</li>
+    </ol>
+
+    <script>
+        
+        $(function(){
+
+            // console.log(  $('#hero')  );
+            // console.log(  document.getElementById('hero')  );
+
+
+            // id
+            // $('#hero').css('color','red');
+
+
+            // class
+            // $('.list').css('color','red')
+
+
+            // 标签名
+            // $('li').css('color','red')
+
+
+            // 同时给不同的选择器赋予css
+            // $('.A, .B').css('color','red');
+
+
+
+            // s1 s2
+            // $('.A li').css('color','red');
+
+            // s1 > s2
+            // $('.A > li').css('color','red');
+
+            // s1 + s2
+            // $('.pig + li').css('color', 'green');
+
+            // s1 ~ s2
+            // $('.pig ~ li').css('color', 'green');
+
+
+
+            // :first
+            // $('.list:first').css('color','blue');
+            // $('.list li:first').css('color','pink')
+
+            // :eq(index)           index:索引
+            // $('.list:eq(0)').css('color','red');
+            // $('.list:eq(1)').css('color','red');
+            // $('.list:eq(1)').css({
+            //                         'color':'red',
+            //                         'background':'pink',
+            //                         'fontSize':'20px',
+            //                     });
+
+        });
+
+    </script>
+
+
+</body>
+</html>

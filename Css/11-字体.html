@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>字体</title>
+        <style>
+            html{
+                /* color: red; */
+            }
+
+            body{
+                /* color: blue;
+                font-f amily: 楷体, 黑体, 微软雅黑, serif
+                */
+            }
+
+            i{
+                /* font-style: normal; */
+            }
+
+            b{
+                font-weight: normal;
+            }
+
+            .date{
+                font-size: 40px;
+            }
+
+
+            span{
+                font: 20px 楷体;
+                line-height: 50px;
+
+                /* font: 楷体 20px; */
+                /* font: bold italic 20px 楷体; */
+                /* font:  italic bold 20px 楷体; */
+                /* font:  italic bold 20px   楷体; */
+                /* font:  italic bold 20px/50px   楷体; */
+            }
+
+            #box{
+                width: 500px;
+                height: 200px;
+                background: pink;
+                line-height: 200px;
+            }
+
+        </style>
+    </head>
+    <body>
+        <!-- 
+
+            详写
+                font-size:      字体大小    不同的浏览器最小字体不一样, 避免使用最小字体
+                font-style:     字体样式    normal   italic
+                font-family:    字体家族    黑体, 楷体, 宋体, 微软雅黑
+                                 通常会设置一些网络安全字体, 放在最后面, 防止前面的字体无法识别
+                                 字体名是由多个单词组成, 该字体名需要加 引号
+                                 "microsoft Yahei"
+
+                font-weight     字体加粗    normal   bold
+
+                line-height:    行高
+                                 适合文本, 图片做 垂直居中 (仅限于一行)
+
+            简写: 
+                font: size  family;
+
+                font: [style | weight]  size[/line-height]  family;
+            
+
+            手册中常用的格式符号: 
+                [] : 可有可无
+                |  : 前后顺序可以颠倒
+
+            所有的简写都会覆盖前面的详写
+
+         -->
+
+        <i>歪的</i>
+        <br>
+        <span>HTML中最单纯的标签</span>
+        <br>
+        <b class="date">粗的</b>
+
+        <div id="box">老母鸡1111111111111 11111111111111111111111111111111111111111111111111111111111111111111111111111111111111</div>
+
+
+    </body>
+</html>

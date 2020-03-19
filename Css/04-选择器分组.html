@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>选择器分组</title>
+    <style>
+        
+        /* .jianjie{ color:  red; } */
+        /* .inner{ color:  red; } */
+        /* .daoru{ color:  red; } */
+
+
+        .jianjie, .inner, .daoru{ color: red; }
+
+
+    </style>
+</head>
+<body>
+    <!-- 
+        选择器分组: 给不同的选择器赋予相同的样式  (选择器之间不需要有联系)
+
+        s1, s2, s3, ... sN { ... }
+     -->
+
+
+     <ul class="line">
+         <li>css教程</li>
+         <li class="jianjie">css简介</li>
+         <li>css语法</li>
+         <li>css创建</li>
+         <ol>
+             <li>外部样式表</li>
+             <li class="inner">内部样式表</li>
+             <li>内联样式</li>
+             <li class="daoru">import导入</li>
+         </ol>
+     </ul>
+
+
+
+
+
+</body>
+</html>

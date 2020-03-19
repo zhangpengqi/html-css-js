@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>关联选择器</title>
+    <style>
+        .line li{
+            color: red;
+        }
+
+
+        .line > li{
+            font-size: 20px;
+        }
+
+        .inner + li{
+            color: blue;
+        }
+
+        .inner ~ li{
+            font-family: 楷体;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- 
+        关联选择器: 匹配后辈, 兄弟辈元素
+        以s1, s2为例, 代表任意基础选择器
+
+        s1   s2{ ... }  匹配s1里面的所有后辈s2
+        s1 > s2{ ... }  匹配s1里面的所有儿子s2
+        s1 + s2{ ... }  匹配s1后面的一个兄弟s2
+        s1 ~ s2{ ... }  匹配s1后面的所有兄弟s2
+
+    -->
+
+    
+    <ul class="line">
+        <li>css教程</li>
+        <li>css简介</li>
+        <li>css语法</li>
+        <li>css创建</li>
+        <ol>
+            <li>外部样式表</li>
+            <li class="inner">内部样式表</li>
+            <li>内联样式</li>
+            <li>import导入</li>
+        </ol>
+    </ul>
+
+
+    <ul>
+        <li>HTML/CSS</li>
+        <li>JavaScript</li>
+        <li>Java</li>
+        <li>PHP</li>
+    </ul>
+
+
+</body>
+</html>

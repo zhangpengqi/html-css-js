@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>对象-portotype</title>
+</head>
+<body>
+    <!--  
+        原型 prototype
+            能在原型对象上添加属性/方法
+    -->
+    <script>
+        function dog(){
+            this.type = '哈士奇';
+            this.skill = function(){
+                console.log('拆家');
+            }
+        }
+
+        var d1 = new dog();
+        var d2 = new dog();
+        console.log(d1.type, d2.type);
+        d1.skill();
+        d2.skill();
+
+
+        // d1专属技能
+        d1.skill2 = function(){
+            console.log('撒娇');
+        }
+
+        d1.skill2();  // 专属方法
+        // d2.skill2(); // 不会
+
+
+
+        // 额外添加的公用技能
+        dog.prototype.skill9 = function(){
+            console.log('撒手没');
+        }
+
+        d1.skill9();
+        d2.skill9();
+
+
+
+    </script>
+
+
+
+
+</body>
+</html>

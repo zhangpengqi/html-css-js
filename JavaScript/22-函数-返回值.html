@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>返回值</title>
+</head>
+<body>
+    <!--  
+        1. 关键字 return
+            作用1: 将数据返回到 调用函数的地方
+            作用2: 立马结束函数
+    -->
+    <script>
+        // 作用1
+        function demo(){
+            return 100;
+        }
+
+        var x =demo(); // 100
+        console.log(x);
+
+
+        // 作用2
+        function demo2(){
+            return 1000;
+            return 2000;
+            console.log('这里是 return 之后的代码');
+        }
+        console.log( demo2() );
+    </script>
+
+
+    <!-- 
+        2. 返回类型
+            可返回任意类型
+
+            小技巧: 可通过数组, 一次性返回多个值
+     -->
+    <script>
+        
+        function demo3(){
+
+            function A(){
+
+            }
+
+            return A;
+            return {'a':10, 'b':20};
+            return [1,2,3];
+            return undefined;
+            return null;
+            return false;
+            return true;
+            return 'abc';
+            return 100;
+        }
+        console.log( demo3() );
+        console.log('------------- 分隔符 --------------');
+
+
+        function demo4(){
+            return [10,20];
+            // return 10,20;
+        }
+
+        console.log( demo4() );
+    </script>
+
+
+    <!--  
+        3. 无返回值
+            函数没有return时, 默认返回undefined
+    -->
+    <script>
+        function demo5(){
+
+        }
+
+        console.log( demo5() );
+
+    </script>
+
+
+
+
+
+
+</body>
+</html>

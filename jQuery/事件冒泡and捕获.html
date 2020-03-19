@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        #big{
+            width: 500px;
+            height: 500px;
+            background: pink;
+        }
+
+
+        #small{
+            width: 200px;
+            height: 200px;
+            background: skyblue;
+            margin: 0 auto;            
+        }
+    </style>
+    <script src="jquery-3.4.1.min.js"></script>
+</head>
+<body>
+    
+    <div id="big">
+        <div id="small"></div>
+    </div>
+
+    <script>
+        // var big = document.getElementById('big');
+        // var small = document.getElementById('small');
+
+        // 事件冒泡
+        //  由内而外: 先触发里面, 再触发外面的
+        // 
+        // big.addEventListener('mouseover', function(){
+        //     console.log('big');
+        // }, false);
+
+        // small.addEventListener('mouseover', function(){
+        //     console.log('small');
+        // }, false);
+
+
+        // 事件捕获
+        //  由外而内: 先触发外面的, 再触发里面的
+        // big.addEventListener('mouseover', function(){
+        //     console.log('big');
+        // }, true);
+
+        // small.addEventListener('mouseover', function(){
+        //     console.log('small');
+        // }, true);
+
+
+
+        // 阻止冒泡
+        // big.addEventListener('mouseover', function(){
+        //     console.log('big');
+        // }, false);
+
+        // small.addEventListener('mouseover', function(event){
+        //     var event = event || window.event;
+
+        //     // 非IE写法
+        //     event.stopPropagation();
+
+        //     // IE写法
+        //     event.cancelBubble = true;
+
+
+        //     console.log('small');
+        // }, false);
+
+
+        $(function(){
+
+            // $('#big').mouseover(function(){
+            //     console.log('big');
+            // });
+
+            // $('#small').mouseover(function(){
+            //     console.log('small');
+            // })
+
+
+            $('#big').mouseenter(function(){
+                console.log('big');
+            });
+
+            $('#small').mouseenter(function(event){
+
+                // event.stopPropagation();
+                console.log('small');
+            })
+
+        });
+
+
+
+    </script>
+
+
+</body>
+</html>

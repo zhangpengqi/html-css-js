@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>溢出</title>
+    <style>
+        body{
+            overflow-x: hidden;
+        }
+
+        #box{
+            width: 300px;
+            height: 300px;
+            border: 5px solid red;
+
+            /* overflow-x: hidden; */
+            /* overflow-y: hidden; */
+            overflow: hidden;
+        }
+
+
+        #top{
+            width: 100%;
+            height: 50px;
+            background: orange;
+        }
+
+        #nav{
+            width: 800px;
+            height: 600px;
+            border: 5px solid blue;
+        }
+
+        #nav img{
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        溢出
+            overflow-x: hidden | visible | auto 
+            overflow-y: hidden | visible | auto
+        
+        溢出简写: 
+            overflow: hidden | visible | auto
+    -->
+    
+    <div id="top"></div>
+    <div id="nav">
+        <img src="./img/1.jpg" alt="">
+    </div>
+
+    <div id="box">
+        <img src="./img/1.jpg">
+    </div>
+
+
+
+
+
+</body>
+</html>

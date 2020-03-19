@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>导航栏</title>
+    <style>
+        .nav{
+            width: 800px;
+            height: 50px;
+            background: #252121;
+            margin: 0 auto;
+        }
+
+        .nav .left{
+            width: 200px;
+            height: 50px;
+            float: left;
+        }
+
+        .nav  div{
+            float: left;
+            width: 50px;
+            height: 50px;
+            text-align: center;
+            line-height: 50px;
+            color: #fff;
+        }
+
+        .nav  .list-active{
+            background: #4CAF50;
+        }
+    
+        .nav .list:hover{
+            background: rgba(100,100,100,0.5);
+            cursor: pointer;
+        }
+    
+        .nav .list-active:hover{
+            background: rgba(76,175,80,0.5);
+            cursor: pointer;
+        }
+
+        .nav .right{
+            width: 50px;
+            height: 50px;
+            float: right;
+        }
+
+
+    </style>
+</head>
+<body>
+    
+    <div class="nav">
+        <div class="left">
+            <div class="list-active">主页</div>
+            <div class="list">新闻</div>
+            <div class="list">联系</div>
+        </div>
+        <div class="right">
+            <div class="list">关于</div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+</body>
+</html>

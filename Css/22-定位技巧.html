@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>定位技巧</title>
+    <style>
+        #cart{
+            width: 200px;
+            height: 50px;
+            background: orange;
+            margin:100px auto;
+            position: relative;
+        }
+
+        .content{
+            width: 500px;
+            height: 100px;
+            background: gray;
+            position: absolute;
+            right: 0;
+            top: 50px;
+
+            display: none;
+        }
+
+
+        #cart:hover  .content{
+            display: block;
+        }
+
+
+
+
+    </style>
+</head>
+<body>
+    
+    <!-- 
+        目的: 让后辈盒子基于祖辈盒子的四个角作为原点
+            祖辈盒子: 相对定位
+            后辈盒子: 绝对定位
+
+    -->
+
+
+    <div id="cart">
+        <div class="content"></div>
+    </div>
+
+
+
+</body>
+</html>

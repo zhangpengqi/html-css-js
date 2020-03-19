@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>定位</title>
+    <style>
+        .box{
+            width: 100px;
+            height: 100px;
+        }
+
+        .box1{ 
+            background: orange;
+         }
+
+        .box2{
+            background: skyblue;
+            /* position: absolute; */
+            /* position: relative; */
+            position: fixed;
+
+            /* left: 0; */
+            /* top: 0; */
+
+            /* left: 10px; */
+            /* top: 10px; */
+
+            /* top: 0; */
+            /* right: 0; */
+            
+            /* top: 10px; */
+            /* right: 10px; */
+
+
+            /* right: 0; */
+            /* bottom: 0; */
+
+            /* left: 0; */
+            /* bottom: 0; */
+
+        }
+
+        .box3{
+            width: 800px;
+            height: 1500px;
+            background: lightgreen;
+        }
+
+        .ad1{
+            width: 100px;
+            height: 200px;
+            border: 1px solid red;
+            overflow: hidden;
+            /* display: none; */
+
+            position: fixed;
+            right: 0;
+            top: 50%;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        
+        position: absolute  绝对定位
+                        位置: 不保留
+                        原点: 基于网页第一页的四个角
+
+                   relative  相对定位
+                        位置: 保留
+                        原点: 基于原来位置的四个角
+
+                   fixed     固定定位
+                        位置: 不保留
+                        原点: 基于可视窗口的四个角
+
+        使用场景: 当多个元素发生重叠
+
+    -->
+
+    <div class="box box1"></div>
+    <div class="box box2"></div>
+    <div class="box box3"></div>
+
+
+
+    <div class="ad1">
+        <a href="http://www.baidu.com/s?wd=摩托罗拉">
+            <img src="https://t10.baidu.com/it/u=4203677775,2568234822&fm=76" alt="">
+        </a>
+    </div>
+    <div class="ad2"></div>
+</body>
+</html>

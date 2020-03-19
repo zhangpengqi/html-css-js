@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>路径</title>
+</head>
+<body>
+    <!--  
+        文件路径:
+            适用于所有的文件, 涵盖范围: HTML, CSS, JS, PHP, Java, Python ...
+
+
+        路径分类: 
+            相对路径:  
+                .       当前目录, 默认, 可省略
+                ..      上一级目录
+
+                /       根目录, 写在最前面的/ 才是根目录
+                        根目录在后期不同的开发环境下, 根目录地址也会随之发生变化
+
+                        双击打开html文件, 如果在 c盘或d盘打开文件 ( 盘符取决于你的文件在哪个盘里面)
+        
+            绝对路径: 
+                网址形式: 
+                盘符形式:
+
+                绝对路径的优势: 不用考虑执行文件本身的位置
+    -->
+
+
+    <!-- 省略写法, 默认写法 -->
+    <img src="6.jpg" >
+
+    <!-- 原始写法 -->
+    <img src="./6.jpg" >
+
+    <!-- 上一级目录 -->
+    <img src="7.jpg" alt="这是娜扎">
+    <img src="../7.jpg" alt="这是娜扎">
+
+    <!-- 上上级目录 -->
+    <img src=".../8.jpg" alt="这是8.jpg">
+    <img src="../../8.jpg" alt="这是8.jpg">
+
+    <!-- 根目录写法 -->
+    <img src="/9.jpg" >
+
+    <!-- PHP环境下的根目录 -->
+    <img src="/10.jpg" alt="">
+
+
+    <!-- 网址形式 -->
+    <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1572418412625&di=57a30f9cd5d43852e6fa1674557f896f&imgtype=0&src=http%3A%2F%2Fwww.shunvzhi.com%2Fuploads%2Fallimg%2F170329%2F19503V293-1.jpg" alt="">
+
+
+    <!-- 盘符形式 -->
+    <img src="c:/9.jpg" alt="">
+
+    <a href="./14-视频.html">点我一下, 给你一个小电影</a>
+
+</body>
+</html>

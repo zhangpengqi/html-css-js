@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>属性选择器</title>
+    <style>
+        
+        /* 带有name属性的input表单 */
+        input[name]{
+            color: red;
+        }
+
+        /* 带有name="pwd"的input表单 */
+        input[name="pwd"]{
+            font-size: 20px;
+        }
+
+        /* class包含完整的t 的input表单*/
+        input[class~="t"]{
+            font-family: 楷体;
+        }
+
+        /* class包含一个字母t 的input表单*/
+        input[class*='t']{
+            color: blue;
+        }
+
+        input[class^='t']{
+            color: green;
+        }
+
+        input[class$='1']{
+            color: purple;
+        }
+
+
+    </style>
+</head>
+<body>
+    <!-- 
+
+        选择器[属性名]{ ... }         含有该属性
+        选择器[属性名=值]{ ... }      属性必须等于 指定值
+        选择器[属性名~=值]{ ... }     属性值包含完整的值, 常用于class
+        选择器[属性名*=值]{ ... }     属性值包含一个字符 值即可
+        选择器[属性名^=值]{ ... }     属性值以 指定值开头
+        选择器[属性名$=值]{ ... }     属性值以 指定值结尾
+
+     -->
+
+
+    <form action="">
+        电话: <input class="t  c1"  type="text" name="tel"> <br> 
+        密码: <input class="t1"  type="text" name="pwd"> <br>
+        确认密码: <input class=""  type="password" name="repwd"> <br>
+        <input type="submit" class="t">
+    </form>
+
+
+
+</body>
+</html>

@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>注册</title>
+    <style>
+        body, p{ margin: 0; padding: 0; }
+
+
+        .clearfix::after{
+            content: '';
+            display: block;
+            clear: both;
+        }
+
+
+        #register{
+            width: 800px;
+            height: 250px;
+            /* background: #ccc; */
+            margin: 100px auto;
+        }
+
+        #register .list{
+            margin-bottom: 15px;
+        }
+
+        #register .list p{
+            float: left;
+            margin-right: 10px;
+            font-size: 14px;
+            height: 42px;
+            line-height: 42px;
+        }
+
+
+        #register .list p:first-of-type{
+            width: 70px;
+            text-align: right;
+            font-family: "Microsoft Yahei";
+            font-weight: bold;
+            color: #666;
+        }
+
+        #register .list input{
+            float: left;
+            width: 328px;
+            height: 16px;
+            padding: 11px 10px;
+            font-family: 宋体;
+        }
+
+        #register .list .error{
+            margin-left: 10px;
+            color: red;
+            display: none;
+        }
+
+        #register #btn{
+            background: #4490f7;
+            border: none;
+            outline: none;
+            color: white;
+            width: 350px;
+            height: 50px;
+            line-height: 50px;
+            padding: 0;
+            margin-top: 10px;
+            font:  18px 楷体;
+        }
+
+    </style>
+</head>
+<body>
+    
+    
+    <form action="" id="register" name="xxx"  onsubmit="return  check()">
+        <div class="list clearfix">
+            <p>手机号</p>
+            <input type="text" name="tel" maxlength="11" placeholder="请输入您的电话" onfocus="notice()" onblur="checkTel()"> 
+            <p class="error"></p>
+        </div>
+        <div class="list clearfix">
+            <p>密码</p>
+            <input type="password" name="pwd" placeholder="请输入您的密码" onblur="checkPwd()"> 
+            <p class="error">密码格式不正确</p>
+        </div>
+        <div class="list clearfix">
+            <p>确认密码</p>
+            <input type="password" name="repwd" placeholder="请重复您的密码" onblur="checkRepwd()"> 
+            <p class="error">量词密码不一致</p>
+        </div>
+
+        <div class="list clearfix">
+            <p></p>
+            <input type="submit" id="btn" value="注册">
+        </div>
+
+    </form>
+
+
+    <script>
+        var error = document.getElementsByClassName('error');
+        
+        function notice(){
+            // var error = document.getElementsByClassName('error');
+
+            error[0].innerHTML = '请输入中国大陆手机号码';
+            error[0].style.display = 'block';
+            error[0].style.color = '#ccc';
+        }
+
+        function checkTel(){
+            // 取消原有的错误显示
+            // var error = document.getElementsByClassName('error');
+            error[0].style.display = 'none';
+
+            // 根据 name 来获取对象
+            var value = document.xxx.tel.value;
+
+
+            // 判断手机号码格式
+            if(  value.match(/^1[3-9]\d{9}$/) == null  ){
+                error[0].innerHTML = '您的手机号码格式不正确';
+                error[0].style.display = 'block';
+                error[0].style.color = 'red';
+                return false;
+            }
+
+            return true;
+        }
+
+        function checkPwd(){
+            // 根据 name 来获取对象
+            var value = document.xxx.pwd.value;
+
+            // 长度限制 8~14 位
+            // console.log( value.match(/^.{8,14}$/) );     // ^ 和 $ 配合限制长度
+            if(  value.match(/^.{8,14}$/)  == null  ){
+                error[1].innerHTML = '密码长度不符合要求';
+                error[1].style.display = 'block';
+                return false;
+            }
+
+
+
+            // 内容可以是数字, 字母, 标点, 但不能是空格
+            // console.log( value.match(/ /) );
+            if( value.match(/ /) ){
+                error[1].innerHTML = '密码格式不正确';
+                error[1].style.display = 'block';
+                return false;
+            }
+
+            error[1].style.display = 'none';
+            return true;
+        }
+
+        function checkRepwd(){
+            // var error = document.getElementsByClassName('error');
+            var pwd1 = document.xxx.pwd.value;
+            var pwd2 = document.xxx.repwd.value;
+            // console.log(pwd1, pwd2);
+
+            if( pwd1 != pwd2 ){
+                error[2].innerHTML = '两次密码不一致';
+                error[2].style.display = 'block';
+                return false;
+            }else{
+                error[2].innerHTML = '';
+                error[2].style.display = 'none';
+                return true;
+            }
+        }
+
+        function check(){
+            return  checkTel() && checkPwd() && checkRepwd();
+        }
+
+
+
+        // onblur()     当失去光标时, 才会触发
+        // 
+        // 对每一个 需要验证的表单 添加onblur事件
+        // 
+        // 每一个onblur 事件对应的是 一个函数
+        // 
+        // 函数中: 
+        //     获取对象(input表单,  error错误提示标签)
+        //     
+        //     验证: 
+        //          电话正则
+        //             结果集 : 返回true
+        //             null: 显示报错, 并返回false
+        //            
+        //          密码正则
+        //              密码长度
+        //                  结果集 : 返回true
+        //                  null: 显示报错, 并返回false
+        //            
+        //              密码内容
+        //                  结果集 : 返回true
+        //                  null: 显示报错, 并返回false
+        //           
+        //           确认密码正则
+        //               获取两个密码, 进行对比
+        //                  结果集 : 返回true
+        //                  null: 显示报错, 并返回false
+        //     
+        //  注册提交: 
+        //      onsubmit="return true"   允许提交
+        //      onsubmit="return false"  禁止提交
+        //      
+        //      允许提交的条件: 
+        //          三个验证都为true 
+        //         
+        //      禁止提交的条件: 
+        //          只要有一个验证为false 
+        //               
+        //            
+
+
+
+    </script>
+
+
+
+</body>
+</html>

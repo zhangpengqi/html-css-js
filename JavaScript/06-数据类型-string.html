@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>数据类型-string</title>
+</head>
+<body>
+    <!-- 
+        数据类型
+            数据一共有如下几种形态: 
+            * string
+            * number
+            * boolean
+            * null
+            * undefined
+            * object
+            * array
+            * function
+            * symbol    ES6 新加的
+    -->
+
+    <!-- 
+        1. String 字符串
+            可包含数字, 字母, 下划线, 汉字, 标点等众多字符
+            主要表现形式: 单引号 or 双引号
+
+            注意: 单双引号没有区别
+    -->
+    <script>
+        var name1 = '兄弟连';
+        var name2 = "兄弟连";  
+        console.log(name1, name2);
+    </script>
+
+
+    <!--  
+        2. 字符串长度
+            一个字符串最好不超过80个字符
+
+            如果超过, 建议在字符串的适当位置, 进行折行 ( 通过 \ 可折行 )
+    -->
+    <script>
+        var str = 'C++程序员看不起C 程序员, C 程序员 看不起Java 程序员, Java程序员看不起PHP 程序员, PHP程序员 看不起 美工. 到周末了, 美工带着妹子逛街去了, 那些程序员加班去了...'
+        var str = 'C++程序员看不起C 程序员, C 程序员 看不起Java 程序员, \
+                    Java程序员看不起PHP 程序员, PHP程序员 看不起 美工. 到周末了, 美工带着妹子逛街去了, 那些程序员加班去了...'
+        console.log(str);
+    </script>
+
+
+    <!--  
+        3. 变量识别
+            如果字符串中出现了变量, 单双引号无法识别, 但是反引号是能识别变量
+            反引号: `` 
+            反引号中的变量格式: ${变量名}
+    -->
+    <script>
+        var age = 18;
+        var str = '我叫黄磊, 今年age岁';
+        var str = "我叫黄磊, 今年age岁";
+        var str = `我叫黄磊, 今年age岁`;
+        var str = `我叫黄磊, 今年${age}岁`;
+        var str = '我叫黄磊, 今年${age}岁';
+        console.log(str);
+    </script>
+
+
+
+    <!--  
+        4. 转义字符
+            转义符: \
+            通过转义符将 普通字符 => 特殊字符
+            通过转义符将 特殊字符 => 普通字符
+
+            特殊字符: 本身就具备特殊意义的的字符, 例如: 单引号, 双引号, 转义符本身
+
+            特殊字符 => 普通字符
+                \'
+                \"
+                \\
+
+            普通字符 => 特殊字符
+                \n      换行
+                \r      回车
+                \t      制表符, tab键
+
+            注意: 单双引号可以互插, 不能自插
+    -->
+    <script>
+        // var str = 'I give you face, you don't have face ';
+        var str = 'I give you face, you don\'t have face ';
+        var str = "I give you face, you don\"t have face ";
+        console.log(str);
+
+
+        var str = '我上有老\n我下有小';
+        console.log(str);
+    </script>
+
+    <!--  
+        5. 拼接符 + 
+            字符串 与 其余字符串or数字相加, 此处并非加法, 而是拼接
+
+            小结: 与字符串相加, 都是拼接
+    -->
+    <script>
+        var name1 = '程序员';
+        var name2 = '美女';
+        var str = 'name1追求了name2五年, 一直未果, 含泪追问: 我在你眼里到底算什么? name2说: 真人版windows优化大师';
+        var str = name1+'追求了'+name2+'五年, 一直未果, 含泪追问: 我在你眼里到底算什么? '+name2+'说: 真人版windows优化大师';
+        console.log(str);
+
+
+        var a = 3;
+        var b = '胖';
+        console.log(a+b); // 3胖
+    </script>
+
+    <!--  
+        扩展知识: 
+        6. 获取字符串长度
+
+        7. 类型获取
+
+        8. 其余类型 如何转为 字符串类型
+    -->
+
+    <script>
+        var num = 123;
+        console.log(num);
+        console.log(typeof num);
+
+        var x = num.toString(10);
+        console.log(x, typeof x);
+
+        var num = 123;
+        console.log(num, typeof num);
+
+        var x = String(num);
+        console.log(x, typeof x);
+
+        var x = '123';
+        // console.log(  length(x)  );
+        console.log( x.length );
+
+    </script>
+
+
+</body>
+</html>

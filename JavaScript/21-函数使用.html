@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>函数使用</title>
+</head>
+<body>
+    <!-- 
+        1. 使用函数
+            函数在声明之后, 默认不会自动执行, 需要调用才能执行
+            使用函数有两种情况: 
+            * 调用函数:  函数名() 
+            * 引用函数:  函数名
+    -->
+    <script>
+        
+        function demo(){
+            return "1111111";
+        }
+
+        var x = demo(); // 调用函数
+        var x = demo;   // 引用函数,  变量x 存储的是 函数的内存地址
+        console.log(x);
+
+        console.log( x() ); // 通过 函数地址 调用函数
+        console.log('------------- 分隔符 --------------');
+    </script>
+
+    
+
+    <!--  
+        2. window对象
+            window 是js最高的对象, 代表浏览器
+            作用: 全局能用的都属于 window对象的属性or方法
+    -->
+    <script>
+        
+        var x = 10;
+        console.log(x);
+        console.log(window.x);  // 变量x 当成window对象的属性
+
+
+        function demo(){
+            console.log('我是一个 demo函数');
+            var y = 20; // 变量y 属于demo, 不归window管
+            console.log(window.y); // undefined
+        }
+
+        demo();
+        window.demo();
+
+
+        console.log(window);
+
+        // alert('这是一个alert函数')
+        // window.alert('这是window对象的alert方法')
+    </script>
+
+
+
+    <!--  
+        3. this对象
+            this 是关键字, 代表当前对象, 并非变量
+
+            注: 
+             * 普通函数内的this, 代表window对象
+             * 被某元素的事件触发的函数, this代表当前元素对象
+    -->
+    <script>
+        // 当前对象
+        var obj = {
+            'name': '大郎',
+            desc: function(){
+                // console.log('我叫 '+obj.name+', 是一个卖烧饼的');
+                // console.log('我叫 '+this.name+', 是一个卖烧饼的');
+                console.log(this);
+            }
+        }
+        obj.desc();
+
+
+        // 函数内的this => window对象
+        function demo(){
+            console.log(this);
+        }
+        demo();
+    </script>
+
+
+
+    <ul>
+        <li>李白</li>
+        <li>阿珂</li>
+        <li>兰陵</li>
+        <li>悟空</li>
+    </ul>
+
+    <script>
+        // 根据 标签名 获取对象
+        var li = document.getElementsByTagName('li');
+        
+
+
+        for(var i = 0; i < li.length; i++){
+
+            li[i].onclick = function(){
+                this.style.color = 'red'; // this 当前被点击的 li标签对象
+            }
+        }
+
+
+
+
+    </script>
+
+
+
+
+
+
+</body>
+</html>

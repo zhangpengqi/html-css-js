@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>循环</title>
+</head>
+<body>
+    <!--  
+        功能相似, 代码位置相同, 用循环
+        功能相似, 代码位置不同, 用函数
+
+
+        常用循环
+        1. while
+        2. do/while
+        3. for
+        4. for/in
+
+        循环三要素
+        * 初始值
+        * 循环条件  (表达式的最终结果是否为 true)
+        * 循环增量  (不代表只能+, 也可以减, 乘, 除, 与或非...)
+
+
+        1. While循环
+            
+            初始化
+            while( 条件表达式 ){
+                代码块
+            }
+    -->
+
+    <script>
+        
+        document.write('赵云鹏 和 李子健 合伙干一件大事: <br>');
+        document.write('赵云鹏 和 李子健 么么哒 1 下 <br>');
+        document.write('赵云鹏 和 李子健 么么哒 2 下 <br>');
+        document.write('赵云鹏 和 李子健 么么哒 3 下 <br>');
+        document.write('赵云鹏 和 李子健 么么哒 4 下 <br>');
+        document.write('赵云鹏 和 李子健 么么哒 5 下 <br>');
+        document.write('赵云鹏 和 李子健 么么哒 6 下 <hr>');
+
+        var count = 1;
+        while( count <= 10 ){
+            document.write(`赵云鹏 和 李子健 么么哒 ${count} 下 <br>`);
+            count++;
+        }
+
+        // 输出 0~9 
+        var x = 0;
+        while( x < 10 ){
+            document.write(x);
+            x++;
+        }
+        document.write('<hr />');
+
+        // 输出0~9
+        var x = 0;
+        while( x < 10){
+            document.write(x);
+            x+=2;
+        }
+        document.write('<hr />');
+
+
+        // 输出0~9 之内的偶数
+        var x = 0;
+        while( x < 10){
+            if( x % 2 == 0){
+                document.write(x);
+            }
+            x++;
+        }
+        document.write('<hr />');
+
+
+        var x = 0;
+        while( x < 5 ){
+            document.write(x*2);
+            x++;
+        }
+        document.write('<hr />');
+
+
+        // 输出 9~0
+        var x = 9;
+        while( x >= 0 ){
+            document.write(x);
+            x--;
+        }
+        document.write('<hr />');
+    </script>
+
+
+
+    <!--  
+        2. doWhile循环
+        
+        do{
+            代码块
+        }while( 条件表达式 )
+
+    -->
+
+    <script>
+        var x = 9;
+        do{
+            document.write(x);
+            x--;
+        }while(x >= 0 );
+        document.write('<hr />');
+
+
+        var x = 9;
+        do{
+            document.write(x);
+            x--;
+        }while(x >= 10 );
+        document.write('<hr />');
+
+        // while 和 doWhile 之间的区别
+        // * while 是先判断再执行
+        // * doWhile 是执行1次, 再判断再执行
+    </script>
+
+
+    <!--  
+        3. for 循环
+            for(初始值 ; 循环条件; 循环增量){
+                代码块
+            }
+    -->
+    <script>
+        // 输出 0~9
+        for(var i = 0; i < 10; i++){
+            document.write(i);
+        }
+        document.write('<hr />');
+
+
+        // 输出 9~0
+        for(var i = 9; i >= 0; i--){
+            document.write(i);
+        }
+    </script>
+
+
+    <!--  
+        4. for/in 循环
+            遍历对象而准备的循环
+    
+            for(变量 in 对象){
+                代码块
+            }
+
+            变量 获取的是: 属性名
+            对象[变量] 获取的是: 属性值
+    -->
+    <script>
+        var man = {
+            '姓名':'张百忍',
+            '身份':'玉皇大帝',
+            '称号':'昊天上帝',
+            '引路人':'太白金星'
+        }
+
+        for(var i in man){
+            // console.log(i + ' ');
+            // console.log(man.i);
+            console.log(man[i]);  // for/in 当数组来使用
+        }
+    </script>
+
+
+    <!--  
+        5. 无限循环
+            俗称"死循环", 只要 循环条件永远成立 即可形成死循环
+            当不知道要循环多少次时, 即可使用 无限循环
+
+            将来的应用场景: 轮播无限滚动, 字幕滚动
+    
+        应用题: 一张纸厚度8mm, 对折多少次能超过珠穆朗玛峰(8848m)?
+    -->
+    <script>
+        var 厚度 = 0.008;
+        var 次数 = 0;
+
+        while(1){
+            厚度 *= 2;
+            次数++;
+
+            if(厚度 >= 8848){
+                console.log('一共对折了 '+次数+' 次才超过珠穆朗玛峰');
+                break;
+            }
+        }
+    </script>
+
+
+    <!--  
+        6. 流程控制符(保留字)
+            * continue      立马结束当前一轮循环, 准备下一轮循环
+            * break         立马结束循环orSwitch分支, 准备执行循环/分支外的代码
+
+    -->
+    <script>
+    
+        for (var i = 1; i < 10; i++) {
+            if (i == 5) {
+                continue;
+                console.log('111'); // 该行不会执行
+            } 
+            console.log(i);
+        }
+
+        console.log('------------- 分隔符 --------------');
+
+
+        for(var i = 1; i < 10; i++){
+            if (i == 5) {
+                break;
+            } 
+            console.log(i);
+        }
+        console.log('------------- 分隔符 --------------');
+        console.log(i);
+
+
+        // 注:
+        // for(){
+        //     for(){
+        //         break;   // 只能跳出包含自己的最近循环
+        //     }
+        // }
+        // 
+
+        /* 
+            for(){
+
+                for(){
+                       // 只能跳出包含自己的最近循环
+                }
+
+                if(){
+
+                }else{
+                    break;
+
+                }
+
+            }
+        */
+
+
+    </script>
+
+
+
+
+
+</body>
+</html>

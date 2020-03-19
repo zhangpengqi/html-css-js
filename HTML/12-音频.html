@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>音频</title>
+</head>
+<body>
+    <!-- 
+        音频:     
+            格式: <audio></audio>
+            属性: 
+                controls    控制器
+                loop         循环播放
+                autoplay     自动播放
+                src          音频来源地址
+
+
+        媒介标签:
+            格式: <source>
+            属性: 
+                src          音频来源地址
+
+     -->
+
+
+
+     <!-- 兼容写法 -->
+    <audio  controls>
+        <source src="https://m801.music.126.net/20191029171407/73443c556ed461dd5bd46d10c0071b3c/jdyyaac/000b/535b/515b/7acddcd323d1a142159ef1b25743fba5.m4a">
+        <source src="https://m801.music.126.net/20191029171407/73443c556ed461dd5bd46d10c0071b3c/jdyyaac/000b/535b/515b/7acddcd323d1a142159ef1b25743fba5.mp3">
+        <source src="https://m801.music.126.net/20191029171407/73443c556ed461dd5bd46d10c0071b3c/jdyyaac/000b/535b/515b/7acddcd323d1a142159ef1b25743fba5.ogg">
+        您的浏览器不支持 audio 元素。
+    </audio>
+
+    <hr>
+
+
+
+    <!-- 简单写法 -->
+    <audio src="太阳.m4a" controls loop autoplay></audio>
+
+</body>
+</html>

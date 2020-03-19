@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Call和Apply</title>
+</head>
+<body>
+    <!--  
+        1. call() 方法
+            作用: 对象A 通过call 借用对象B, 那么对象A内的this就指向对象B
+    -->
+    <script>
+        var A = {
+            name: '大哥',
+            method: function (){
+                console.log('我是'+this.name);
+                // console.log(this);
+            },
+
+            method2: function(age, job){
+                console.log('我是'+this.name+', 今年 '+age+' 岁, 做 '+job+' 的');
+            }
+        }
+
+        var B = {
+            name: '二哥',
+        }
+
+
+        A.method();
+        A.method.call(B);
+        A.method2.call(B, 18, '软件开发');
+        console.log('------------- 分隔符 --------------');
+    </script>
+
+
+    <!--  
+        2. apply() 方法
+            作用: 对象A 通过call 借用对象B, 那么对象A内的this就指向对象B
+
+    -->
+    <script>
+        var A = {
+            name: '大哥',
+            method: function (){
+                console.log('我是'+this.name);
+                // console.log(this);
+            },
+
+            method2: function(age, job){
+                console.log('我是'+this.name+', 今年 '+age+' 岁, 做 '+job+' 的');
+            }
+        }
+
+        var B = {
+            name: '二哥',
+        }
+
+
+        A.method();
+        A.method.apply(B);
+        A.method2.apply(B, [18, '软件开发'] );
+    </script>
+
+    <!-- 
+        3. call方法 和 apply方法的区别
+            * call 和 apply 功能是一模一样
+            * call 是分别接收参数
+            * apply 是接收数组参数
+     -->
+
+</body>
+</html>

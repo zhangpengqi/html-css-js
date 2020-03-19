@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>银行卡自动补空格</title>
+    <style>
+        #bank{
+            width: 500px;
+            height: 50px;
+            font-size: 30px;
+        }
+
+    </style>
+</head>
+<body>
+    
+    <input type="text" id="bank" maxlength="19">
+
+    <script>
+        var bank = document.getElementById('bank');
+
+
+        bank.oninput = run;
+        bank.onpropertychange = run;
+
+
+        // bank.oninput = function(){
+        //     bank.value = bank.value
+        //                       .replace(/(\D)/g, '')
+        //                       .replace(/(\d{4})(?=\d)/g, '$1 ');
+        // }
+
+        function run(){
+            bank.value = bank.value
+                              .replace(/(\D)/g, '')
+                              .replace(/(\d{4})(?=\d)/g, '$1 ');
+        }
+
+
+    </script>
+
+
+
+</body>
+</html>

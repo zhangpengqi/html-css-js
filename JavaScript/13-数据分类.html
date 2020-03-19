@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>数据分类</title>
+</head>
+<body>
+    <!-- 
+        1. 所有数据分为两类: 
+            原始类型: string, number, boolean, null, undefined, symbol
+            引用类型: array, object, function
+        
+        2. 原始类型
+            原始值, 存储"栈内存"中, 内存直接存储的是: 值
+        
+        3. 引用类型
+            引用值, 存储"堆内存"中, 内存直接存储的是: 地址, 由地址指向值
+    -->
+    <script>
+        var x = 10;
+        var y = x;  // 变量y 拷贝了 变量x 的值, 变量x 和 变量y 是两个不同的内存
+        y = 20;
+        console.log(x, y); // 修改y 的值不会影响 变量x 的值
+        console.log('------------- 分隔符 --------------');
+
+
+        var x = [10,20,30];
+        var y = x;  // 将变量x的地址给了 变量y
+        y[0] = 99;  // 变量y 一旦发生变化, 其余指向该地址的变量, 都会被迫受到影响
+        console.log(y);
+        console.log(x);
+
+    </script>
+
+
+</body>
+</html>

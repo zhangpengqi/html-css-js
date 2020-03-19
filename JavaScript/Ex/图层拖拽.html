@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>图层拖拽</title>
+    <style>
+        #box{
+            width: 200px;
+            height: 200px;
+            background: pink;
+
+            position: fixed;
+            left: 0;
+            top: 0;
+
+            cursor: move;
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="box"></div>
+    
+    <script>
+        var box = document.getElementById('box');
+
+        box.onmousedown = function(en){
+            var en = en || window.event;
+
+            box.innerHTML = '按下';
+            box.style.background = 'orange';
+
+            // 鼠标在 box里面的相对坐标
+            var x2 = en.offsetX;
+            var y2 = en.offsetY;
+
+            document.onmousemove = function(event){
+                var event = event || window.event;
+
+                // 鼠标在 document里面的相对坐标
+                var x1 = event.x;
+                var y1 = event.y;
+
+                // 设置鼠标的 left 和 top 定位
+                box.style.left = x + 'px';
+                box.style.top = (y1-y2) + 'px';
+            }
+
+        }
+
+
+        box.onmouseup = function(){
+            box.innerHTML = '松开';
+            box.style.background = 'skyblue';
+
+            // 解绑鼠标移动
+            document.onmousemove = null;
+
+        }
+
+
+
+
+
+
+    </script>
+
+
+
+</body>
+</html>

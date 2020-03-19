@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>水平滚动</title>
+    <style>
+        body,ul,li{
+            margin: 0;
+            padding: 0;
+        }
+
+        li{
+            list-style: none;
+        }
+
+        body{
+            background: #f9f9f9;
+        }
+
+    
+        #box{
+            width: 978px;
+            height: 340px;
+            background: pink;
+            margin: 0 auto;
+            overflow: hidden;
+            /* overflow-x: auto;  */
+        }
+        #box2{
+            width: 978px;
+            margin: 100px auto 10px;
+        }
+    
+        #box ul{
+            display: inline-flex;
+        }
+
+
+        #box ul li{
+            width: 234px;
+            height: 340px;
+            background: #fff;
+            float: left;
+            margin-right: 14px;
+        }
+
+        #box ul li:last-of-type{
+               margin-right: 0; 
+        }
+
+    </style>
+    <script src="jquery-3.4.1.min.js"></script>
+</head>
+<body>
+    
+    <div id="box2">
+        <button onclick="left()">向左</button>
+        <button onclick="right()">向右</button>
+    </div>
+
+    <div id="box">
+        <ul>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+            <li>6</li>
+            <li>7</li>
+            <li>8</li>
+        </ul>
+    </div>
+
+    <script>
+
+        var speed = 0;
+
+        function right(){
+
+            var width = $('#box').width() + parseInt($('#box li').css('marginRight'));
+            
+            timer = setInterval(function(){
+                if( speed >= width){
+                    clearInterval(timer);
+                }
+                speed = speed + 10 >= width ? width : speed + 10;
+                console.log(speed)
+                $('#box').scrollLeft(speed)
+
+            }, 1)
+        }
+
+
+        function left(){
+
+            var width = $('#box').width() + parseInt($('#box li').css('marginRight'));
+
+            timer = setInterval(function(){
+                if( speed <= 0){
+                    clearInterval(timer);
+                }
+
+                speed = speed - 10 <= 0 ? 0 : speed - 10;
+                $('#box').scrollLeft(speed)
+
+            }, 1)
+        }
+
+    </script>
+
+
+
+
+</body>
+</html>

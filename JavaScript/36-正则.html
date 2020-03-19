@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>正则表达式</title>
+</head>
+<body>
+	<!--  
+		1. 格式
+			/正则表达式/修饰符 
+
+			注
+			 * 正则被 一对/ / 包住
+			 * 修饰符 不是必需品, 可以写可不写
+	-->
+	<script>
+		var str = /abc/;  // 匹配 连续的字母abc    (默认: 区分大小写)
+		var str = /abc/i;  // 匹配 连续的字母abc   (i: 不区分大小写)
+	</script>
+
+
+	<!--  
+		2. 正则匹配
+			对象.search()     搜索并返回索引,  搜索失败则返回: -1
+			对象.replace()    搜索并替换, 返回替换完的对象, 搜索失败则原样返回对象
+			对象.match()      搜索并返回被搜索到的结果. 搜索失败则返回: null
+	-->
+	<script>
+		// .search()
+		//         01234567890
+		var str = 'Hello worldoo';
+		console.log( str.search('o') );  // 普通的字符串搜索, 返回第一个被搜索到的索引
+		console.log( str.search(/O/) );  // 搜索不到, 则返回 -1
+											// 搜索到, 则返回 索引
+		console.log( str.search(/O/i) );
+
+
+		// .match() 
+		console.log( str.match(/o/)  );   // 匹配到第一个o
+		console.log( str.match(/o/g)  );  // 匹配到所有的o
+		console.log( str.match(/O/g)  );  // 匹配到所有的o, 匹配不到, 则返回 null
+		console.log( str.match(/O/gi)  ); // 匹配到所有的o 且 不区分大小写
+
+
+		// .replace()
+		console.log( str.replace(/o/, '-') ); // 将第一个o 替换成 -
+		console.log( str.replace(/o/g, '-') ); // 将所有的o 替换成 -
+		console.log( str.replace(/O/g, '-') ); // 匹配不到时, 则原样返回
+		console.log('------------- 分隔符 --------------');
+	</script>
+
+	<!--  
+		3. 原子
+			在正则中, 所有字符都认为是一个原子. 原子是正则中的最小单位
+			例如: 
+				abc  3个原子
+				156  3个原子, 不是整数156
+	-->
+
+	<!--  
+		 4. 中括号
+			[]      匹配[]之内的任意一个原子
+			[^]     匹配[]之外的任意一个原子
+
+			[0123456789]    匹配任意一个数字
+			[0-9]            匹配0-9 之间的任意一个数字
+			[0-38-9]         匹配0-3 和 8-9 之间的任意一个数字
+
+			[a-z]            匹配任意一个小写字母
+			[a-cm-nx-z]      匹配a-c 和 m-n 和 x-z 之间的任意一个字母
+
+			[A-Z]            匹配任意一个大写字母
+			[A-CX-Z]         匹配A-C 和 X-Z 之间的任意一个字母
+
+			/[A-Z]/i         匹配任意一个字母且不区分大小写
+			[a-zA-Z]         匹配任意一个字母且不区分大小写
+
+			[a-zA-Z0-9]      匹配任意一个数字or字母 且 不区分大小写
+
+			[\u4e00-\u9fa5]  汉字范围: \u4e00 ~ \u9fa5
+
+
+			注:
+			 * - 范围都是参考: ASCII码   
+
+	-->
+	<script>
+		var str = 'abc123xzy老母鸡';
+
+		console.log( str.match(/a2/) );   // 匹配连续的 a2
+		console.log( str.match(/[a2]/) ); // 要么匹配a  要么匹配2   a和2之间没有联系
+		console.log( str.match(/[^a2]/) ); // 除了a 和 2, 匹配其他的任意一个原子
+
+		console.log( str.match(/[0123456789]/)); // 匹配任意一个数字
+		console.log( str.match(/[0-9]/));  // 匹配 0-9 之间的任意一个数字
+		console.log( str.match(/[0-35-9]/)); // 0123 56789  不包含4
+		console.log( str.match(/[A-Z]/i));
+
+		console.log( str.match(/[-z]/) ); // 这里的 - 只是普通的-, 不代表范围
+
+		console.log( str.match(/[\u4e00-\u9fa5]/) );
+		console.log('------------- 分隔符 --------------');
+
+
+		var str = 'X[]\\asd567';
+		console.log( str.match(/[A-z]/g) );   // ASCII码中, 小写, 大写 数字之间并非连续的
+		console.log('------------- 分隔符 --------------');
+	</script>
+
+	<!--  
+		5. 竖线
+			正则1|正则2|正则3|...
+			
+			匹配的是竖线 侧边的一个整体
+	-->
+	<script>
+		var str = 'Duang'; // D
+		var str = 'duang'; // duang
+		console.log( str.match(/D|duang/)  );
+		console.log('------------- 分隔符 --------------');
+
+		var str = 'Duang'; // Duang
+		var str = 'duang'; // duang
+		console.log( str.match(/duang|Duang/)   );
+		console.log( str.match(/[dD]uang/)   );
+		console.log('------------- 分隔符 --------------');
+	</script>
+
+
+	<!--  
+		6. 集合
+			\d      匹配任意一个数字, 相当于[0-9]
+			\s      匹配任意一个不可见原子, 相当于[ \n\r\t]
+			\w      相当于 [0-9a-zA-Z_]
+
+            \D      全部与小写相反 [^0-9]
+            \S      全部与小写相反 [^ \n\t\r]  所有可见原子
+            \W      全部与小写相反 [^0-9a-zA-Z_]
+
+            .       小数点, 能匹配除 \n 以外的任意一个原子
+	-->
+	<script>
+		var str = 'abc987';
+		console.log( str.match(/[0-9]/) );
+		console.log( str.match(/\d/) );     // 匹配 0-9 之间的任意一个数字
+		console.log('------------- 分隔符 --------------');
+
+
+		var str = '123 456';
+		console.log( str.match(/\s/) );
+		var str = '123\n456';
+		var str = '123    456';
+		console.log( str.match(/\s/) );
+
+
+        var str = '123abcXYZ_!';
+        console.log( str.match(/\w/g));
+        console.log('------------- 分隔符 --------------');
+
+
+        var str = '123abc';
+        console.log( str.match(/\d/g));
+        console.log( str.match(/\D/g));
+        console.log('------------- 分隔符 --------------');
+
+        var str = '123\nx y\tz!@#$ERTYU';
+        console.log( str.match(/./g));
+        console.log('------------- 分隔符 --------------');
+	</script>
+
+
+    <!--  
+        7. 量词
+            a{n}    原子a 正好连续出现n次
+            a{n,}    原子a 正好连续至少n次
+            a{n,m}    原子a 正好连续至少n次, 至多m次 
+
+            a+      原子a 至少出现1次
+            a?      原子a 至少出现0次, 至多出现1次
+            a*      原子a 至少出现0次
+    -->
+    <script>
+        var str = '5+';
+        var str = '5+5';
+        var str = '55+5';
+        var str = '555+5';
+        var str = '5555+5';
+        var str = '55555+5';
+        var str = '555555+5';
+        console.log( str.match(/5{1}/)  );
+        console.log( str.match(/5{2}/)  );
+        console.log( str.match(/5{3}/)  );
+        console.log( str.match(/5{4}/)  );
+        console.log( str.match(/5{5}/)  );
+        console.log('------------- 分隔符 --------------');
+
+        console.log( str.match(/5{2,}/)  );
+        console.log( str.match(/5{2,4}/g)  );
+        console.log('------------- 分隔符 --------------');
+
+
+        var str = '5+';
+        var str = '55+';
+        var str = '555+';
+        var str = '555555555555555555555555+';
+        var str = '+';
+        console.log( str.match(/5+/) );
+        console.log('------------- 分隔符 --------------');
+
+
+        var str = '5o8';
+        var str = '5555o8';
+        var str = 'o8';
+        var str = '5o8';
+        var str = '555o8';
+        var str = '5555555555555555555o8';
+        console.log( str.match(/5o8/));
+        console.log( str.match(/5+o8/));
+        console.log( str.match(/5?o8/));
+        console.log( str.match(/5*o8/));
+        console.log('------------- 分隔符 --------------');
+    </script>
+
+
+    <!--  
+        8. 小括号
+            ( )     将结果存入结果集
+            (?: )   不会将结果存入结果集, 只是单纯当做一个整体
+
+            作用1: 将 () 内的原子当成一个整体, 可当做一个大原子
+            作用2: 捕获子模式
+            作用3: (?: ) 取消子模式
+
+            后向引用: 
+             后面引用前面的, 以保证两处的值一模一样的
+
+             格式: \索引
+
+            例如: 
+                \1 : \1 和 第一个() 匹配到的值是 一模一样
+                \2 : \2 和 第二个() 匹配到的值是 一模一样
+
+    -->
+    <script>
+        var str = '0505';
+        var str = '055';
+        console.log( str.match(/05{2}/) );
+        console.log( str.match(/(05){2}/) );
+        console.log('------------- 分隔符 --------------');
+
+        var str = '0505';
+        // var str = '055';
+        console.log( str.match(/(05){2}/));
+        console.log('------------- 分隔符 --------------');
+
+        var time = '2019-11-20';
+        console.log( time.match(/\d{4}-\d{2}-\d{2}/) );
+        console.log( time.match(/(\d{4})-(\d{2})-(\d{2})/) );
+        console.log('------------- 分隔符 --------------');
+
+        // 后向引用
+        var time = '2019/11-20';
+        var time = '2019-11-20';
+        var time = '2019/11/20';
+        var time = '2019/11-20';
+        console.log( time.match(/\d{4}[\.\-\/]\d{2}[\.\-\/]\d{2}/)  );
+        console.log( time.match(/\d{4}([\.\-\/])\d{2}\1\d{2}/)  );
+        console.log('------------- 分隔符 --------------');
+
+
+        var time = '2019-11-12';
+        var time = '2019-11-11';
+        // console.log( time.match(/\d{4}-\d{2}-\d{2}/) );
+        console.log( time.match(/\d{4}-(\d{2})-\1/) );
+        console.log('------------- 分隔符 --------------');
+
+        // AABB型
+        var str = '开开心心';
+        var str = '一心一意';
+        console.log( str.match(/([\u4e00-\u9fa5])\1([\u4e00-\u9fa5])\2/)  );
+        console.log( str.match(/([\u4e00-\u9fa5])[\u4e00-\u9fa5]\1[\u4e00-\u9fa5]/)  );
+        console.log('------------- 分隔符 --------------');
+
+        // (?: ) 取消子模式
+        var time = '2019-11-20';
+        console.log( time.match(/(?:\d{4})-(\d{2})-(\d{2})/) );
+        // 第一个() 由于添加 ?:, 没有存入结果集
+        // \1 指向的第二个() 匹配的值
+        // \2 指向的第三个() 匹配的值
+    </script>
+
+    <!--  
+        9. 预查模式
+            (?= ) 正向预查
+            (?! ) 反向预查 (不是从后往前, 而是 ?= 取反)
+    -->
+    <script>
+        var num = '1234567890123456789012345';
+
+        console.log( num.match(/\d{4}(?=\d)/g)  );
+        console.log( num.replace(/(\d{4})(?=\d)/g, '$1 ')  );
+        console.log( num.replace(/(\d{3})(?=\d)/g, '$1,')  );
+
+        var num = '1234a567890123456789012345';
+        console.log( num.replace(/(\d{4})(?!\d)/g, '$1 ')  );
+    </script>
+
+
+    <!--  
+        10. 边界
+            ^a   以原子a 开头
+            a$   以原子a 结尾
+    -->
+    <script>
+        var tel = '12345678901';
+        var tel = '22345678901';
+        var tel = '+2345678901';
+        var tel = '123456789012';
+        var tel = '19999999999';
+        console.log( tel.match(/^1\d{10}$/));
+
+
+    </script>
+
+
+
+
+
+
+</body>
+</html>

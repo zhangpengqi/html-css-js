@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>文本</title>
+    <style>
+        
+        a{
+            text-decoration: none;
+        }
+
+        a:hover{
+            text-decoration: underline;
+            text-decoration: overline;
+            text-decoration: line-through;
+            text-decoration: underline black;
+            text-decoration: underline red solid;
+        }
+
+        #box{
+            width: 200px;
+            height: 16px;
+            border: 5px solid red;
+
+
+            white-space: nowrap;  /*  强制转为一行 */
+            overflow: hidden;     /*  将超出的部分进行隐藏  */
+            text-overflow: ellipsis;   /* 将超出的部分用 ... 代替 */
+        }  
+
+        #box2{
+            width: 200px;
+            height: 16px;
+            border: 5px solid red;
+
+
+            white-space: nowrap;  /*  强制转为一行 */
+            overflow: hidden;     /*  将超出的部分进行隐藏  */
+            text-overflow: ellipsis;   /* 将超出的部分用 ... 代替 */
+        }  
+
+        p{
+            /* 
+                text-shadow:  水平位移   垂直位移   模糊度   阴影颜色;
+                注意:  
+                    模糊度不能为 负数
+             */
+            text-shadow: 10px 20px 30px red;
+        }
+
+        #box3{
+            width: 500px;
+            height: 300px;
+            border: 5px solid red;
+
+            text-align: center;
+            text-align: right;
+            text-align: left;
+
+            vertical-align: middle;
+            display: table-cell; /* 将当前元素转为 td单元格 */
+        }
+
+        textarea{
+            vertical-align: top;
+            vertical-align: middle;
+            vertical-align: bottom;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- 
+
+        text-indent: 首行缩进
+            -decoration: 文本划线   none  underline 
+            -overflow: 文本溢出     ellipsis
+            -shadow: 文字阴影       
+            -align: 文本水平对齐方式    left center right
+
+        vertical-align: 垂直对齐方式    top  middle  bottom
+
+
+        坑: 
+            vertical-align 默认对外对齐
+            如果需要对内对齐, 需要将当前元素转为 td单元格才行(display: table-cell;)
+
+     -->
+
+    <a href="">baidu</a>
+
+    <div id="box">某个48岁程序员退休了, 重金购买文房四宝, 准备开始练国学, 郑重写下: hello world</div>
+
+    <div id="box2">11111 1111112222222222222233333333333333444444444444</div>
+
+    <p>两个程序员在聊天: 我昨天碰到一个妹妹, 我把她带回去, 马上就开始如饥似渴的打开电脑, 看看哪里出毛病, CPU的型号是什么? 内存是什么? 反正就是看不到妹子的眼神是什么</p>
+
+    
+    <div id="box3">程序员不喜欢乾隆的第八个儿子, 因为八阿哥bug1111111111111111111</div>
+
+    评论: <textarea cols="30" rows="10"></textarea>
+
+
+</body>
+</html>

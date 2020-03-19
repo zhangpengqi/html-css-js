@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>元素转换</title>
+    <style>
+        .box, .in{
+            width: 300px;
+            height: 50px;
+        }
+
+        .box1{ background: orange; }
+        .in1{ background: skyblue; display: block; }
+
+
+        .box2{ background: orange; display: inline;}
+        .in2{ background: skyblue; }
+
+        .box3{ background: orange; display: inline-block; }
+        .in3{ background: skyblue; display: inline-block; }
+
+
+        
+        #box1{
+            width: 200px;
+            height: 50px;
+            background: lightgreen;
+            /* display: none; */
+            visibility: hidden;
+        }
+
+        #box2{
+            width: 200px;
+            height: 50px;
+            background: gray;
+        }
+
+
+        #box3{
+            width: 200px;
+            height: 50px;
+            background: orange;
+        }
+
+        #box4{
+            width: 500px; 
+            height: 200px;
+            background: pink;
+            display: none;
+        }
+    
+        #box3:hover  +  #box4{
+            display: block;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- 
+        display: none   隐藏 (不占位)
+                 block   块级元素
+                 inline  内联元素
+                 inline-block  内联-块元素
+
+                 table-cell    转成td单元格
+                 table         转成块级表格
+
+
+        visibility: hidden  隐藏(占位)
+
+    -->
+
+    
+    <div class="box box1">决定一个程序员跳槽与否的关键因素是他前同事的现工资</div>
+    <span class="in in1">程序员最讨厌的四件事: 写注释, 写文档, 别人不写注释, 别人不写文档</span>
+    666
+
+    <hr>
+
+
+    <div class="box box2">决定一个程序员跳槽与否的关键因素是他前同事的现工资</div>
+    <span class="in in2">程序员最讨厌的四件事: 写注释, 写文档, 别人不写注释, 别人不写文档</span>
+    666
+
+    <hr>
+
+
+    <div class="box box3">决定一个程序员跳槽与否的关键因素是他前同事的现工资</div>
+    <span class="in in3">程序员最讨厌的四件事: 写注释, 写文档, 别人不写注释, 别人不写文档</span>666
+
+    <hr>
+
+
+    <div id="box1"></div>
+    <div id="box2"></div>
+    <hr>
+
+    <div id="box3"></div>
+    <div id="box4"></div>
+
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+</body>
+</html>

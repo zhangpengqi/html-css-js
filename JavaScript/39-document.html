@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .xxx{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <!--  
+        1. DOM
+            文档对象模型: Document Object Model
+            将HTML中的每一个元素都当做一个节点
+
+            * 文档节点: document
+            * 元素节点(标签): element
+            * 属性节点: attribute
+            * 文本节点: text
+        
+        2. Document
+            document对象属性
+                document.all
+                document.body
+                document.title
+
+            document对象方法
+                document.createElement()       创建元素(标签)
+                document.createAttribute()     创建属性
+                document.createTextNode()      创建文本
+
+
+
+                        window
+                           |
+    navigator  location  document history screen 
+                            |
+                          html
+                            |
+                    head            body
+                      |               |
+                  meta  link    a    div   p   h1 ...
+
+
+
+    -->
+
+    <button onclick="demo()">创建一个p标签</button>
+    <script>
+        
+        console.log( document.all );
+
+        document.title = '666';
+
+
+        function demo(){
+            // 创建节点
+            var a = document.createElement('p');
+            var b = document.createTextNode("CLICK ME");
+            var c = document.createAttribute('class');
+            // c.value = "xxx";
+
+            // 设置相关的值
+            a.setAttributeNode(c);
+            a.appendChild(b)
+
+            // 显示到 body里面
+            document.body.appendChild(a);
+
+            console.log( document.doctype );
+        }
+
+
+        document.write('111'); 
+
+    </script>
+
+    
+
+    
+
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>基础选择器</title>
+    <style>
+        p{
+            color: red;
+        }
+
+        a{
+            color: black;
+            text-decoration: none;
+        }
+
+        .pg{
+            color: blue;
+        }
+
+        .bao{
+            font-size: 20px;
+        }
+
+        #bg{
+            color: green;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- 
+        4个通用属性: class id title style
+            class: 给标签取个绰号(多个, 重复)
+            id: 给标签取个身份证号
+
+
+        基础选择器:
+            标签选择器:
+                标签名{ ... }
+                特性: 匹配的范围非常广, 适合用于做 css初始化
+
+
+            class选择器:
+                .class名{ ... }
+
+                特性: 
+                    一个标签可以赋予多个class
+                    多个标签可以使用相同class
+
+            id选择器:
+                #id名{ ... }
+                特性:
+                    一个标签只能有一个id
+                    多个标签在css中, 可以拥有相同的id, 但是, 在js中, 如果多个标签出现相同的id, 则会报错
+
+            class选择器名 和 id选择器名 区分大小写
+
+     -->
+
+    <p class="pg bao">蓉易出轨, 宝受委屈</p>
+    <p class="pg" id="bg">璐出马脚, 贾装没事</p>
+    <p id="bg">百年好合, 风雨同舟</p>
+    <hr>
+
+    <a href="http://www.baidu.com">百度</a>
+    <a href="">淘宝</a>
+    <a href="xxxxxxxxxxxx">腾讯</a>
+
+</body>
+</html>

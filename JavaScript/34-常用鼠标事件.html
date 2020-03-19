@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>鼠标事件</title>
+    <style>
+        #box{
+            width: 500px;
+            height: 500px;
+            /* border: 5px solid yellow; */
+            background: pink;
+            margin: 0 auto;
+            cursor: default;
+
+            /* position: absolute;
+            left: 0;
+            top: 0; */
+        }
+    </style>
+</head>
+<body>
+    <!--  
+        鼠标事件
+            onclick         单击
+            ondblclick      双击
+            oncontextmenu   右击
+            onmouseover     划入
+            onmouseout      划出
+            onmousedown     按下
+            onmouseup       松开
+            onmousemove     移动
+    -->
+    <button onclick="alert('迪丽热巴')">单击</button>
+    <button ondblclick="alert('古力娜扎')">双击</button>
+    <button oncontextmenu="alert('马尔扎哈')">右击</button>
+
+
+    <div id="box"></div>
+    <script>
+        var box = document.getElementById('box');
+
+        box.onmouseover = function(){
+            box.innerHTML = '划入';
+        }
+
+        box.onmouseout = function(){
+            box.innerHTML = '划出';
+        }
+
+        box.onmousedown = function(){
+            box.innerHTML = '按下';
+        }
+
+        box.onmouseup = function(){
+            box.innerHTML = '<h1>松开</h1>';
+        }
+
+
+        // 显示鼠标在 盒子中的坐标
+        // event对象: 包含鼠标, 键盘的操作
+        //  
+        //     event对象.offsetX  鼠标相对于当前元素的横坐标
+        //     event对象.offsetY  鼠标相对于当前元素的纵坐标
+        // 
+
+        box.onmousemove = function(en){
+            // 兼容event对象
+            var en = en || window.event;
+
+            // box.innerHTML = 'x:  '+en.offsetX+'   y:   '+en.offsetY;
+            box.innerHTML = 'x:  '+en.x+'   y:   '+en.y;
+            // box.innerHTML = 'x:  '+en.clientX+'   y:   '+en.clientY;
+            // box.innerHTML = 'x:  '+en.screenX+'   y:   '+en.screenY;
+        }   
+
+
+
+    </script>
+
+
+
+</body>
+</html>

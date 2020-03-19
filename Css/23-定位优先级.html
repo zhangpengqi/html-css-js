@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>定位优先级</title>
+    <style>
+        .box{
+            width: 100px;
+            height: 100px;
+        }
+
+        .box1{ 
+            background: orange;
+            position: absolute;
+            z-index: 2;
+        }
+
+        .box2{ 
+            background: skyblue;
+            position: absolute;
+            z-index: 1;
+        }
+
+        .box3{ 
+            background: lightgreen;
+            position: absolute;
+            z-index: 99999999;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        定位优先级: 
+            z-index: num数字
+            数字越大, 优先级越高
+
+            强调: z-index 只能用于定位元素
+
+     -->
+    <div class="box box1"></div>
+    <div class="box box2"></div>
+    <div class="box box3"></div>
+
+
+</body>
+</html>

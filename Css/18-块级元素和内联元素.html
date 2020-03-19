@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>块级/内联元素</title>
+    <style>
+        #box{
+            width: 500px;
+            height: 50px;
+            background: orange;
+            /* line-height: 50px; */
+            /* margin-top: 100px; */
+            /* margin-left: 100px; */
+            /* overflow: hidden; */
+            
+        }
+
+        span,b,i,a{
+            background: orange;
+            width: 5px;
+            margin-top: 100px;
+            margin-left: 50px;
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- 
+        块级元素: div, h1, h2, h3, h4, h5, h6, p, li ...
+        * 独占一行
+        * 宽度随着浏览器的变化而变化
+        * 高度随着内容的增加而增加
+        * 宽度, 高度, 行高, 内外边距都是可以手动设置的
+        * 容纳性: 所有元素
+
+        
+        内联元素: span, b, i, del, a, ...
+        * 同在一行
+        * 宽度随着内容的增加而增加
+        * 高度随着内容的增加而增加
+        * 宽度, 高度, 上下内外边距无法控制的
+        * 行高, 左右内外边距是可以手动设置的
+        * 容纳性: 内联元素
+        
+        注意: 不推荐a链接嵌套a链接
+
+     -->
+
+    <div id="box">
+        <img src="./img/1.jpg" alt="">
+    </div>
+    <p>222</p>
+    333
+    <span>333</span>
+    <b>444<br>4444</b>
+    <i>555</i>
+    <a href="">666</a>
+
+
+    <!-- 奇葩的 内联嵌套 (不推荐) -->
+    <a href="http://www.baidu.com">
+        <a href="http://www.taobao.com">链接</a>
+    </a>
+
+
+</body>
+</html>

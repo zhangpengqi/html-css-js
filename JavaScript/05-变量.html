@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>变量</title>
+</head>
+<body>
+    <!-- 
+        1. 变量
+            存储数据的容器, 类似于数学中的未知数
+
+        2. 定义变量
+            var 变量名;
+            var 变量名 = 值;
+            var 变量名 = 值, 变量名 = 值, 变量名 = 值, ....
+    -->
+    <script>
+        var x;
+        console.log(x);
+
+        var x = 50;
+        console.log(x);
+        console.log(x+5); // 50 + 5 = 55
+
+        var a = 10, b = 20, c = 9999;
+        console.log(a,b,c);
+
+
+        // 将 内容 输出到浏览器中
+        // * 控制台输出:  console.log( 内容 )
+        // * 页面输出:  document.write( 内容 )
+        document.write( a );
+    </script>
+
+
+    <!-- 
+        3. 标识符, 标记
+            每一个变量都有一个标记, 就是变量名
+    
+            标识符命名规范
+            * 可包含数字, 字母, 下划线 和 $美元符号
+            * 不能以数字开头
+            * 不能使用关键字, 保留字
+            * 区分大小写
+            * 取名要有意义, 以提高代码的可读性 
+    -->
+
+    <script>
+        var a2_$ = 100;
+        var 美女 = '热巴'; // 少用中文
+        console.log( a2_$ );
+        console.log( 美女 );
+
+        // var 2b = '狗子';
+        // var var = 10;
+
+        var a = '娜扎';
+        console.log(a);
+        // console.log(A);
+        
+        var a = 18;
+        var age = 18; // 正常程序员一看变量名, 就知道什么意思
+    </script>
+
+    <!-- 
+        4. 未定义变量
+        没有定义过的变量, 则被称之为"未定义变量"
+        未定义变量 是不能直接使用的, 一旦使用, 则会报错
+        解决方案: 先定义变量, 再使用
+    -->
+    <script>
+        // var abc;
+        // console.log(abc);
+    </script>
+
+
+    <!-- 
+        扩展知识:
+        5. 常用命名规则
+
+        6. 变量提升 Hoisting
+
+        7. 关键字: let 和 const
+            ES6 新增的两个知识
+    -->
+
+
+
+
+</body>
+</html>

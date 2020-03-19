@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>window</title>
+    <style>
+        
+        body{margin: 0; padding: 0; overflow-x: hidden;}
+
+        #menu{
+            width: 80px;
+            height: 150px;
+            background: #ccc;
+            position: fixed;
+            right: -80px;
+            top: 50%;
+            transform: translateY(-50%);  /* 基于自身向上位移 50% */
+            transition: all .3s;
+        }
+    </style>
+</head>
+<body>
+    <!--  
+        1. BOM
+            浏览器对象模型 ( Brower Object Model )
+            能直接与 浏览器进行交互
+
+        2. window
+            几乎所有浏览器都支持window
+            window 代表: 浏览器窗口, 所以全局可用的变量, 函数等都属于window对象
+    -->
+    <script>
+        var x = 10;
+        console.log(x, window.x);
+
+        // alert('1');
+        // window.alert('2');
+    </script>
+
+
+    <!--  
+        3. 浏览器尺寸
+            标准写法
+            window.innerWidth   浏览器当前可视窗口的宽度(包含滚动条, 不包含任务栏,控制台,标签页)
+            window.innerHeight  浏览器当前可视窗口的高度(包含滚动条, 不包含任务栏,控制台,标签页)
+
+            IE写法
+            document.documentElement.clientWidth    同上
+            document.documentElement.clientHeight   同上
+
+            注: 
+             * 以上写法只能获取第一页的宽高
+        
+            兼容获取
+            document.body.clientWidth
+            document.body.clientHeight
+            
+
+            通用写法
+            var width = window.innerWidth ||  document.documentElement.clientWidth || document.body.clientWidth
+
+    -->
+    <script>
+        console.log( window.innerWidth, window.innerHeight );
+
+        console.log( document.documentElement.clientWidth, document.documentElement.clientHeight);  
+
+        console.log( document.body.clientWidth, document.body.clientHeight);
+
+    </script>
+
+    <!--  
+        4. 窗口操作
+            window.open()
+            window.close()
+    -->
+    <button onclick="window.open()">打开一个空白窗口</button>
+    <button onclick="window.open('http://www.baidu.com')">在新标签页打开百度</button>
+    <button onclick="window.open('http://www.baidu.com', '')">在新标签页打开百度</button>
+    <button onclick="window.open('http://www.baidu.com', '_blank')">在新标签页打开百度</button>
+    <button onclick="window.open('http://www.baidu.com', '_self')">在当前页面打开百度</button>
+    <button onclick="window.open('http://www.baidu.com', 'xxx')">在iframe打开百度</button>
+    <button onclick="window.open('http://www.baidu.com', '', 'width=500, height=500')">指定窗口大小打开百度</button>
+    <button onclick="window.close()">关闭当前窗口</button>
+    <hr>
+
+    <iframe  frameborder="1" width="100%" height="500" name="xxx"></iframe>
+    <hr>
+
+    
+    <!--  
+        5. 弹窗
+            window.alert()      提示框, 返回值: undefined
+            window.prompt()     输入框, 返回值: 输入的数据
+            window.confirm()    确认框, 返回值: boolean值
+    -->
+    <script>
+        // console.log( alert('老母鸡') );    
+        // console.log( prompt('请输入你有几个女朋友') );
+        // console.log( confirm('李子健长得帅吗') );
+    </script>
+
+
+    <!--  
+        6. 滚动条
+            获取当前滚动条距离顶部的距离
+            通用写法: document.documentElement.scrollTop
+            其他写法: document.body.scrollTop
+
+        
+            window.scrollBy()   相对于当前位置进行滚动
+            window.scrollTo()   滚动到指定位置(不需要考虑当前位置)
+    -->
+    <button onclick=" window.scrollBy(0, 100)"> 向下滚100px </button>
+    <button onclick=" window.scrollTo(0, 100)"> 固定滚到(0,100) </button>
+    <div id="box" style="height:5000px">
+    </div>
+    
+
+    <div id="menu"></div>
+
+
+    <button onclick="goTop()">返回顶部</button>
+    <script>
+        // console.log( document.documentElement.scrollTop );
+
+
+
+       
+
+        function goTop(){
+            var top = window.document.documentElement.scrollTop || document.body.scrollTop;
+            window.scrollBy(0,-50);
+
+            if(top <= 0){
+                clearTimeout(timer);
+                return;
+            }
+
+            timer = setTimeout(goTop, 1);
+        }
+
+
+        var menu = document.getElementById('menu');
+        document.onscroll = function(){
+            var x = window.scrollY;
+            console.log(x);
+
+
+            if(x >= 1200){
+                menu.style.right = '0px';
+            }else{
+                menu.style.right = '-80px';
+            }
+        }
+
+
+
+
+
+
+
+    </script>
+
+
+
+
+
+
+</body>
+</html>
